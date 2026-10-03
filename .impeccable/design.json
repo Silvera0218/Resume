@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T15:25:32.8153199Z",
+  "title": "Design System: 游戏策划 · 作品档案",
+  "extensions": {
+    "colorMeta": {
+      "mint-9": {
+        "role": "primary",
+        "displayName": "操作薄荷"
+      },
+      "jade-3": {
+        "role": "secondary",
+        "displayName": "庭院深绿"
+      },
+      "sage-1": {
+        "role": "neutral",
+        "displayName": "夜色底面"
+      },
+      "sage-2": {
+        "role": "neutral",
+        "displayName": "档案底面"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "中文像素标题",
+        "purpose": "首页主标题。"
+      },
+      "body": {
+        "displayName": "中文正文",
+        "purpose": "描述、资料与文档内容。"
+      },
+      "pixel-label": {
+        "displayName": "英文像素标签",
+        "purpose": "短控制提示、计数与游戏标签。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "garden",
+        "value": "0 20px 50px #0004",
+        "purpose": "首页庭院外框。"
+      },
+      {
+        "name": "card-hover",
+        "value": "0 10px 28px #0003",
+        "purpose": "卡片悬停与焦点进入。"
+      },
+      {
+        "name": "dialog",
+        "value": "0 24px 80px #0008",
+        "purpose": "详情弹窗。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "页面进入和局部位移。"
+      },
+      {
+        "name": "state",
+        "value": "150ms",
+        "purpose": "按钮状态。"
+      },
+      {
+        "name": "card-state",
+        "value": "180ms",
+        "purpose": "卡片边框、底面与阴影。"
+      },
+      {
+        "name": "view-enter",
+        "value": "350ms",
+        "purpose": "页面进入的 6px 位移。"
+      },
+      {
+        "name": "cover-sweep",
+        "value": "650ms",
+        "purpose": "文档封面扫光。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1380px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "single-column",
+        "value": "800px"
+      },
+      {
+        "name": "small-phone",
+        "value": "420px"
+      }
+    ],
+    "focus": {
+      "value": "2px solid var(--focus)",
+      "offset": "5px",
+      "purpose": "全局键盘焦点；ENTER 聚焦取消裁切。"
+    },
+    "sources": [
+      "dist/style.css",
+      "dist/pixel-shader.js",
+      "dist/motion.js",
+      "dist/assets/palettes/"
+    ]
+  },
+  "components": [
+    {
+      "name": "主按钮",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "下载、联系等主操作。",
+      "html": "<button class=\"ds-button\">打开档案</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 17px;background:var(--accent);color:var(--ink);border:1px solid var(--accent);border-radius:0;font:13px/1.7 'Microsoft YaHei','PingFang SC',sans-serif;cursor:pointer;transition:background .15s,transform .15s}.ds-button:hover{background:var(--accent-hover)}.ds-button:focus-visible{outline:2px solid var(--focus);outline-offset:5px}.ds-button:active{transform:translateY(2px)}.ds-button:disabled{background:var(--raised);color:var(--muted);border-color:var(--line);cursor:default}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "安静的像素档案",
+    "overview": "深色底面留出阅读空间，像素字体和档案选择菜单提供游戏感。月夜庭院收在首页局部插画中，背景保持简约。低对比粒子、右侧抖动轨道和卡片反馈提供可关闭的动态氛围。",
+    "keyCharacteristics": [
+      "Sage 底面、Jade 选中区域、Mint 操作提示。",
+      "中文像素标题搭配清晰正文。",
+      "直角卡片、细边框与局部阶梯切角。",
+      "局部庭院和全局 FX 开关。"
+    ],
+    "rules": [
+      {
+        "name": "颜色来源",
+        "body": "使用现有语义变量；P3 条件覆盖由 palette CSS 提供。",
+        "section": "colors"
+      },
+      {
+        "name": "动态偏好",
+        "body": "FX 关闭背景与指定装饰动画；系统 reduced-motion 关闭动画与过渡，后台暂停绘制。",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do 沿用现有语义变量、字体与方形容器。",
+      "Do 保持背景低对比和清楚的键盘焦点。",
+      "Do 保留五个路由、内容配置、弹窗与打印。"
+    ],
+    "donts": [
+      "Don't 将庭院铺成全屏背景。",
+      "Don't 用像素字体排长段正文。",
+      "Don't 添加虚构资料或成果。"
+    ]
+  }
+}
