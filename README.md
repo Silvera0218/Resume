@@ -16,7 +16,7 @@
 
 ## 自动发布
 
-推送到 `main` 分支后，GitHub Actions 会把 `dist/` 发布到 GitHub Pages。首次使用时，在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
+仓库已配置为由 GitHub Actions 发布。推送到 `main` 分支后，工作流会把 `dist/` 发布到 GitHub Pages。
 
 ## 字体与视觉来源
 
