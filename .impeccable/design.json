@@ -1,154 +1,720 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-03T15:25:32.8153199Z",
-  "title": "Design System: 游戏策划 · 作品档案",
+  "generatedAt": "2026-10-03T16:21:15.481Z",
+  "title": "Design System: 游戏策划 · 作品手账",
   "extensions": {
     "colorMeta": {
-      "mint-9": {
+      "primary": {
         "role": "primary",
-        "displayName": "操作薄荷"
+        "displayName": "清透天空蓝",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
       },
-      "jade-3": {
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "悬停天空蓝",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "primary-foreground": {
+        "role": "primary",
+        "displayName": "深蓝按钮文字",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "墨蓝操作文字",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-surface": {
+        "role": "primary",
+        "displayName": "薄蓝表面",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-hover": {
+        "role": "primary",
+        "displayName": "薄蓝悬停面",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-pressed": {
+        "role": "primary",
+        "displayName": "薄蓝按下面",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-soft": {
+        "role": "primary",
+        "displayName": "淡蓝占位面",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "border": {
+        "role": "primary",
+        "displayName": "水蓝边框",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-rule": {
+        "role": "primary",
+        "displayName": "水蓝纸边",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "sky-mark": {
+        "role": "primary",
+        "displayName": "水蓝像素标记",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "glass-title": {
+        "role": "primary",
+        "displayName": "透明天空标题栏",
+        "tonalRamp": [
+          "#1d3e56",
+          "#00749e",
+          "#60b3d7",
+          "#8dcae3",
+          "#a9daed",
+          "#bee7f5",
+          "#e1f6fd",
+          "#f9feff"
+        ]
+      },
+      "memo": {
         "role": "secondary",
-        "displayName": "庭院深绿"
+        "displayName": "浅粉便签",
+        "tonalRamp": [
+          "#651249",
+          "#c2298a",
+          "#dd93c2",
+          "#e7acd0",
+          "#efbfdd",
+          "#f6cee7",
+          "#fee9f5",
+          "#fffcfe"
+        ]
       },
-      "sage-1": {
-        "role": "neutral",
-        "displayName": "夜色底面"
+      "memo-border": {
+        "role": "secondary",
+        "displayName": "粉色纸边",
+        "tonalRamp": [
+          "#651249",
+          "#c2298a",
+          "#dd93c2",
+          "#e7acd0",
+          "#efbfdd",
+          "#f6cee7",
+          "#fee9f5",
+          "#fffcfe"
+        ]
       },
-      "sage-2": {
+      "memo-foreground": {
+        "role": "secondary",
+        "displayName": "莓灰文字",
+        "tonalRamp": [
+          "#651249",
+          "#c2298a",
+          "#dd93c2",
+          "#e7acd0",
+          "#efbfdd",
+          "#f6cee7",
+          "#fee9f5",
+          "#fffcfe"
+        ]
+      },
+      "pink-tab": {
+        "role": "secondary",
+        "displayName": "粉色纸签",
+        "tonalRamp": [
+          "#651249",
+          "#c2298a",
+          "#dd93c2",
+          "#e7acd0",
+          "#efbfdd",
+          "#f6cee7",
+          "#fee9f5",
+          "#fffcfe"
+        ]
+      },
+      "foreground": {
         "role": "neutral",
-        "displayName": "档案底面"
+        "displayName": "蓝灰墨色",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "次要蓝灰",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "奶油白纸",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Mauve 中性面",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "divider": {
+        "role": "neutral",
+        "displayName": "Mauve 分隔线",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "disabled": {
+        "role": "neutral",
+        "displayName": "待添加面",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "disabled-foreground": {
+        "role": "neutral",
+        "displayName": "待添加文字",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "雾白玻璃",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "glass-edge": {
+        "role": "neutral",
+        "displayName": "玻璃高亮边",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "secondary-button": {
+        "role": "neutral",
+        "displayName": "透白次按钮",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "lavender-tab": {
+        "role": "neutral",
+        "displayName": "淡紫纸签",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "note-paper": {
+        "role": "neutral",
+        "displayName": "黄油色便笺",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
+      },
+      "note-foreground": {
+        "role": "neutral",
+        "displayName": "便笺褐色文字",
+        "tonalRamp": [
+          "#211f26",
+          "#65636d",
+          "#8e8c99",
+          "#bcbac7",
+          "#d0cdd7",
+          "#e3dfe6",
+          "#f2eff3",
+          "#fdfcfd"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "中文像素标题",
-        "purpose": "首页主标题。"
+        "displayName": "中文像素主标题",
+        "purpose": "首页 42px，手机 32px。"
+      },
+      "headline": {
+        "displayName": "中文像素分区标题",
+        "purpose": "分区 30px，手机 25px。"
+      },
+      "title": {
+        "displayName": "内容标题",
+        "purpose": "基础 h3 19px，具体条目使用已记录的紧凑尺寸。"
       },
       "body": {
-        "displayName": "中文正文",
-        "purpose": "描述、资料与文档内容。"
+        "displayName": "清晰正文",
+        "purpose": "Segoe UI / Microsoft YaHei 无衬线正文。"
       },
       "pixel-label": {
-        "displayName": "英文像素标签",
-        "purpose": "短控制提示、计数与游戏标签。"
+        "displayName": "短英文像素标签",
+        "purpose": "VT323 / Fusion，用于文件名、装饰文案与短操作提示。"
       }
     },
     "shadows": [
       {
-        "name": "garden",
-        "value": "0 20px 50px #0004",
-        "purpose": "首页庭院外框。"
+        "name": "glass-shadow",
+        "value": "0 18px 48px rgba(55,91,120,.15),0 3px 9px rgba(55,91,120,.09)",
+        "purpose": "玻璃窗口与 dialog。"
       },
       {
-        "name": "card-hover",
-        "value": "0 10px 28px #0003",
-        "purpose": "卡片悬停与焦点进入。"
+        "name": "paper-shadow",
+        "value": "0 7px 20px rgba(64,85,111,.08)",
+        "purpose": "阅读纸页与 Toast。"
       },
       {
-        "name": "dialog",
-        "value": "0 24px 80px #0008",
-        "purpose": "详情弹窗。"
+        "name": "memo-shadow",
+        "value": "0 5px 12px rgba(127,87,111,.09)",
+        "purpose": "粉色身份便签。"
+      },
+      {
+        "name": "note-shadow",
+        "value": "0 8px 22px rgba(98,102,97,.09)",
+        "purpose": "黄色提醒纸。"
+      },
+      {
+        "name": "document-hover",
+        "value": "0 6px 12px rgba(71,99,125,.12)",
+        "purpose": "封面转正时的纸影。"
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "页面进入和局部位移。"
+        "purpose": "控件和页面进入缓动。"
       },
       {
-        "name": "state",
-        "value": "150ms",
-        "purpose": "按钮状态。"
+        "name": "control",
+        "value": "200ms",
+        "purpose": "按钮背景与位移。"
       },
       {
-        "name": "card-state",
-        "value": "180ms",
-        "purpose": "卡片边框、底面与阴影。"
+        "name": "paper-tab",
+        "value": "250ms",
+        "purpose": "纸签上移 5px。"
       },
       {
-        "name": "view-enter",
-        "value": "350ms",
-        "purpose": "页面进入的 6px 位移。"
+        "name": "document",
+        "value": "300ms",
+        "purpose": "文档封面转正与纸影。"
       },
       {
-        "name": "cover-sweep",
-        "value": "650ms",
-        "purpose": "文档封面扫光。"
+        "name": "page-turn",
+        "value": "550ms",
+        "purpose": "页面裁切、模糊和 6px 位移；FX-off 取消。"
+      },
+      {
+        "name": "sky-frame-gate",
+        "value": "32ms",
+        "purpose": "目标约 30fps，后台、FX-off 和系统 reduced-motion 停止循环。"
+      },
+      {
+        "name": "click-feedback",
+        "value": "550ms",
+        "purpose": "12 个点击像素粒子的生命周期。"
+      },
+      {
+        "name": "toast-visible",
+        "value": "1800ms",
+        "purpose": "FX 状态提示显示时长。"
       }
     ],
     "breakpoints": [
       {
-        "name": "wide",
-        "value": "1380px"
+        "name": "mobile-stack",
+        "value": "700px"
+      },
+      {
+        "name": "hide-desktop-extras",
+        "value": "960px"
       },
       {
         "name": "compact-desktop",
         "value": "1100px"
       },
       {
-        "name": "single-column",
-        "value": "800px"
-      },
-      {
-        "name": "small-phone",
-        "value": "420px"
+        "name": "wide-desktop-offset",
+        "value": "1500px"
       }
     ],
-    "focus": {
-      "value": "2px solid var(--focus)",
-      "offset": "5px",
-      "purpose": "全局键盘焦点；ENTER 聚焦取消裁切。"
+    "paletteSource": {
+      "version": "Radix Colors 3.0.0",
+      "path": "dist/assets/palettes/",
+      "families": [
+        "mauve",
+        "sky",
+        "pink"
+      ],
+      "variants": [
+        "light",
+        "dark",
+        "light-alpha",
+        "dark-alpha"
+      ],
+      "activeMode": "light",
+      "license": "dist/assets/palettes/LICENSE",
+      "rampNote": "Tonal strips sample eight existing sRGB Radix family steps from dark to light. Authored ink, paper, lavender and yellow material tokens keep their literal frontmatter values; their neutral-family strip is contextual, not a generated implementation ramp.",
+      "wideGamut": "The bundled palette CSS owns conditional display-p3 overrides."
     },
-    "sources": [
-      "dist/style.css",
-      "dist/pixel-shader.js",
-      "dist/motion.js",
-      "dist/assets/palettes/"
-    ]
+    "layers": {
+      "root": "Fixed #acd9f4 to #e6f3fa gradient; print white.",
+      "body": "Transparent, isolation:isolate.",
+      "cssSky": 0,
+      "webglSky": 1,
+      "pageChrome": 2,
+      "particles": 8,
+      "toast": 30,
+      "dialog": "Native browser top layer"
+    },
+    "assetSources": [
+      {
+        "path": "dist/assets/journal-stickers.webp",
+        "type": "original generated raster",
+        "tool": "image_gen (built-in)",
+        "promptSidecar": "dist/assets/journal-stickers.webp.json",
+        "use": "Transparent 2×2 CSS sprite sheet; pixelated rendering.",
+        "license": "Prompt sidecar records generation provenance; no separate license field."
+      },
+      {
+        "path": "dist/assets/VT323-Regular.ttf",
+        "license": "SIL OFL 1.1",
+        "licenseFile": "dist/assets/FONT-LICENSE.txt"
+      },
+      {
+        "path": "dist/assets/fusion-pixel-zh.woff2",
+        "license": "SIL OFL 1.1",
+        "licenseFile": "dist/assets/fusion-pixel-OFL.txt",
+        "bundledNotices": "dist/assets/fusion-pixel-licenses/"
+      }
+    ],
+    "implementation": {
+      "entry": "dist/index.html",
+      "stylesheet": "dist/style.css",
+      "routes": [
+        "home",
+        "plans",
+        "demos",
+        "resume",
+        "contact"
+      ],
+      "content": "dist/content.js",
+      "status": "Identity, achievements, projects, email and file links are pending placeholders.",
+      "renderer": "Original native WebGL cloud projection, plus native Canvas particles; no runtime dependency.",
+      "evidence": ".impeccable/review/bottom-fixed.jpg"
+    },
+    "accessibility": {
+      "focus": "2px Sky 11 outline with 4px offset.",
+      "minimumControlHeight": "44px",
+      "navigation": "Arrow keys cycle shelf focus; hash changes focus page heading and update aria-current.",
+      "dialog": "Native showModal, initial close-button focus, Escape and outside close, background scroll lock, trigger focus restoration.",
+      "motion": "prefers-reduced-motion overrides user FX preference; background visibility pauses rendering.",
+      "status": "Toast role=status, aria-live=polite; unavailable links use aria-disabled and tabIndex -1.",
+      "print": "Only white-background resume content prints."
+    }
   },
   "components": [
     {
-      "name": "主按钮",
+      "name": "主操作按钮",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "下载、联系等主操作。",
-      "html": "<button class=\"ds-button\">打开档案</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 17px;background:var(--accent);color:var(--ink);border:1px solid var(--accent);border-radius:0;font:13px/1.7 'Microsoft YaHei','PingFang SC',sans-serif;cursor:pointer;transition:background .15s,transform .15s}.ds-button:hover{background:var(--accent-hover)}.ds-button:focus-visible{outline:2px solid var(--focus);outline-offset:5px}.ds-button:active{transform:translateY(2px)}.ds-button:disabled{background:var(--raised);color:var(--muted);border-color:var(--line);cursor:default}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+      "description": "用于已有试玩、附件和联系操作；空链接使用明确待添加状态。",
+      "html": "<button class=\"ds-btn ds-primary\">在线试玩</button>",
+      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-primary{background:var(--primary,#7ce2fe);color:var(--primary-foreground,#1d3e56);border-color:var(--sky-8,#60b3d7)}.ds-primary:hover{background:var(--sky-10,#74daf8)}"
+    },
+    {
+      "name": "普通按钮",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "浅蓝操作面，最小高度 44px。",
+      "html": "<button class=\"ds-btn ds-default\">关闭详情</button>",
+      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-default{background:var(--sky-3,#e1f6fd);color:var(--foreground,#334657)}"
+    },
+    {
+      "name": "次级按钮",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "透白按钮用于打印简历和桌面试玩室入口。",
+      "html": "<button class=\"ds-btn ds-secondary\">打印简历</button>",
+      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-secondary{background:rgba(255,255,255,.6);color:var(--foreground,#334657)}"
+    },
+    {
+      "name": "文字操作",
+      "kind": "button",
+      "description": "纸页内的项目结构预览操作。",
+      "html": "<button class=\"ds-text\">预览展示结构<svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 13 13 3M3 3h10v10\"/></svg></button>",
+      "css": ".ds-text{min-height:44px;display:inline-flex;align-items:center;gap:10px;border:0;background:none;padding:7px 0;font:12px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--accent-text,#00749e);cursor:pointer}.ds-text svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-text:hover{text-decoration:underline}.ds-text:hover svg{transform:translate(2px,-2px)}.ds-text:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px;border-radius:3px}.ds-text:active{color:var(--sky-12,#1d3e56)}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none}}"
+    },
+    {
+      "name": "文件架入口",
+      "kind": "nav",
+      "refersTo": "desktop-file",
+      "description": "中文名称与 Pixel 短标签共同标明档案；当前页使用透白内边框。",
+      "html": "<nav class=\"ds-shelf\" aria-label=\"主导航\"><a class=\"ds-file\" href=\"#plans\" aria-current=\"page\"><svg width=\"30\" height=\"26\" viewBox=\"0 0 30 26\" aria-hidden=\"true\"><path d=\"M2 7V2h12v5h14v17H2z\" fill=\"#f3d8e6\" stroke=\"#b18ba5\" stroke-width=\"2\"/></svg><span>策划案作品集<small>DESIGN DOCS</small></span></a></nav>",
+      "css": ".ds-shelf{padding:9px;background:var(--glass,rgba(245,251,255,.46));border:1px solid var(--glass-edge,rgba(255,255,255,.86));border-radius:12px;backdrop-filter:blur(18px) saturate(1.12)}.ds-file{display:grid;grid-template-columns:35px 1fr;align-items:center;gap:8px;min-height:74px;padding:10px 6px;border-radius:7px;color:var(--foreground,#334657);text-decoration:none;font:12px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-file small{display:block;margin-top:4px;font:11px/1.3 Pixel,Fusion,monospace;letter-spacing:.04em;color:var(--muted-foreground,#596774)}.ds-file:hover{background:rgba(255,255,255,.54);transform:translateY(-2px)}.ds-file:active{transform:translateY(1px)}.ds-file[aria-current=page]{background:rgba(255,255,255,.74);box-shadow:inset 0 0 0 1px white}.ds-file:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-file{transition:none}}"
+    },
+    {
+      "name": "Demo 分类标签",
+      "kind": "chip",
+      "refersTo": "demo-chip",
+      "description": "仅展示原型分类，没有筛选行为。",
+      "html": "<span class=\"ds-chip\">玩法实验</span>",
+      "css": ".ds-chip{display:inline-block;background:var(--pink-3,#fee9f5);color:var(--memo-foreground,#75475f);padding:3px 7px;border-radius:3px;font:10px/1.7 'Segoe UI','Microsoft YaHei',sans-serif}"
+    },
+    {
+      "name": "毛玻璃窗口",
+      "kind": "card",
+      "refersTo": "glass-window",
+      "description": "Sky alpha 标题栏与半透明玻璃框。装饰窗控件为非交互图形。",
+      "html": "<div class=\"ds-glass\"><div class=\"ds-title\"><span>portfolio.journal</span><span aria-hidden=\"true\">− □</span></div><div class=\"ds-window-content\">作品档案</div></div>",
+      "css": ".ds-glass{background:var(--glass,rgba(245,251,255,.46));border:1px solid var(--glass-edge,rgba(255,255,255,.86));border-radius:12px;box-shadow:var(--glass-shadow,0 18px 48px rgba(55,91,120,.15),0 3px 9px rgba(55,91,120,.09));backdrop-filter:blur(18px) saturate(1.12);overflow:hidden;color:var(--foreground,#334657)}.ds-title{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px;padding:6px 12px;background:var(--sky-a3,#00b3ee1e);border-bottom:1px solid rgba(255,255,255,.6);font:13px/1.3 Pixel,Fusion,monospace;letter-spacing:.04em;color:var(--muted-foreground,#596774)}.ds-window-content{padding:16px;font:14px/1.7 'Segoe UI','Microsoft YaHei',sans-serif}@supports not (backdrop-filter:blur(1px)){.ds-glass{background:#e7f1f9}}"
+    },
+    {
+      "name": "身份便签",
+      "kind": "custom",
+      "refersTo": "memo",
+      "description": "粉色虚线纸、半透明胶带与小角度旋转。",
+      "html": "<div class=\"ds-memo\"><span class=\"ds-tape\" aria-hidden=\"true\"></span><strong>姓名待填写</strong><p>从设计文档到可玩的原型。<br>把规则、实验与迭代，放在同一页。</p></div>",
+      "css": ".ds-memo{position:relative;max-width:440px;margin:14px 8px;background:var(--memo,#fee9f5);color:var(--memo-foreground,#75475f);padding:24px 27px 20px;border:1px dashed var(--memo-border,#efbfdd);transform:rotate(-1.2deg);box-shadow:0 5px 12px rgba(127,87,111,.09)}.ds-memo strong{font:400 20px/1.7 Fusion,sans-serif}.ds-memo p{margin:12px 0 0;font:13px/1.9 'Segoe UI','Microsoft YaHei',sans-serif}.ds-tape{position:absolute;left:calc(50% - 35px);top:-11px;width:70px;height:22px;background:rgba(212,229,237,.67);border-left:2px dashed rgba(255,255,255,.7);border-right:2px dashed rgba(255,255,255,.7);transform:rotate(-4deg);pointer-events:none}"
+    },
+    {
+      "name": "装订纸页",
+      "kind": "custom",
+      "description": "实心奶油白阅读面，用装订孔和粉色细线建立手账材质。",
+      "html": "<div class=\"ds-paper\"><h2>策划案作品集</h2><p>设计目标、规则与验证过程。</p></div>",
+      "css": ".ds-paper{position:relative;min-height:200px;background:var(--paper,#fffdf9);color:var(--foreground,#334657);padding:35px 34px 24px 53px;border-radius:5px 5px 8px 8px;box-shadow:var(--paper-shadow,0 7px 20px rgba(64,85,111,.08))}.ds-paper:before{content:'';position:absolute;left:13px;top:30px;bottom:25px;width:16px;background:radial-gradient(circle at 8px 12px,#d9e4ed 0 4px,#fff 5px 6px,transparent 7px);background-size:16px 58px}.ds-paper:after{content:'';position:absolute;left:38px;top:18px;bottom:18px;width:1px;background:var(--pink-6,#efbfdd)}.ds-paper h2{margin:0;font:400 30px/1.4 Fusion,'Microsoft YaHei',sans-serif}.ds-paper p{margin:5px 0 0;font:12px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--muted-foreground,#596774)}"
+    },
+    {
+      "name": "文档封面",
+      "kind": "card",
+      "description": "纸页条目的轻微倾斜封面，悬停转正并出现纸影。",
+      "html": "<div class=\"ds-cover\"><span>SYSTEM<br>DESIGN</span><small>DESIGN DOC<br>文档封面展示位</small></div>",
+      "css": ".ds-cover{position:relative;width:126px;min-height:155px;padding:17px 13px;background:var(--sky-3,#e1f6fd);border:1px solid var(--sky-6,#a9daed);border-radius:2px;transform:rotate(-2deg);overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;color:var(--foreground,#334657)}.ds-cover:before{content:'';position:absolute;top:0;bottom:0;left:9px;width:1px;background:var(--sky-7,#8dcae3)}.ds-cover>span{display:block;margin-left:7px;font:23px/1.05 Pixel,Fusion,monospace;letter-spacing:.04em}.ds-cover small{position:absolute;bottom:15px;left:20px;right:8px;font:9px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--muted-foreground,#596774)}.ds-cover:hover{transform:rotate(0);box-shadow:0 6px 12px rgba(71,99,125,.12)}@media(prefers-reduced-motion:reduce){.ds-cover{transition:none}}"
     }
   ],
   "narrative": {
-    "northStar": "安静的像素档案",
-    "overview": "深色底面留出阅读空间，像素字体和档案选择菜单提供游戏感。月夜庭院收在首页局部插画中，背景保持简约。低对比粒子、右侧抖动轨道和卡片反馈提供可关闭的动态氛围。",
+    "northStar": "天空上的作品手账",
+    "overview": "淡蓝像素云铺满屏幕，毛玻璃窗口承载导航与工具，奶油色纸页承载正文。桌面上的文件架、手账、便签和像素贴纸形成轻松的游戏策划工作台。像素轮廓集中在标题、短英文标签和装饰，长段说明保持清晰的无衬线字形。\n\n这套系统服务于招聘者阅读简历、策划文档和试玩原型。错落与倾斜属于桌面构图；手机将入口和内容按阅读顺序展开。当前内容来自 `dist/content.js` 的待填写框架，资料、链接和成果状态由实际内容决定。",
     "keyCharacteristics": [
-      "Sage 底面、Jade 选中区域、Mint 操作提示。",
-      "中文像素标题搭配清晰正文。",
-      "直角卡片、细边框与局部阶梯切角。",
-      "局部庭院和全局 FX 开关。"
+      "全屏淡蓝像素云，毛玻璃 HUD 窗口与奶油色阅读纸页。",
+      "中文像素标题、英文像素标签与清晰的无衬线正文。",
+      "粉色便签、淡紫纸签、装订孔和原创像素贴纸。",
+      "桌面窗口错落叠放，手机使用原生单列阅读布局。",
+      "FX 本地偏好、系统减少动态效果与后台暂停共同控制天空和粒子。"
     ],
     "rules": [
       {
-        "name": "颜色来源",
-        "body": "使用现有语义变量；P3 条件覆盖由 palette CSS 提供。",
+        "name": "The Paper Contrast Rule",
+        "body": "正文放在纸页或明确的窗口内容面上；天空透光留给玻璃边框与工具区域。",
         "section": "colors"
       },
       {
-        "name": "动态偏好",
-        "body": "FX 关闭背景与指定装饰动画；系统 reduced-motion 关闭动画与过渡，后台暂停绘制。",
-        "section": "components"
+        "name": "The Short Pixel Rule",
+        "body": "像素字体用于标题、短标签与短句；策划规则、简历经历和详情字段使用正文栈。",
+        "section": "typography"
+      },
+      {
+        "name": "The Sky Layer Rule",
+        "body": "根元素保留固定天空渐变；body 使用透明背景与隔离堆叠上下文。CSS 天空在 z-index 0，WebGL 天空在 1，页面工具与主工作台在 2，粒子在 8。Toast 在 30，原生模态 dialog 使用浏览器 top layer。天空不依赖负 z-index。",
+        "section": "elevation"
       }
     ],
     "dos": [
-      "Do 沿用现有语义变量、字体与方形容器。",
-      "Do 保持背景低对比和清楚的键盘焦点。",
-      "Do 保留五个路由、内容配置、弹窗与打印。"
+      "**Do** 沿用 Sky / Mauve / Pink 语义映射，并保留作者定义的奶油纸、莓灰文字与雾白玻璃材质。",
+      "**Do** 将正文放在清晰纸页上，将透光和模糊用于窗口外框与工具面。",
+      "**Do** 保持标题、短标签和贴纸的像素轮廓，让长段正文使用无衬线字体。",
+      "**Do** 保持根天空、CSS 天空、WebGL 天空和页面内容的明确层序。",
+      "**Do** 遵循 FX、减少动态效果、后台暂停、键盘焦点与待添加状态。",
+      "**Do** 在手机按阅读顺序展开窗口，保留至少 44px 的操作高度和全部内容路由。"
     ],
     "donts": [
-      "Don't 将庭院铺成全屏背景。",
-      "Don't 用像素字体排长段正文。",
-      "Don't 添加虚构资料或成果。"
+      "**Don't** 恢复旧的深色 Sage / Jade / Mint 庭院视觉或将未加载的旧资产写成当前组件。",
+      "**Don't** 用不透明 body 背景盖住天空，或把天空放入负 z-index 层。",
+      "**Don't** 给装饰窗口控件和贴纸添加虚假的操作语义。",
+      "**Don't** 用像素字体排长段策划正文，或让动效成为访问内容的前提。",
+      "**Don't** 将占位文案、空链接或装饰资产描述成真实项目、成绩与经历。"
     ]
   }
 }
