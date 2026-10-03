@@ -9,6 +9,6 @@ web
 ## Capabilities and Constraints
 现有静态 HTML/CSS/JavaScript，GitHub Pages 发布；保留 home、plans、demos、resume、contact 路由、详情弹窗、打印和内容配置。资料目前为待填写框架，禁止虚构经历、成绩与项目。
 ## Brand Commitments
-用户明确要求协调、有品质的像素游戏界面，选择夜间像素庭院，随后明确要求简约背景与像素粒子动效；庭院插画只作为局部视觉。允许 CSS、Canvas、shader 或开源动效库。
+用户最新指定参考图中的 HUD 毛玻璃、手账纸页与像素贴纸游戏风，要求重新排版。淡蓝色天空和像素云作为全屏背景；允许 shader 与缓慢旋转的四面天空环境。此前暗色庭院方向由本次要求替换。正文须清晰，桌面窗口错落叠放，手机按阅读顺序展开。
 ## Evidence on Hand
 真实资料集中在 dist/content.js；现有字体与许可证位于 dist/assets/。

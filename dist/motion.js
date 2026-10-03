@@ -13,14 +13,14 @@
   let enabled = false, frame = 0, lastPaint = 0, lastMove = 0;
   let width = innerWidth, height = innerHeight, motes = [], sparks = [];
   const pointer = { x: -1000, y: -1000 };
-  const colors = ['#86ead4', '#c4f5e1', '#adb5b2'];
+  const colors = ['#629dc2', '#b092b1', '#8e9dc6'];
   function resize() {
     width = innerWidth; height = innerHeight;
     const ratio = Math.min(devicePixelRatio || 1, 1.5);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
     context?.setTransform(ratio, 0, 0, ratio, 0, 0);
     field?.resize(width,height);
-    motes = Array.from({ length: width < 800 ? 24 : 52 }, (_, i) => ({
+    motes = Array.from({ length: width < 800 ? 16 : 32 }, (_, i) => ({
       x: Math.random() * width, y: Math.random() * height,
       size: i % 7 === 0 ? 4 : 2, phase: Math.random() * 6.28,
       speed: .003 + Math.random() * .005, color: colors[i % 3]
@@ -44,7 +44,6 @@
     field?.render(time,pointer);
     const seconds = time / 1000;
     for (const mote of motes) {
-      if(field?.available) break;
       mote.y -= delta * mote.speed;
       if (mote.y < -8) mote.y = height + 8;
       const drift = Math.sin(seconds * .23 + mote.phase) * 12;
