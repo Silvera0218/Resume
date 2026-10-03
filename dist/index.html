@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#edf5ef">
+  <meta name="theme-color" content="#101211">
   <meta name="description" content="游戏策划求职作品集框架，集中展示个人简历、策划案与游戏 Demo。">
   <title>游戏策划 · 作品档案</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/fusion-pixel-zh.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./arcade.css">
-  <link rel="stylesheet" href="./game-shell.css">
   <script src="./content.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./routes.js" defer></script>
+  <script src="./pixel-shader.js" defer></script>
   <script src="./motion.js" defer></script>
 </head>
 <body>
+<canvas id="pixel-field" aria-hidden="true"></canvas>
 <canvas id="pixel-particles" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">跳到作品内容</a>
 <header class="site-header">
   <a class="brand" href="#main" aria-label="作品档案首页"><span class="brand-mark" aria-hidden="true">G</span><span>作品档案<span class="brand-sub pixel">GAME DESIGNER</span></span></a>
   <nav aria-label="主导航"><a href="#plans">策划案</a><a href="#demos">游戏 Demo</a><a href="#resume">我的简历</a></nav>
-  <a class="header-contact" href="#contact">联系我<span class="keycap pixel" aria-hidden="true">C</span></a>
+  <div class="header-actions"><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-light" aria-hidden="true"></span></button><a class="header-contact" href="#contact">联系我<span class="keycap pixel" aria-hidden="true">C</span></a></div>
 </header>
 <main id="main">
   <section class="intro" id="home" aria-labelledby="page-title">
     <div class="intro-copy">
-      <h1 id="page-title">让想法<br>变成<span class="accent">好玩的。</span></h1>
-      <p class="intro-description">一份关于玩法、系统与设计思考的作品档案。</p>
+      <h1 id="page-title">游戏策划<br><span class="accent">作品档案。</span></h1>
+      <p class="intro-description">从设计文档到可玩的原型。<br>选择一份档案，看看玩法如何落地。</p>
       <div class="identity-line"><span data-name>姓名待填写</span><span data-role>综合 / 系统策划</span></div>
       <div class="save-menu" aria-label="档案入口">
         <div class="menu-label pixel">SELECT YOUR NEXT STAGE <span class="menu-controls">↑ ↓ / ENTER</span></div>
@@ -37,27 +37,27 @@
         <a class="save-slot" href="#demos"><span class="slot-selector" aria-hidden="true"></span><span>游戏 Demo 集</span><span class="pixel slot-en">PLAYABLE</span></a>
         <a class="save-slot" href="#resume"><span class="slot-selector" aria-hidden="true"></span><span>个人简历</span><span class="pixel slot-en">PROFILE</span></a>
       </div>
-      <div class="hero-foot"><span class="pixel">PLAYER 01</span><span>综合／系统策划 · 作品集框架</span></div>
+      <div class="hero-foot"><span class="pixel">↑ ↓ / ENTER</span><span>方向键选择 · 回车进入</span></div>
       <div class="explore-status"><span>探索档案</span><span class="explore-lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="pixel" id="explore-count">00 / 03</span></div>
     </div>
-    <figure class="intro-art"><div class="arcade-marquee pixel"><span>THE IDEA ARCADE</span><span aria-hidden="true">✦</span></div><div class="art-window"><div class="window-bar"><span class="pixel">WORLD_01 / THE STARTING POINT</span><span class="window-pixels" aria-hidden="true"></span></div><div class="screen-viewport"><img id="mood-art" src="./assets/pixel-arcade.webp" alt="薄荷色天空与岛屿建筑组成的街机像素世界氛围插画" width="1671" height="941" fetchpriority="high"><div class="screen-hud pixel" aria-hidden="true"><span>EXPLORE. DESIGN. PLAY.</span><span>01</span></div></div><div class="art-caption"><span class="pixel">A WORLD OF IDEAS</span><span>氛围插画 · 非项目截图</span></div></div><div class="arcade-controls"><a class="start-button" href="#plans"><span class="pixel">START</span><span>查看作品</span><svg class="action-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 13 13 3M3 3h10v10"/></svg></a><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-light" aria-hidden="true"></span></button></div><figcaption class="pixel">GOOD GAMES START WITH A QUESTION.</figcaption></figure>
+    <figure class="intro-art"><div class="arcade-marquee"><span class="pixel">THE QUIET GARDEN</span><span>档案庭院</span></div><div class="art-window"><div class="screen-viewport"><img id="mood-art" src="./assets/pixel-garden.webp" alt="月夜庭院像素插画，灯火亮起的小屋与石桥，可通过地图入口浏览档案" width="1536" height="1024" fetchpriority="high"></div><div class="art-caption"><span class="pixel">CHOOSE A PLACE TO BEGIN</span><span>点击地图上的入口</span></div></div><div class="arcade-controls"><a class="start-button" href="#plans"><span class="pixel">ENTER</span><span>打开选中档案</span><svg class="action-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 13 13 3M3 3h10v10"/></svg></a><span class="scene-note">氛围插画</span></div></figure>
   </section>
   <section class="section plans-section" id="plans" aria-labelledby="plans-heading" hidden>
-    <div class="section-heading"><div><h2 id="plans-heading">策划案作品集<span class="pixel">DESIGN ARCHIVE</span></h2><p>让设计思路有据可读。</p></div><span class="section-status">等待添加作品</span></div>
+    <div class="section-heading"><div><h2 id="plans-heading">策划案作品集</h2><p>设计目标、规则与验证过程。</p></div><span class="section-status">等待添加作品</span></div>
     <div class="plan-grid" id="plan-list"></div>
   </section>
   <section class="section demos-section" id="demos" aria-labelledby="demos-heading" hidden>
-    <div class="section-heading"><div><h2 id="demos-heading">游戏 Demo 集<span class="pixel">THE PLAYROOM</span></h2><p>把规则、反馈与体验放进可玩的原型。</p></div><span class="section-status">等待添加试玩</span></div>
+    <div class="section-heading"><div><h2 id="demos-heading">游戏 Demo 集</h2><p>进入原型，体验规则与反馈。</p></div><span class="section-status">等待添加试玩</span></div>
     <div class="demo-grid" id="demo-list"></div>
   </section>
   <section class="section resume-section" id="resume" aria-labelledby="resume-heading" hidden>
-    <div class="section-heading"><div><h2 id="resume-heading">我的简历<span class="pixel">PLAYER PROFILE</span></h2><p>设计方向、经历与个人信息。</p></div><button class="button secondary" id="print-resume" type="button">打印简历</button></div>
+    <div class="section-heading"><div><h2 id="resume-heading">我的简历</h2><p>设计方向、经历与个人信息。</p></div><button class="button secondary" id="print-resume" type="button">打印简历</button></div>
     <div class="resume-layout">
       <aside class="profile-summary"><div class="profile-avatar pixel" aria-label="头像展示位">GD</div><h3 data-name>姓名待填写</h3><p class="role" data-role>综合 / 系统策划</p><p data-introduction></p><dl class="profile-info"><div><dt>所在城市</dt><dd data-city>待填写</dd></div><div><dt>教育背景</dt><dd data-education>待填写</dd></div><div><dt>联系邮箱</dt><dd data-email>待填写</dd></div></dl><a id="resume-download" class="button primary" aria-disabled="true">简历 PDF 待添加</a></aside>
       <div class="resume-details"><section><h3>关于我</h3><p class="placeholder-copy">填写你关注的游戏类型、设计理念与求职目标。用具体的设计问题和作品经验，说明你能为团队带来什么。</p></section><section><h3>技能与工具</h3><div id="skill-list" class="empty-skills"><span>策划能力待填写</span><span>工具与引擎待填写</span><span>协作方式待填写</span></div></section><section><h3>项目与工作经历</h3><div id="experience-list"><div class="experience-placeholder"><span class="pixel">YOUR NEXT CHAPTER</span><p>填写项目名称、任职时间、职责与贡献。</p><small>个人贡献与团队成果分开说明，并关联对应作品。</small></div></div></section></div>
     </div>
   </section>
-  <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div><h2 id="contact-heading">期待一起，做出好玩的游戏。</h2><p>在这里留下联系邮箱，让对你的作品感兴趣的人找到你。</p></div><a id="contact-email" class="button primary" aria-disabled="true">联系邮箱待添加</a></section>
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div><h2 id="contact-heading">聊聊游戏与设计。</h2><p>联系邮箱将在个人资料填写后显示。</p></div><a id="contact-email" class="button primary" aria-disabled="true">联系邮箱待添加</a></section>
 </main>
 <footer><a class="footer-brand pixel" href="#home">GAME DESIGNER'S ARCHIVE</a><span>简历 · 策划案 · 游戏 Demo</span><a href="#home">返回大厅</a></footer>
 <dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="pixel" id="dialog-kind">DESIGN DOCUMENT</span><button class="button close-button" id="close-dialog" type="button" aria-label="关闭详情">关闭<span class="pixel">ESC</span></button></div><div class="dialog-content" id="dialog-content"></div></dialog>

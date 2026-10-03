@@ -6,7 +6,7 @@
   let explored = [];
   try { const saved=JSON.parse(sessionStorage.getItem('portfolio-explored') || '[]');if(Array.isArray(saved))explored=[...new Set(saved.filter(id=>['plans','demos','resume'].includes(id)))]; } catch {}
   const links = [...document.querySelectorAll('.save-slot')];
-  const portals=[['plans','档案库','34%','40%'],['demos','试玩室','74%','56%'],['resume','角色档案','49%','78%']];
+  const portals=[['plans','档案库','78%','59%'],['demos','试玩室','52%','79%'],['resume','角色档案','23%','72%']];
   portals.forEach(([id,label,x,y],i)=>{
     const portal=document.createElement('a');portal.href=`#${id}`;portal.className='world-portal';portal.style.left=x;portal.style.top=y;
     portal.setAttribute('aria-label',`${label}：${titles[id]}`);portal.innerHTML=`<span class="portal-beacon pixel" aria-hidden="true">${i+1}</span><span class="portal-label">${label}</span>`;
@@ -15,7 +15,7 @@
   const arrow = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 8H3m5-5L3 8l5 5"/></svg>';
   for (const [id,[number,label]] of Object.entries(stages)) {
     const bar=document.createElement('div');bar.className='page-bar';
-    bar.innerHTML=`<a href="#home">${arrow}<span>返回大厅</span></a><span class="pixel">STAGE ${number} / ${label}</span><span class="stage-indicator" aria-hidden="true"></span>`;
+    bar.innerHTML=`<a href="#home">${arrow}<span>返回大厅</span></a><span class="pixel">${label}</span><span class="stage-indicator" aria-hidden="true"></span>`;
     document.getElementById(id).prepend(bar);
   }
   function progress() {
@@ -24,7 +24,7 @@
   }
   function select(link) {
     links.forEach(el=>el.classList.toggle('active',el===link));
-    document.querySelector('.start-button').href=link.hash;
+    document.querySelector('.start-button').href=link.hash;document.querySelector('.start-button>span:nth-child(2)').textContent=`打开${link.querySelector('span:nth-child(2)').textContent}`;
   }
   links.forEach((link,i)=>{
     link.addEventListener('focus',()=>select(link));
@@ -44,11 +44,17 @@
     }
     document.querySelectorAll('.site-header nav a').forEach(link=>{if(link.hash===`#${current}`)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
     document.body.dataset.view=current;
+    document.querySelector('.start-button>span:nth-child(2)').textContent=`打开${links.find(link=>link.classList.contains('active')).querySelector('span:nth-child(2)').textContent}`;
     if(current!=='home')document.title=`${titles[current]} · 游戏策划作品集`;
     else document.title=window.PORTFOLIO.name!=='姓名待填写'?`${window.PORTFOLIO.name} · 游戏策划作品集`:titles.home;
     if(['plans','demos','resume'].includes(current)&&!explored.includes(current)) {explored.push(current);try{sessionStorage.setItem('portfolio-explored',JSON.stringify(explored));}catch{}}
     progress();
     if(focus) {scrollTo({top:0,behavior:'instant'});const heading=document.querySelector(`#${current} h1,#${current} h2`);heading.tabIndex=-1;heading.focus({preventScroll:true});}
   }
+  document.querySelector('.skip-link').addEventListener('click',event=>{
+    event.preventDefault();
+    const heading=document.querySelector('main > section:not([hidden]) h1,main > section:not([hidden]) h2');
+    heading.tabIndex=-1;heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:'instant'});
+  });
   addEventListener('hashchange',()=>route(true));route(false);
 })();
