@@ -16,8 +16,8 @@
   const files=[...document.querySelectorAll('.desktop-file')];
   files.forEach((link,i)=>link.addEventListener('keydown',event=>{
     if(!['ArrowDown','ArrowUp','ArrowLeft','ArrowRight'].includes(event.key))return;
-    event.preventDefault();const forward=['ArrowDown','ArrowRight'].includes(event.key);
-    files[(i+(forward?1:files.length-1))%files.length].focus();
+    event.preventDefault();const step={ArrowDown:2,ArrowUp:-2,ArrowRight:1,ArrowLeft:-1}[event.key];
+    files[(i+step+files.length)%files.length].focus();
   }));
   function focusHeading(){
     const heading=document.body.dataset.view==='home'?document.querySelector('.desktop-file[href="#about"]'):document.querySelector('main > section:not([hidden]) h1,main > section:not([hidden]) h2');

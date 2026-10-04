@@ -564,7 +564,12 @@
       "iconSource": "src/sticker-icons.js",
       "game": "dist/platform-game.js",
       "materialScript": "dist/desktop.js",
-      "surface": ".impeccable/surfaces/portfolio.md"
+      "surface": ".impeccable/surfaces/portfolio.md",
+      "stylesheets": [
+        "dist/style.css",
+        "dist/page-layouts.css",
+        "dist/tactile-desktop.css"
+      ]
     },
     "accessibility": {
       "focus": "2px Sky 11 outline with 4px offset.",
@@ -583,7 +588,7 @@
       "refersTo": "button",
       "description": "常规纸页操作，最小高度44px。",
       "html": "<button class=\"ds-button\">查看作品</button>",
-      "css": ".ds-button{min-height:44px;padding:10px 16px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.02)),var(--sky-3);color:var(--foreground);font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -1px 0 rgba(121,169,194,.16),0 2px 3px rgba(72,114,140,.05);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-button:hover{background:var(--sky-4);transform:translateY(-2px)}.ds-button:active{background:var(--sky-5);transform:translateY(1px)}.ds-button:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
+      "css": ".ds-button{min-height:44px;padding:10px 16px;border:1px solid var(--sky-7);border-bottom-width:3px;border-radius:5px;background:linear-gradient(180deg,var(--paper),var(--sky-3));color:var(--foreground);box-shadow:inset 0 1px 0 #fff,0 3px 5px -3px rgba(69,111,142,.35);font:12px/1.5 Fusion,sans-serif;cursor:pointer;transition:transform .16s cubic-bezier(.16,1,.3,1)}.ds-button:hover{transform:translateY(-1px);background:var(--sky-3)}.ds-button:active{transform:translateY(2px);box-shadow:inset 0 2px 4px rgba(83,127,156,.15)}.ds-button:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
     },
     {
       "name": "主按钮",
@@ -591,22 +596,22 @@
       "refersTo": "button-primary",
       "description": "PDF、试玩或联系操作。",
       "html": "<button class=\"ds-primary\">打开附件</button>",
-      "css": ".ds-primary{min-height:44px;padding:10px 16px;border:1px solid var(--sky-8);border-radius:6px;background:var(--primary);color:var(--primary-foreground);font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-primary:hover{background:var(--sky-10);transform:translateY(-2px)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
+      "css": ".ds-primary{min-height:44px;padding:10px 16px;border:1px solid var(--sky-7);border-bottom-width:3px;border-radius:5px;background:linear-gradient(180deg,var(--paper),var(--sky-3));color:var(--foreground);box-shadow:inset 0 1px 0 #fff,0 3px 5px -3px rgba(69,111,142,.35);font:12px/1.5 Fusion,sans-serif;cursor:pointer;transition:transform .16s cubic-bezier(.16,1,.3,1)}.ds-primary:hover{transform:translateY(-1px);background:var(--sky-3)}.ds-primary:active{transform:translateY(2px);box-shadow:inset 0 2px 4px rgba(83,127,156,.15)}.ds-primary:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}.ds-primary{background:linear-gradient(180deg,var(--sky-3),var(--sky-9));color:var(--primary-foreground)}"
     },
     {
       "name": "HUD关闭按钮",
       "kind": "button",
       "refersTo": "button",
-      "description": "原生档案与详情的React/CSS关闭控件。",
-      "html": "<button class=\"ds-close\" aria-label=\"关闭档案\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 4 8 8m0-8-8 8\"/></svg><span>ESC</span></button>",
-      "css": ".ds-close{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:54px;min-height:44px;padding:6px 8px;border:1px solid rgba(250,254,255,.94);border-radius:5px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.15) 45%,rgba(134,189,219,.16)),var(--sky-3);color:var(--foreground);box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(113,164,196,.25),0 3px 6px -3px rgba(57,107,146,.34);transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s,filter .18s;cursor:pointer}.ds-close span{font:16px Pixel,Fusion,monospace;letter-spacing:.04em}.ds-close:hover{filter:brightness(1.03);transform:translateY(-2px)}.ds-close:active{transform:translateY(1px);box-shadow:inset 0 2px 4px rgba(95,147,180,.22),inset 0 -1px 0 rgba(255,255,255,.7),0 1px 2px rgba(57,107,146,.14)}.ds-close:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
+      "description": "React关闭键帽：44px点击区域，内层键面在按下时下沉。",
+      "html": "<button class=\"ds-close hud-button\" aria-label=\"关闭档案\"><span class=\"keycap-face\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 4 8 8m0-8-8 8\"/></svg><span class=\"pixel keycap-legend\">ESC</span></span></button>",
+      "css": "\n.hud-button,#close-journal.hud-button{padding:4px!important;border:1px solid rgba(134,167,189,.4)!important;border-radius:6px!important;background:rgba(150,187,213,.22)!important;box-shadow:inset 0 1px 3px rgba(72,121,154,.17),0 1px 0 rgba(255,255,255,.9)!important;min-width:76px;min-height:44px;overflow:visible}\n.hud-button::before{content:none}\n.keycap-face{display:flex;align-items:center;justify-content:center;gap:9px;min-height:32px;width:100%;padding:5px 9px;border:1px solid rgba(255,255,255,.95);border-radius:3px;background:linear-gradient(180deg,var(--paper),var(--sky-3));box-shadow:0 3px 3px -1px rgba(84,127,158,.4),inset 0 -2px 0 rgba(112,164,197,.13);transform:translateY(-1px);transition:transform .16s var(--ease),box-shadow .16s,background .16s}\n.keycap-legend{font-size:13px!important;letter-spacing:.04em;color:var(--muted-foreground)}\n.hud-button:hover{transform:none;filter:none}.hud-button:hover .keycap-face{background:linear-gradient(#fff,var(--pink-2));color:var(--memo-foreground)}\n.hud-button:active,.hud-button.is-held{transform:none}.hud-button:active .keycap-face,.hud-button.is-held .keycap-face{transform:translateY(2px);box-shadow:inset 0 1px 3px rgba(86,113,134,.17)}\n\n.ds-close{cursor:pointer;color:var(--foreground)}.ds-close:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
     },
     {
       "name": "章节纸签",
       "kind": "nav",
-      "description": "阅读窗口内四个章节入口，允许换行。",
-      "html": "<nav class=\"ds-tabs\" aria-label=\"手账章节\"><a href=\"#about\" aria-current=\"page\">自我介绍</a><a href=\"#plans\">策划文档</a><a href=\"#demos\">原型与实验</a><a href=\"#resume\">个人简历</a></nav>",
-      "css": ".ds-tabs{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:5px;padding:8px 8px 0}.ds-tabs a{display:flex;align-items:center;min-height:40px;padding:8px 12px;border:1px solid rgba(255,255,255,.6);border-radius:4px;background:var(--pink-4);color:var(--foreground);font:11px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),2px 1px 4px rgba(88,112,133,.08);transform:rotate(-1deg);transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-tabs a:nth-child(2){background:var(--sky-4)}.ds-tabs a:nth-child(3){background:#ece5f4}.ds-tabs a:hover,.ds-tabs a[aria-current=page]{transform:translateY(-2px)}.ds-tabs a:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}.ds-tabs a:active{transform:translateY(1px)}"
+      "description": "折角纸签、不同纸色与选中墨线；最小高度44px。",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"手账章节\"><a href=\"#about\" aria-current=\"page\">自我介绍</a><a href=\"#plans\">策划作品</a><a href=\"#demos\">游戏原型</a><a href=\"#resume\">个人简历</a></nav>",
+      "css": ".ds-tabs{display:flex;justify-content:flex-end;flex-wrap:wrap}.ds-tabs a{text-decoration:none;line-height:1.5;transition:transform .18s}.ds-tabs a:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}\n.ds-tabs{gap:7px;padding-bottom:5px}\n.ds-tabs a{position:relative;isolation:isolate;font-family:Fusion,sans-serif;font-size:12px;min-height:44px;padding:10px 15px 12px;border:0;border-radius:1px;background:none;box-shadow:none;transform:rotate(-1deg);color:var(--foreground)}\n.ds-tabs a::before{content:'';position:absolute;inset:0;background:var(--pink-4);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%);box-shadow:inset 0 -3px 0 rgba(130,99,119,.08);z-index:-1}\n.ds-tabs a:nth-child(2)::before{background:var(--sky-4)}\n.ds-tabs a:nth-child(3)::before{background:#ece5f4}\n.ds-tabs a:nth-child(4)::before{background:var(--paper)}\n.ds-tabs a:nth-child(even){transform:rotate(1deg)}\n.ds-tabs a::after{content:'';position:absolute;left:15px;right:15px;bottom:6px;height:2px;background:currentColor;opacity:0;transform:scaleX(.45);transition:opacity .18s,transform .18s var(--ease)}\n.ds-tabs a[aria-current=page]::after{opacity:.55;transform:scaleX(1)}\n.ds-tabs a:hover,.ds-tabs a[aria-current=page]{transform:translateY(-2px) rotate(0)}\n\n"
     },
     {
       "name": "分类标签",

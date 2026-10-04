@@ -1,0 +1,111 @@
+/* Desktop objects share the paper, enamel and moulded-plastic materials of the journal. */
+.desktop-scene{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,6vw,78px);align-items:center;width:min(830px,100%);margin:clamp(22px,5vh,52px) auto 110px}
+.desktop-scene .site-header{position:static;margin:0;width:auto;transform:none}
+.desktop-heading{font-size:29px;line-height:1.5;margin:0 0 17px 17px;color:var(--ambient-foreground);text-shadow:0 1px 0 rgba(255,255,255,.7)}
+.desktop-scene .site-header nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 27px;align-items:start;padding:30px 10px 12px}
+.desktop-scene .desktop-file{width:auto;min-height:141px;padding:7px 5px;gap:9px;border:0;background:none;box-shadow:none}
+.desktop-scene .site-header .sticker-icon{width:92px;height:92px;margin:0 0 2px}
+.desktop-scene .desktop-file>span:nth-child(2){font-family:Fusion,sans-serif;font-size:14px;padding:3px 9px;line-height:1.45;background:rgba(255,253,249,.8);box-shadow:0 2px 4px -3px rgba(62,100,131,.35);transform:rotate(-1.5deg);border-radius:1px}
+.desktop-scene .desktop-file:nth-child(even)>span:nth-child(2){transform:rotate(1.5deg)}
+.desktop-scene .desktop-file small{display:block;font-size:12px;line-height:1;margin:0;color:var(--ambient-foreground)}
+.desktop-guide{display:flex;align-items:center;justify-content:center;gap:6px;margin:20px 0 0;font-size:11px;color:var(--ambient-foreground)}
+.desktop-guide kbd{font:12px Pixel,monospace;min-width:26px;padding:3px 4px;text-align:center;background:rgba(249,254,255,.55);border:1px solid rgba(255,255,255,.9);border-radius:3px;box-shadow:0 2px 2px -1px rgba(58,100,135,.25)}
+.desktop-welcome{position:relative;align-self:center;margin:20px 5px 0 0;padding:32px 29px 94px;background:var(--paper-grain,none),var(--paper);color:var(--foreground);border-radius:2px 2px 20px 2px;box-shadow:0 10px 18px -12px rgba(70,103,137,.4),0 2px 4px rgba(85,122,151,.08);transform:rotate(4deg)}
+.desktop-welcome::after{content:'';position:absolute;right:0;bottom:0;width:23px;height:23px;background:linear-gradient(135deg,rgba(229,219,202,.1),rgba(228,220,205,.7));clip-path:polygon(100% 0,100% 100%,0 100%);border-radius:0 0 18px}
+.desktop-welcome>.tape{top:-12px;left:calc(50% - 39px);width:78px;height:27px;background:rgba(233,194,219,.58);transform:rotate(-7deg)}
+.desktop-welcome h2{font-size:25px;line-height:1.6;margin:0 0 16px}
+.desktop-welcome p{font-family:Fusion,sans-serif;font-size:15px;line-height:1.9;color:var(--foreground)}
+.desktop-welcome .welcome-postscript{font-family:'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;line-height:1.8;margin-top:14px;color:var(--muted-foreground)}
+.desktop-welcome .welcome-cat{position:absolute;right:-30px;bottom:-43px;width:165px;height:165px;transform:rotate(-9deg)}
+.desktop-welcome .welcome-stars{position:absolute;right:-36px;top:-48px;width:90px;height:90px;transform:rotate(9deg)}
+
+/* A sliding FX switch and a paper envelope tab replace the generic toolbar buttons. */
+.fx-toggle{gap:7px;padding:0 6px;border:0;box-shadow:none;background:none;border-radius:2px}
+.fx-toggle:hover{background:rgba(255,255,255,.2)}
+.fx-track{display:block;position:relative;width:34px;height:21px;border:1px solid rgba(115,156,185,.45);border-radius:4px;background:rgba(108,161,198,.2);box-shadow:inset 0 2px 3px rgba(64,105,137,.2),0 1px 0 rgba(255,255,255,.85)}
+.fx-track .fx-light{position:absolute;top:2px;left:2px;width:14px;height:15px;border-radius:2px;background:linear-gradient(180deg,#fff,var(--sky-3));border:1px solid rgba(255,255,255,.95);box-shadow:0 2px 3px rgba(64,105,137,.24);transform:translateX(14px);transition:transform .22s var(--ease),background .22s}
+.fx-track .fx-light::after{content:'';position:absolute;inset:4px 4px 3px;border-left:1px solid var(--sky-8);border-right:1px solid var(--sky-8)}
+.fx-toggle[aria-pressed=false] .fx-light{background:linear-gradient(#fff,var(--mauve-3));transform:translateX(0)}
+.header-contact{position:relative;isolation:isolate;border:0;gap:9px;border-radius:2px;background:var(--paper);box-shadow:0 3px 5px -3px rgba(60,104,140,.3);font-family:Fusion,sans-serif;font-size:12px;transform:rotate(-1.5deg);transition:transform .18s var(--ease)}
+.header-contact::before{content:'';position:absolute;inset:5px;border:1px dashed var(--sky-7);pointer-events:none}
+.header-contact:hover{background:var(--paper);transform:rotate(0) translateY(-2px)}
+.header-contact:active{transform:translateY(1px)}
+
+/* Window controls are small keycaps, with an inset face that moves under pressure. */
+.hud-button,#close-journal.hud-button{padding:4px!important;border:1px solid rgba(134,167,189,.4)!important;border-radius:6px!important;background:rgba(150,187,213,.22)!important;box-shadow:inset 0 1px 3px rgba(72,121,154,.17),0 1px 0 rgba(255,255,255,.9)!important;min-width:76px;min-height:44px;overflow:visible}
+.hud-button::before{content:none}
+.keycap-face{display:flex;align-items:center;justify-content:center;gap:9px;min-height:32px;width:100%;padding:5px 9px;border:1px solid rgba(255,255,255,.95);border-radius:3px;background:linear-gradient(180deg,var(--paper),var(--sky-3));box-shadow:0 3px 3px -1px rgba(84,127,158,.4),inset 0 -2px 0 rgba(112,164,197,.13);transform:translateY(-1px);transition:transform .16s var(--ease),box-shadow .16s,background .16s}
+.keycap-legend{font-size:13px!important;letter-spacing:.04em;color:var(--muted-foreground)}
+.hud-button:hover{transform:none;filter:none}.hud-button:hover .keycap-face{background:linear-gradient(#fff,var(--pink-2));color:var(--memo-foreground)}
+.hud-button:active,.hud-button.is-held{transform:none}.hud-button:active .keycap-face,.hud-button.is-held .keycap-face{transform:translateY(2px);box-shadow:inset 0 1px 3px rgba(86,113,134,.17)}
+
+/* Chapter navigation uses folded paper tabs; the active page has an ink mark. */
+#journal-dialog .paper-tabs{gap:7px;padding-bottom:5px}
+#journal-dialog .paper-tabs a{position:relative;isolation:isolate;font-family:Fusion,sans-serif;font-size:12px;min-height:44px;padding:10px 15px 12px;border:0;border-radius:1px;background:none;box-shadow:none;transform:rotate(-1deg);color:var(--foreground)}
+#journal-dialog .paper-tabs a::before{content:'';position:absolute;inset:0;background:var(--pink-4);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%);box-shadow:inset 0 -3px 0 rgba(130,99,119,.08);z-index:-1}
+#journal-dialog .paper-tabs a:nth-child(2)::before{background:var(--sky-4)}
+#journal-dialog .paper-tabs a:nth-child(3)::before{background:#ece5f4}
+#journal-dialog .paper-tabs a:nth-child(4)::before{background:var(--paper)}
+#journal-dialog .paper-tabs a:nth-child(even){transform:rotate(1deg)}
+#journal-dialog .paper-tabs a::after{content:'';position:absolute;left:15px;right:15px;bottom:6px;height:2px;background:currentColor;opacity:0;transform:scaleX(.45);transition:opacity .18s,transform .18s var(--ease)}
+#journal-dialog .paper-tabs a[aria-current=page]::after{opacity:.55;transform:scaleX(1)}
+#journal-dialog .paper-tabs a:hover,#journal-dialog .paper-tabs a[aria-current=page]{transform:translateY(-2px) rotate(0)}
+
+/* Attachments are status labels until a real file or play URL is configured. */
+.pending-attachment{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 0;font-size:10px;color:var(--muted-foreground);line-height:1.6}
+.pending-attachment::before{content:'';width:5px;height:5px;border:1px solid currentColor;flex-shrink:0;opacity:.7}
+.button[aria-disabled=true]{width:auto!important;min-height:34px;padding:6px 0!important;border:0;border-radius:0;background:transparent!important;box-shadow:none;justify-content:flex-start;font-size:11px;color:var(--muted-foreground)!important}
+.button[aria-disabled=true]::before{content:'';width:5px;height:5px;border:1px solid currentColor;flex-shrink:0}
+.section-status{padding:3px 0;border:0;border-bottom:1px solid var(--memo-border);border-radius:0;color:var(--memo-foreground);font-family:Fusion,sans-serif;font-size:11px;transform:rotate(-2deg)}
+.button:not(.hud-button):not([aria-disabled=true]){border:1px solid var(--sky-7);border-bottom-width:3px;border-radius:5px;background:linear-gradient(180deg,var(--paper),var(--sky-3));box-shadow:inset 0 1px 0 #fff,0 3px 5px -3px rgba(69,111,142,.35);font-family:Fusion,sans-serif;font-size:12px;transition:transform .16s var(--ease),box-shadow .16s,background .16s}
+.button.primary:not([aria-disabled=true]){background:linear-gradient(180deg,var(--sky-3),var(--sky-9));color:var(--primary-foreground)}
+.button:not(.hud-button):not([aria-disabled=true]):hover{transform:translateY(-1px);background:var(--sky-3)}
+.button:not(.hud-button):not([aria-disabled=true]):active{transform:translateY(2px);box-shadow:inset 0 2px 4px rgba(83,127,156,.15)}
+.text-button{position:relative;isolation:isolate;min-height:44px;padding:8px 12px;gap:9px;font-family:Fusion,sans-serif;font-size:12px;color:var(--foreground);text-decoration:none;transition:transform .18s var(--ease)}
+.text-button::before{content:'';position:absolute;inset:5px 0;background:var(--sky-3);border-bottom:1px solid var(--sky-7);clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%);z-index:-1}
+.text-button:hover{text-decoration:none;transform:translateY(-1px)}
+.text-button:hover::before{background:var(--sky-4)}
+.text-button:active{transform:translateY(1px)}
+.text-button .action-arrow{width:13px;height:13px;color:var(--accent-text)}
+.document-copy .text-button{padding:8px 11px;font-size:11px}
+.page-bar a{font-family:Fusion,sans-serif}.page-bar a svg{width:17px;height:17px;padding:2px;border-radius:2px;background:rgba(255,253,249,.65);box-shadow:0 2px 3px -2px rgba(65,112,145,.3)}
+
+/* Prototype filters are actual console keys; the selected key stays depressed. */
+.console-filters{gap:7px}
+.console-filters button{display:inline-flex;align-items:center;justify-content:center;gap:7px;position:relative;min-height:44px;padding:8px 12px;border:1px solid var(--sky-7);border-bottom-width:3px;border-radius:5px;background:linear-gradient(180deg,#fff,var(--sky-3));box-shadow:inset 0 1px 0 #fff,0 3px 4px -3px rgba(76,111,145,.3);font-family:Fusion,sans-serif;font-size:11px}
+.console-filters button::before{content:'';width:5px;height:5px;border-radius:1px;background:var(--sky-7);box-shadow:inset 0 1px 1px rgba(46,94,127,.18);flex-shrink:0}
+.console-filters button:hover{background:var(--sky-2);transform:translateY(-1px)}
+.console-filters button:active,.console-filters button[aria-pressed=true]{transform:translateY(2px);background:var(--pink-3);border-color:var(--pink-7);box-shadow:inset 0 2px 3px rgba(145,93,127,.14);color:var(--memo-foreground)}
+.console-filters button[aria-pressed=true]::before{background:var(--memo-foreground);box-shadow:0 1px 0 #fff}
+.console-screen .demo-actions{gap:3px 9px;align-items:center;margin-top:5px}
+.console-screen .demo-actions .text-button{padding:8px 10px;font-size:11px}
+.console-screen .demo-actions .text-button::before{background:#ece5f4;border-bottom-color:#c4b8d4}
+.console-screen .demo-actions .text-button:hover::before{background:var(--pink-3)}
+.console-search{background:#fffdf9;box-shadow:inset 0 2px 3px rgba(63,100,125,.09);border-color:var(--sky-7);border-radius:4px}
+.card-signature>a{font-family:Fusion,sans-serif;text-decoration:none;padding:0 10px;background:var(--pink-2);border-bottom:1px solid var(--pink-6);transform:rotate(-1deg)}
+.card-signature>a:hover{background:var(--pink-3);transform:rotate(0)}
+
+@media(max-width:700px){
+  .desktop-bar{gap:9px}.brand-sub{display:none}.header-actions{gap:9px}.fx-toggle{min-width:62px;font-size:16px;padding:0 2px}.header-contact{padding:0 11px;font-size:11px;gap:6px}.desktop-note{display:none}
+  .desktop-scene{display:flex;flex-direction:column;gap:26px;width:min(360px,100%);margin:24px auto 110px;padding:0 8px}
+  .desktop-scene .site-header{width:100%}.desktop-heading{font-size:25px;text-align:center;margin:0 0 14px}
+  .desktop-scene .site-header nav{gap:15px 24px;padding:27px 8px 10px}
+  .desktop-scene .desktop-file{min-height:127px;gap:6px;padding:5px}
+  .desktop-scene .site-header .sticker-icon{width:78px;height:78px;margin:0}
+  .desktop-scene .desktop-file>span:nth-child(2){font-size:13px;padding:3px 7px;background:rgba(255,253,249,.8)}
+  .desktop-scene .desktop-file small{font-size:10px}
+  .desktop-guide{font-size:10px;margin-top:12px}
+  .desktop-welcome{width:calc(100% - 20px);margin:0;padding:21px 105px 21px 22px;transform:rotate(2deg)}
+  .desktop-welcome h2{font-size:20px;margin-bottom:9px}.desktop-welcome p{font-size:12px;line-height:1.8}.desktop-welcome .welcome-postscript{display:none}
+  .desktop-welcome .welcome-cat{width:117px;height:117px;right:-13px;bottom:-14px}.desktop-welcome .welcome-stars{width:58px;height:58px;right:4px;top:-21px}
+  #journal-dialog .paper-tabs{gap:4px;padding:8px 4px 5px;justify-content:space-between}
+  #journal-dialog .paper-tabs a{padding:10px 8px 12px;font-size:11px;min-height:44px}
+  #journal-dialog .paper-tabs a::after{left:9px;right:9px}
+  .hud-button,#close-journal.hud-button{min-width:70px}.keycap-face{padding:5px 7px;gap:7px}
+  .console-filters{gap:5px}.console-filters button{padding:7px 9px;gap:5px;font-size:10px}.console-screen .demo-actions{gap:1px}
+  .console-screen .demo-actions .text-button{padding:8px 9px;font-size:10px}.pending-attachment{font-size:9px;min-height:26px}
+  .button:not(.hud-button):not([aria-disabled=true]){font-size:11px}
+}
+@media(min-width:701px) and (max-width:960px){.desktop-scene{width:calc(100% - 56px);gap:30px;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}.desktop-welcome{transform:rotate(2deg);padding:26px 22px 78px}.desktop-welcome .welcome-stars{right:-18px;width:78px;height:78px}.desktop-welcome .welcome-cat{right:-16px;width:145px;height:145px}}
+@media(min-width:701px) and (max-height:740px){.desktop-scene{margin-top:15px;margin-bottom:95px}.desktop-scene .desktop-file{min-height:123px}.desktop-scene .site-header .sticker-icon{width:76px;height:76px}.desktop-heading{font-size:26px;margin-bottom:10px}.desktop-scene .site-header nav{gap:12px 25px}.desktop-guide{margin-top:12px}.desktop-welcome{padding-bottom:78px}}
+@media print{.desktop-scene{display:none!important}.pending-attachment{color:#555}.text-button{display:none!important}}
