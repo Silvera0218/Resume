@@ -14,6 +14,8 @@ colors:
   sky-rule: "#a9daed"
   sky-mark: "#60b3d7"
   foreground: "#334657"
+  ambient-foreground: "#334f64"
+  glass-foreground: "#39566c"
   muted-foreground: "#596774"
   paper: "#fffdf9"
   surface: "#fdfcfd"
@@ -27,14 +29,14 @@ colors:
   lavender-tab: "#ece5f4"
   note-paper: "#fff8db"
   note-foreground: "#74653a"
-  glass: "rgba(245,251,255,.46)"
-  glass-edge: "rgba(255,255,255,.86)"
-  glass-title: "#00b3ee1e"
+  glass: "rgba(228,243,254,.43)"
+  glass-edge: "rgba(255,255,255,.92)"
+  glass-title: "rgba(255,255,255,.55)"
   secondary-button: "rgba(255,255,255,.6)"
 typography:
   display:
     fontFamily: "Fusion, Microsoft YaHei, sans-serif"
-    fontSize: "42px"
+    fontSize: "40px"
     fontWeight: 400
     lineHeight: 1.3
     letterSpacing: "0"
@@ -61,10 +63,10 @@ rounded:
   chip: "3px"
   preview-icon: "4px"
   button: "6px"
-  file: "7px"
-  utility: "8px"
+  file: "4px"
+  utility: "7px"
   mobile-window: "9px"
-  window: "12px"
+  window: "11px"
 spacing:
   tight: "4px"
   small: "8px"
@@ -168,7 +170,7 @@ Sky 的浅蓝负责交互与天空，Pink 负责便签与纸签，Mauve 负责�
 
 - **蓝灰墨色**（foreground）与 **次要蓝灰**（muted-foreground）：正文和辅助信息。
 - **奶油白纸**（paper）：主阅读区域、详情正文与 Toast。Mauve surface 是现有语义面，divider 用于纸页内的细分隔。
-- **雾白玻璃**（glass / glass-edge）：窗口半透明底和高亮边缘。标题栏使用 glass-title，运行时对应 Sky alpha 3。
+- **雾白玻璃**（glass / glass-edge）：窗口半透明底和高亮边缘。标题栏从透白高光渐变到浅蓝。玻璃文字使用 glass-foreground，直接位于天空上的辅助文字使用 ambient-foreground。
 - **待添加面**（disabled / disabled-foreground）：缺少试玩、附件、邮箱或 PDF 时的禁用状态。
 
 语义映射：`--background → sky-3`，`--surface → mauve-1`，`--primary → sky-9`，`--primary-foreground → sky-12`，`--border → sky-7`，`--selected → sky-4`，`--hover → sky-3`，`--accent-text → sky-11`，`--memo → pink-3`，`--memo-border → pink-6`。文字与纸张的作者颜色直接保存在 :root。浏览器选区采用 Pink 5 / Pink 12。
@@ -189,7 +191,7 @@ Sky 的浅蓝负责交互与天空，Pink 负责便签与纸签，Mauve 负责�
 
 ### Hierarchy
 
-- **Display**：首页 h1 使用 frontmatter 的 42px / 400 / 1.3；700px 以下为 32px / 1.45。
+- **Display**：首页 h1 使用 frontmatter 的 40px / 400 / 1.3；700px 以下为 32px / 1.45。
 - **Headline**：分区 h2 使用 30px / 400 / 1.4；手机为 25px。首页“翻开看看”独立使用 19px，手机 18px。
 - **Title**：基础 h3 使用 19px / 500 / 1.5。策划条目 17px，Demo 18px；手机分别为 15px、16px。
 - **Body**：基础为 14px / 1.7；策划与 Demo 说明 13px，手机 12px。便签 13px / 1.9，手机 12px；简历说明 12px / 1.9。
@@ -201,9 +203,9 @@ Sky 的浅蓝负责交互与天空，Pink 负责便签与纸签，Mauve 负责�
 
 ## Layout
 
-桌面标题栏最大宽度 1280px、最小高度 80px，内边距 16px 38px。工作台最大宽度 1180px，列为 `148px minmax(0,1fr) 180px`，间距 24px，左右内边距 24px，上下外边距 32px / 68px。文件架向下错开 61px，手账向下错开 53px，右侧窗口略向左叠入。页脚最大宽度 1132px，内边距 0 24px 24px。
+顶部为横贯视口的 68px 半透明桌面工具栏。工作台最大宽度 1200px，基础列为 `138px minmax(0,1fr) 180px`，间距 24px，左右内边距 24px，上下外边距 24px / 76px。左侧是没有外框的桌面快捷图标，向下错开 91px；手账向下错开 49px、旋转 -0.45deg；右侧小窗略向左叠入。页脚最大宽度 1132px。
 
-手账外层内边距 0 8px 9px，正文纸页内边距 35px 34px 24px 53px、最小高度 594px。左侧装订孔每 58px 重复；粉色边线位于纸页左侧 38px。章节纸签在窗口上方 44px。首页便签最大宽度 440px，底部入口为最小高度 68px 的整行链接。
+手账外层内边距 0 9px 12px，正文纸页内边距 32px 34px 24px 53px、最小高度 594px。左侧装订孔每 58px 重复；粉色边线位于纸页左侧 38px。章节纸签在窗口上方 44px。首页便签最大宽度 440px，底部入口为最小高度 68px 的整行链接。
 
 策划作品按文档条目纵向排列，封面列 126px，列间距 20px；Demo 也是纵向列表，展示位高 190px。简历为 170px 资料栏与正文，间距 26px。详情字段桌面双列，间距 24px。原生 dialog 最大宽度 720px、宽 `calc(100% - 36px)`、最大高 `calc(100dvh - 50px)`。
 
@@ -211,7 +213,7 @@ Sky 的浅蓝负责交互与天空，Pink 负责便签与纸签，Mauve 负责�
 - **700px 以上、960px 以下**：工作台改为两列，最大宽度 930px，间距 22px；隐藏右侧桌面小窗，保留文件架与手账。
 - **700px 以下**：工作台改为纵向 flex，最大宽度 580px，左右内边距 13px，间距 27px。文件架成为四个有文字的横向入口，最小高度 76px。文件架取消旋转，手账使用完整宽度；章节纸签、粉色便签和装饰贴纸继续保留。纸页内边距为 27px 20px 22px 35px，装订孔每 56px 重复，边线移至左侧 24px。
 - **手机内容**：策划封面列缩至 89px、间距 14px，Demo 画面高 164px。简历改为单列，资料摘要内部以 68px 头像列与文字列排列；资料信息双列。详情字段单列、间距 21px，详情正文内边距 23px 20px。贴纸托盘回到文档流，宽 242px。
-- **1500px 以上**：工作台顶部外边距使用 6vh。页面支持的最小布局宽度为 320px。
+- **1500px 以上**：工作台顶部外边距使用 5vh。页面支持的最小布局宽度为 320px。
 
 五个 hash 页面为 home、plans、demos、resume、contact。路由隐藏其他 section，更新标题、文件名与 aria-current，并将焦点移到当前页标题；返回链接显示在内页顶部。正文自适应高度，天空固定铺满视口。
 
@@ -219,24 +221,24 @@ Sky 的浅蓝负责交互与天空，Pink 负责便签与纸签，Mauve 负责�
 
 ## Elevation & Depth
 
-深度来自透明材质、白色细边、环境阴影与纸张之间的实体区别。玻璃模糊为 18px，并带 saturate(1.12)；纸张保持实心底。无 backdrop-filter 支持时，窗口退到 #e7f1f9，dialog 退到 #f7fbff。
+深度来自透明材质、白色细边、环境阴影与纸张之间的实体区别。窗口玻璃模糊为 22px，并带 saturate(1.18)，使用双层边缘、顶部反光和蓝色环境映射；纸张保持实心底。详情 dialog 继续使用 18px 模糊。无 backdrop-filter 支持时，窗口退到 #e7f1f9，dialog 退到 #f7fbff。
 
 ### Shadow Vocabulary
 
-- **玻璃环境阴影**（`--glass-shadow: 0 18px 48px rgba(55,91,120,.15),0 3px 9px rgba(55,91,120,.09)`）：窗口和详情框。
-- **纸张轻影**（`--paper-shadow: 0 7px 20px rgba(64,85,111,.08)`）：主纸页与 Toast。
-- **便签贴纸影**（`0 5px 12px rgba(127,87,111,.09)`）：粉色身份便签。
-- **提醒纸影**（`0 8px 22px rgba(98,102,97,.09)`）：右侧黄色便笺。
+- **玻璃环境阴影**（`--glass-shadow: 0 24px 46px -14px rgba(40,79,108,.27),0 5px 12px -4px rgba(40,79,108,.17)`）：窗口和详情框。
+- **纸张轻影**（`--paper-shadow: 0 3px 8px rgba(64,85,111,.09),0 18px 28px -20px rgba(64,85,111,.26)`）：主纸页与 Toast。
+- **便签贴纸影**（`0 1px 1px rgba(149,100,127,.12),2px 6px 9px -5px rgba(118,79,102,.24),7px 15px 18px -16px rgba(118,79,102,.32)`）：粉色身份便签。
+- **提醒纸影**（`1px 1px 1px rgba(135,124,85,.1),3px 8px 13px -5px rgba(109,106,84,.2)`）：右侧黄色便笺。
 - **文档提起影**（`0 6px 12px rgba(71,99,125,.12)`）：策划封面悬停。
-- **当前文件内边**（`inset 0 0 0 1px white`）：选中的档案入口。
+- **当前桌面图标**：浅蓝半透明选择区域、蓝色虚线边缘，图标本身有贴地阴影。
 
 **The Sky Layer Rule.** 根元素保留固定天空渐变；body 使用透明背景与隔离堆叠上下文。CSS 天空在 z-index 0，WebGL 天空在 1，页面工具与主工作台在 2，粒子在 8。Toast 在 30，原生模态 dialog 使用浏览器 top layer。天空不依赖负 z-index。
 
 ## Shapes
 
-玻璃窗口与 dialog 使用 12px 圆角，手机窗口为 9px。纸页使用上角 5px、下角 8px。按钮与 Demo 展示位为 6px；文件条目为 7px；工具按钮为 8px；分类和技能标签为 3px；文档封面与像素图标以 2px 细小转角保持纸张、像素轮廓。
+玻璃窗口使用 11px 圆角，dialog 为 12px，手机窗口为 9px。纸页使用 3px / 4px / 5px / 3px 四角。按钮与 Demo 展示位为 6px；文件条目为 7px；工具按钮为 8px；分类和技能标签为 3px；文档封面与像素图标以 2px 细小转角保持纸张、像素轮廓。
 
-桌面文件架旋转 -1deg，右侧小窗 2deg，提醒纸 4deg，粉色便签 -1.2deg，贴纸托盘 -4deg。手机文件架取消旋转，贴纸托盘缩至 -1deg；便签和贴纸保留小角度。胶带是半透明矩形，带虚线侧边，旋转 -4deg。装订孔、纸页边线与像素台阶共同区分材质。
+桌面快捷图标不旋转，右侧小窗父层为 2deg、窗口本体 -1deg，提醒纸 4deg，粉色便签 -1.5deg，贴纸托盘 -4deg。手机手账取消旋转，贴纸托盘缩至 -1deg。胶带具有不规则切边，旋转 -5deg。金属装订环、叠页边缘与像素贴纸的接触阴影建立实体层次。
 
 焦点为 2px Sky 11 轮廓、4px 偏移和 3px 圆角。跳转后程序聚焦的页面标题取消轮廓；用户操作控件继续保留可见焦点。
 
@@ -254,19 +256,19 @@ Demo 分类标签使用 Pink 3 与莓灰文字，3px 圆角、3px 7px 内边距�
 
 ### Cards / Containers
 
-玻璃窗口使用统一的雾白玻璃、高亮边框与环境阴影。34px 的标题栏使用 Sky alpha 3；主手账标题栏最小高度 38px。装饰窗口按钮是 aria-hidden 的图形，没有交互行为。
+玻璃窗口使用统一的雾白玻璃、高亮边框与环境阴影。标题栏使用透白渐变，主手账标题栏最小高度 41px；两处可拖动窗口的标题栏最小高度 44px。已移除虚假的最小化和最大化图形。
 
 策划条目是纸页内的横向文档行，以 Mauve 5 底线分隔，条目间距 20px。封面最小高 155px，有 Sky 3 / Sky 6 材质和 -2deg 倾斜；第二份文档用 Pink 3 / Pink 6、2deg 倾斜，第三份用淡紫材质。悬停将封面转正并出现文档提起影。Demo 条目间距 26px，底部细线与 190px 预览面建立内容层级。待添加预览明确显示 NO GAME LOADED。
 
 ### Navigation
 
-文件架每行使用图标、中文名称和短英文标签，最小高度 74px；悬停透白并上移 2px，按下下移 1px，当前页透白更实并有内边线。方向键循环移动焦点，Enter 使用链接原生激活。手机将入口变为横向图标与文字，保留 aria-current，悬停取消位移。
+桌面入口是 120px 宽、最小高 100px 的快捷图标，以图标、中文名称和短英文标签纵向排列。悬停上移 3px，按下下移 1px，当前页使用虚线选择区域。方向键循环移动焦点，Enter 使用链接原生激活。手机将入口变为横向图标与文字，保留 aria-current，悬停取消位移。
 
-章节纸签、首页目录和内页返回链接都指向同一组 hash 路由。纸签悬停或当前页向上移动 5px；首页目录悬停采用 Sky 2 并右移 4px。Contact 由顶部与页脚入口访问，键盘 C 在没有打开 dialog 且不处于编辑控件时跳至 contact。
+章节纸签、首页目录和内页返回链接都指向同一组 hash 路由。纸签悬停或当前页向上移动 5px；首页目录悬停使用淡蓝透明底并右移 3px。Contact 由顶部与页脚入口访问，键盘 C 在没有打开 dialog 且不处于编辑控件时跳至 contact。
 
 ### Notebook, memo and sticker materials
 
-奶油白正文纸页、重复装订孔和 1px 粉色边线是签名纸张组件。粉色便签用虚线边框、胶带和轻微旋转承载姓名与策划方向。左下贴纸托盘、右侧试玩窗口和黄色提醒纸延续这一套桌面材质；960px 以下隐藏右侧小窗。
+奶油白正文纸页使用一次性生成的低对比纸纤维纹理，叠页位于正文后方；重复装订孔配合原创几何 SVG 金属环，正文保留 1px 粉色边线。粉色便签用接触阴影、右下折角、半透明切边胶带和轻微旋转承载姓名与策划方向。左下贴纸托盘、右侧试玩窗口和黄色提醒纸延续这一套桌面材质；960px 以下隐藏右侧小窗。
 
 原创栅格资产 `dist/assets/journal-stickers.webp` 是透明的 2×2 贴纸图集：猫与 CRT、控制器、文件夹、星月。CSS 用 background-size:200% 200%、四象限定位和 image-rendering:pixelated 裁出每张贴纸。装饰贴纸不接收指针且有 aria-hidden。生成提示逐字保存在同名 `.webp.json`，工具记录为内置 image_gen。旧庭院与 arcade 图片保留在 assets 中，但当前入口没有加载它们。
 
@@ -276,9 +278,13 @@ Demo 分类标签使用 Pink 3 与莓灰文字，3px 圆角、3px 7px 内边距�
 
 绘制循环在帧间隔至少 32ms 时更新，目标约 30fps；粒子 Canvas 的 DPR 上限为 1.5。800px 以下 16 个环境粒子，其他宽度 32 个。鼠标细指针移动每 80ms 发射一个 300ms 小粒子；有效操作点击发射 12 个、持续 550ms 的反馈粒子，数量上限 60。键盘触发的点击以控件中心为反馈位置。
 
-通用缓动为 cubic-bezier(.16,1,.3,1)。按钮状态 200ms，文档封面 300ms，纸签 250ms。页面进入为 550ms 的裁切、2px 到 0 的模糊与 6px 到 0 的上移。FX 关闭时取消页面进入动画并停止天空和粒子；普通 CSS 按钮反馈继续存在。系统 prefers-reduced-motion 关闭所有 CSS 动画与过渡，并优先于 FX 用户偏好。后台暂停绘制。FX 偏好使用 localStorage 的 portfolio-fx。
+通用缓动为 cubic-bezier(.16,1,.3,1)。按钮状态 200ms，文档封面 300ms，纸签 250ms。页面进入为 300ms 的轻微裁切、透明度恢复与 4px 到 0 的横移。FX 关闭时取消页面进入动画并停止天空和粒子；普通 CSS 按钮反馈继续存在。系统 prefers-reduced-motion 关闭所有 CSS 动画与过渡，并优先于 FX 用户偏好。后台暂停绘制。FX 偏好使用 localStorage 的 portfolio-fx。
 
 WebGL 创建失败、编译失败或上下文丢失时显示 CSS 像素云；上下文恢复后保持 CSS 天空，直到重新加载。FX-off 与减少动态效果时保留最后绘制的静态天空或 CSS fallback。
+
+### Movable desktop windows
+
+`dist/desktop.js` 为宽度 961px 以上的试玩窗口与贴纸窗口提供标题栏拖动。方向键每次移动 12px，Enter 或 Escape 恢复位置；失焦、取消指针、丢失捕获与后台切换均结束拖动，视口变化恢复初始位置。位移有范围约束，标题仍可触达，主阅读纸页不参与拖动。手机标题栏回到不可聚焦的普通文字。鼠标移动产生局部玻璃反光，FX-off 与 reduced-motion 停止反光跟随；纸纹只生成一次。
 
 ### Detail dialog and status
 

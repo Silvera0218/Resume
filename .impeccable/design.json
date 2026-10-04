@@ -414,7 +414,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "中文像素主标题",
-        "purpose": "首页 42px，手机 32px。"
+        "purpose": "首页 40px，手机 32px。"
       },
       "headline": {
         "displayName": "中文像素分区标题",
@@ -436,22 +436,22 @@
     "shadows": [
       {
         "name": "glass-shadow",
-        "value": "0 18px 48px rgba(55,91,120,.15),0 3px 9px rgba(55,91,120,.09)",
+        "value": "0 24px 46px -14px rgba(40,79,108,.27),0 5px 12px -4px rgba(40,79,108,.17)",
         "purpose": "玻璃窗口与 dialog。"
       },
       {
         "name": "paper-shadow",
-        "value": "0 7px 20px rgba(64,85,111,.08)",
+        "value": "0 3px 8px rgba(64,85,111,.09),0 18px 28px -20px rgba(64,85,111,.26)",
         "purpose": "阅读纸页与 Toast。"
       },
       {
         "name": "memo-shadow",
-        "value": "0 5px 12px rgba(127,87,111,.09)",
+        "value": "0 1px 1px rgba(149,100,127,.12),2px 6px 9px -5px rgba(118,79,102,.24),7px 15px 18px -16px rgba(118,79,102,.32)",
         "purpose": "粉色身份便签。"
       },
       {
         "name": "note-shadow",
-        "value": "0 8px 22px rgba(98,102,97,.09)",
+        "value": "1px 1px 1px rgba(135,124,85,.1),3px 8px 13px -5px rgba(109,106,84,.2)",
         "purpose": "黄色提醒纸。"
       },
       {
@@ -483,8 +483,8 @@
       },
       {
         "name": "page-turn",
-        "value": "550ms",
-        "purpose": "页面裁切、模糊和 6px 位移；FX-off 取消。"
+        "value": "300ms",
+        "purpose": "页面轻微裁切、透明度与 4px 横移；FX-off 取消。"
       },
       {
         "name": "sky-frame-gate",
@@ -568,6 +568,11 @@
         "license": "SIL OFL 1.1",
         "licenseFile": "dist/assets/fusion-pixel-OFL.txt",
         "bundledNotices": "dist/assets/fusion-pixel-licenses/"
+      },
+      {
+        "path": "dist/assets/binder-ring.svg",
+        "type": "original SVG geometry",
+        "use": "Repeating metallic notebook binding rings."
       }
     ],
     "implementation": {
@@ -583,7 +588,8 @@
       "content": "dist/content.js",
       "status": "Identity, achievements, projects, email and file links are pending placeholders.",
       "renderer": "Original native WebGL cloud projection, plus native Canvas particles; no runtime dependency.",
-      "evidence": ".impeccable/review/bottom-fixed.jpg"
+      "evidence": ".impeccable/review/material-desktop-final.png",
+      "materialScript": "dist/desktop.js"
     },
     "accessibility": {
       "focus": "2px Sky 11 outline with 4px offset.",
@@ -593,6 +599,21 @@
       "motion": "prefers-reduced-motion overrides user FX preference; background visibility pauses rendering.",
       "status": "Toast role=status, aria-live=polite; unavailable links use aria-disabled and tabIndex -1.",
       "print": "Only white-background resume content prints."
+    },
+    "desktopMaterials": {
+      "glassBlur": "22px saturate(1.18)",
+      "paperTexture": "Deterministic 128px fibre tile, generated once by Canvas.",
+      "binding": "dist/assets/binder-ring.svg, original metallic geometry.",
+      "movableWindows": [
+        "playroom-window",
+        "sticker-tray"
+      ],
+      "keyboard": "Arrow keys move 12px; Enter or Escape resets.",
+      "desktopMinimumWidth": "961px",
+      "mobile": "Non-focusable static title bars; no window dragging.",
+      "motion": "Pointer reflection follows mouse only; FX-off and reduced-motion stop tracking.",
+      "ambientText": "#334f64",
+      "glassText": "#39566c"
     }
   },
   "components": [
@@ -628,12 +649,12 @@
       "css": ".ds-text{min-height:44px;display:inline-flex;align-items:center;gap:10px;border:0;background:none;padding:7px 0;font:12px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--accent-text,#00749e);cursor:pointer}.ds-text svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-text:hover{text-decoration:underline}.ds-text:hover svg{transform:translate(2px,-2px)}.ds-text:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px;border-radius:3px}.ds-text:active{color:var(--sky-12,#1d3e56)}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none}}"
     },
     {
-      "name": "文件架入口",
+      "name": "桌面快捷图标",
       "kind": "nav",
       "refersTo": "desktop-file",
       "description": "中文名称与 Pixel 短标签共同标明档案；当前页使用透白内边框。",
-      "html": "<nav class=\"ds-shelf\" aria-label=\"主导航\"><a class=\"ds-file\" href=\"#plans\" aria-current=\"page\"><svg width=\"30\" height=\"26\" viewBox=\"0 0 30 26\" aria-hidden=\"true\"><path d=\"M2 7V2h12v5h14v17H2z\" fill=\"#f3d8e6\" stroke=\"#b18ba5\" stroke-width=\"2\"/></svg><span>策划案作品集<small>DESIGN DOCS</small></span></a></nav>",
-      "css": ".ds-shelf{padding:9px;background:var(--glass,rgba(245,251,255,.46));border:1px solid var(--glass-edge,rgba(255,255,255,.86));border-radius:12px;backdrop-filter:blur(18px) saturate(1.12)}.ds-file{display:grid;grid-template-columns:35px 1fr;align-items:center;gap:8px;min-height:74px;padding:10px 6px;border-radius:7px;color:var(--foreground,#334657);text-decoration:none;font:12px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-file small{display:block;margin-top:4px;font:11px/1.3 Pixel,Fusion,monospace;letter-spacing:.04em;color:var(--muted-foreground,#596774)}.ds-file:hover{background:rgba(255,255,255,.54);transform:translateY(-2px)}.ds-file:active{transform:translateY(1px)}.ds-file[aria-current=page]{background:rgba(255,255,255,.74);box-shadow:inset 0 0 0 1px white}.ds-file:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-file{transition:none}}"
+      "html": "<nav class=\"ds-shelf\" aria-label=\"主导航\"><a class=\"ds-file\" href=\"#plans\" aria-current=\"page\"><span><svg width=\"30\" height=\"26\" viewBox=\"0 0 30 26\" aria-hidden=\"true\"><path d=\"M2 7V2h12v5h14v17H2z\" fill=\"#f3d8e6\" stroke=\"#b18ba5\" stroke-width=\"2\"/></svg></span><span>策划案作品集</span><small>DESIGN DOCS</small></a></nav>",
+      "css": ".ds-shelf{display:flex;flex-direction:column;align-items:center;gap:8px;padding:0}.ds-file{position:relative;display:flex;flex-direction:column;justify-content:center;gap:7px;align-items:center;width:120px;min-height:100px;border-radius:4px;padding:12px 4px;transition:transform .2s var(--ease)}.ds-file::before{content:'';position:absolute;inset:3px 4px;pointer-events:none;border:1px dashed transparent;border-radius:4px;background:transparent;transition:background .2s,border-color .2s}.ds-file:hover{transform:translateY(-3px)}.ds-file:hover::before{border-color:rgba(255,255,255,.8);background:rgba(255,255,255,.12)}.ds-file:active{transform:translateY(1px)}.ds-file[aria-current=page]::before{border-color:rgba(71,133,171,.5);background:rgba(239,250,255,.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}.ds-file>span:nth-child(2){font-size:12px;white-space:nowrap;line-height:1.4;position:relative;padding:2px 5px;border-radius:2px;background:rgba(242,250,255,.6);color:#354f64}.ds-file small{position:relative;font-size:11px;color:var(--ambient-foreground,#334f64);line-height:1.3;margin-top:-5px}.ds-file{text-decoration:none;font-family:sans-serif}.ds-file:focus-visible{outline:2px solid #00749e;outline-offset:4px}"
     },
     {
       "name": "Demo 分类标签",
@@ -648,8 +669,8 @@
       "kind": "card",
       "refersTo": "glass-window",
       "description": "Sky alpha 标题栏与半透明玻璃框。装饰窗控件为非交互图形。",
-      "html": "<div class=\"ds-glass\"><div class=\"ds-title\"><span>portfolio.journal</span><span aria-hidden=\"true\">− □</span></div><div class=\"ds-window-content\">作品档案</div></div>",
-      "css": ".ds-glass{background:var(--glass,rgba(245,251,255,.46));border:1px solid var(--glass-edge,rgba(255,255,255,.86));border-radius:12px;box-shadow:var(--glass-shadow,0 18px 48px rgba(55,91,120,.15),0 3px 9px rgba(55,91,120,.09));backdrop-filter:blur(18px) saturate(1.12);overflow:hidden;color:var(--foreground,#334657)}.ds-title{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:34px;padding:6px 12px;background:var(--sky-a3,#00b3ee1e);border-bottom:1px solid rgba(255,255,255,.6);font:13px/1.3 Pixel,Fusion,monospace;letter-spacing:.04em;color:var(--muted-foreground,#596774)}.ds-window-content{padding:16px;font:14px/1.7 'Segoe UI','Microsoft YaHei',sans-serif}@supports not (backdrop-filter:blur(1px)){.ds-glass{background:#e7f1f9}}"
+      "html": "<div class=\"ds-glass\"><div class=\"ds-title\"><span>portfolio.journal</span></div><div class=\"ds-window-content\">作品手账</div></div>",
+      "css": ".ds-glass{position:relative;background:radial-gradient(ellipse at var(--light-x,22%) var(--light-y,0%),rgba(255,255,255,.45),transparent 62%),linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.04) 38%,rgba(202,228,246,.18) 66%,rgba(255,255,255,.23)),var(--glass);border:1px solid var(--glass-edge);border-bottom-color:rgba(139,181,207,.52);border-right-color:rgba(173,210,232,.65);border-radius:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.94),inset 1px 0 0 rgba(255,255,255,.64),inset 0 -1px 0 rgba(255,255,255,.45),var(--glass-shadow);backdrop-filter:blur(22px) saturate(1.18);-webkit-backdrop-filter:blur(22px) saturate(1.18);overflow:hidden}.ds-glass::before{content:'';position:absolute;inset:3px;border:1px solid rgba(255,255,255,.32);border-radius:8px;pointer-events:none;z-index:6}.ds-title{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;padding:8px 12px;font-size:13px;color:var(--glass-foreground,#39566c);background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(200,230,247,.14));border-bottom:1px solid rgba(128,171,198,.2);box-shadow:0 1px 0 rgba(255,255,255,.5);line-height:1.3;text-shadow:0 1px 0 rgba(255,255,255,.8)}.ds-window-content{padding:16px;font:14px/1.7 sans-serif}.ds-glass{color:#334657}.ds-title{font-family:Pixel,Fusion,monospace}"
     },
     {
       "name": "身份便签",
@@ -657,14 +678,14 @@
       "refersTo": "memo",
       "description": "粉色虚线纸、半透明胶带与小角度旋转。",
       "html": "<div class=\"ds-memo\"><span class=\"ds-tape\" aria-hidden=\"true\"></span><strong>姓名待填写</strong><p>从设计文档到可玩的原型。<br>把规则、实验与迭代，放在同一页。</p></div>",
-      "css": ".ds-memo{position:relative;max-width:440px;margin:14px 8px;background:var(--memo,#fee9f5);color:var(--memo-foreground,#75475f);padding:24px 27px 20px;border:1px dashed var(--memo-border,#efbfdd);transform:rotate(-1.2deg);box-shadow:0 5px 12px rgba(127,87,111,.09)}.ds-memo strong{font:400 20px/1.7 Fusion,sans-serif}.ds-memo p{margin:12px 0 0;font:13px/1.9 'Segoe UI','Microsoft YaHei',sans-serif}.ds-tape{position:absolute;left:calc(50% - 35px);top:-11px;width:70px;height:22px;background:rgba(212,229,237,.67);border-left:2px dashed rgba(255,255,255,.7);border-right:2px dashed rgba(255,255,255,.7);transform:rotate(-4deg);pointer-events:none}"
+      "css": ".ds-memo{position:relative;max-width:440px;background-image:var(--paper-grain,none),linear-gradient(165deg,rgba(255,255,255,.48),transparent 70%,rgba(185,113,147,.08));background-color:var(--memo);color:var(--memo-foreground);margin:25px 12px 29px 0;padding:24px 27px 22px;transform:rotate(-1.5deg);box-shadow:0 1px 1px rgba(149,100,127,.12),2px 6px 9px -5px rgba(118,79,102,.24),7px 15px 18px -16px rgba(118,79,102,.32);border:1px solid rgba(223,180,204,.4);border-top-color:rgba(255,255,255,.8)}.ds-memo::after{content:'';position:absolute;bottom:-1px;right:-1px;width:22px;height:22px;background:linear-gradient(135deg,transparent 48%,#ddb9ca 49%,#f8dce9 54%,#fdebf3 69%,var(--paper) 71%);pointer-events:none}.ds-tape{position:absolute;left:calc(50% - 40px);top:-12px;width:80px;height:25px;background:var(--paper-grain,none),linear-gradient(0deg,rgba(177,209,221,.62),rgba(213,234,240,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.5);transform:rotate(-5deg);clip-path:polygon(0 4%,4% 10%,1% 21%,4% 35%,0 48%,3% 60%,1% 74%,4% 85%,0 96%,100% 100%,96% 86%,99% 75%,96% 62%,100% 47%,97% 35%,100% 19%,96% 8%,100% 0);pointer-events:none}.ds-memo{margin:24px 8px}.ds-memo strong{font:400 20px/1.7 Fusion,sans-serif}.ds-memo p{margin:12px 0 0;font:13px/1.9 sans-serif}"
     },
     {
       "name": "装订纸页",
       "kind": "custom",
       "description": "实心奶油白阅读面，用装订孔和粉色细线建立手账材质。",
       "html": "<div class=\"ds-paper\"><h2>策划案作品集</h2><p>设计目标、规则与验证过程。</p></div>",
-      "css": ".ds-paper{position:relative;min-height:200px;background:var(--paper,#fffdf9);color:var(--foreground,#334657);padding:35px 34px 24px 53px;border-radius:5px 5px 8px 8px;box-shadow:var(--paper-shadow,0 7px 20px rgba(64,85,111,.08))}.ds-paper:before{content:'';position:absolute;left:13px;top:30px;bottom:25px;width:16px;background:radial-gradient(circle at 8px 12px,#d9e4ed 0 4px,#fff 5px 6px,transparent 7px);background-size:16px 58px}.ds-paper:after{content:'';position:absolute;left:38px;top:18px;bottom:18px;width:1px;background:var(--pink-6,#efbfdd)}.ds-paper h2{margin:0;font:400 30px/1.4 Fusion,'Microsoft YaHei',sans-serif}.ds-paper p{margin:5px 0 0;font:12px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--muted-foreground,#596774)}"
+      "css": ".ds-paper{position:relative;min-height:200px;margin-top:5px;background-image:var(--paper-grain,none),linear-gradient(110deg,rgba(224,217,201,.13),transparent 13%,rgba(255,255,255,.45) 45%,rgba(225,219,204,.06));background-color:var(--paper);border:1px solid rgba(240,235,223,.9);border-radius:3px 4px 5px 3px;padding:32px 34px 24px 53px;box-shadow:inset 1px 0 0 #fff,inset 0 -1px 0 rgba(177,170,151,.08),var(--paper-shadow);z-index:1}.ds-paper::before{content:'';position:absolute;left:11px;top:30px;bottom:25px;width:16px;background:radial-gradient(circle at 8px 12px,#9fb6c5 0 2px,#c7d7df 3px 4px,#f5f2e9 4.5px 5px,transparent 6px);background-size:16px 58px}.ds-paper::after{content:'';position:absolute;left:38px;top:18px;bottom:18px;width:1px;background:var(--pink-6)}.ds-paper h2{margin:0;font:400 30px/1.4 Fusion,sans-serif}.ds-paper p{font:12px/1.7 sans-serif}"
     },
     {
       "name": "文档封面",

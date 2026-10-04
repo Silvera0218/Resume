@@ -5,26 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#c7e8f8">
   <meta name="description" content="游戏策划求职作品集框架，集中展示个人简历、策划案与游戏 Demo。">
-  <title>游戏策划 · 作品档案</title>
+  <title>游戏策划 · 作品手账</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/fusion-pixel-zh.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=20261004-materials">
   <script src="./content.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./routes.js" defer></script>
   <script src="./pixel-shader.js" defer></script>
   <script src="./motion.js" defer></script>
+  <script src="./desktop.js?v=20261004-materials" defer></script>
 </head>
 <body>
 <canvas id="pixel-field" aria-hidden="true"></canvas>
 <canvas id="pixel-particles" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">跳到作品内容</a>
 <div class="sky-fallback" aria-hidden="true"><i></i><i></i><i></i></div>
-<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品档案首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">今天也有好点子</span><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-light" aria-hidden="true"></span></button><a class="header-contact" href="#contact">联系我<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
+<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品手账首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">今天也有好点子</span><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-light" aria-hidden="true"></span></button><a class="header-contact" href="#contact">联系我<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
 <div class="desktop">
-<header class="site-header glass-window">
-  <div class="window-title"><span class="pixel">MY FILES</span><span class="window-dots" aria-hidden="true"><i></i><i></i></span></div>
+<header class="site-header">
   <nav aria-label="主导航">
     <a class="desktop-file" href="#home"><span class="file-icon notebook-icon" aria-hidden="true"></span><span>桌面首页</span><small class="pixel">DESKTOP</small></a>
     <a class="desktop-file save-slot" href="#plans"><span class="file-icon folder-icon" aria-hidden="true"></span><span>策划案作品集</span><small class="pixel">DESIGN DOCS</small></a>
@@ -34,8 +34,10 @@
   <div class="shelf-footer"><span class="pixel">↑ ↓ / ENTER</span><span>选择档案 · 打开</span></div>
 </header>
 <div class="journal-window glass-window">
-<div class="window-title journal-title"><span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 2h10v12H3zM1 5h4M1 9h4"/></svg><span class="pixel" id="window-filename">portfolio.journal</span></span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+<div class="window-title journal-title"><span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 2h10v12H3zM1 5h4M1 9h4"/></svg><span class="pixel" id="window-filename">portfolio.journal</span></span></div>
 <nav class="paper-tabs" aria-label="手账章节"><a href="#plans">策划文档</a><a href="#demos">原型与实验</a><a href="#resume">关于我</a></nav>
+<div class="paper-stack" aria-hidden="true"></div>
+<div class="binder-rings" aria-hidden="true"></div>
 <main id="main">
   <section class="intro" id="home" aria-labelledby="page-title">
     <div class="journal-heading"><h1 id="page-title">游戏策划<br>作品手账<span class="title-spark" aria-hidden="true"></span></h1><span class="pixel-sticker sticker-stars heading-sticker" aria-hidden="true"></span></div>
@@ -62,10 +64,10 @@
 </main>
 </div>
 <aside class="desktop-extras" aria-label="桌面小窗">
-<div class="playroom-window glass-window"><div class="window-title"><span class="pixel">playroom.exe</span><span class="window-dots" aria-hidden="true"><i></i><i></i></span></div><div class="playroom-content"><span class="pixel-sticker sticker-controller" aria-hidden="true"></span><p>好点子，<br>要玩过才知道。</p><a href="#demos" class="button secondary">打开试玩室<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div></div>
+<div class="playroom-window glass-window" data-movable="试玩窗口"><div class="window-title" data-drag-handle><span class="pixel">playroom.exe</span><span class="window-grip" aria-hidden="true"></span></div><div class="playroom-content"><span class="pixel-sticker sticker-controller" aria-hidden="true"></span><p>好点子，<br>要玩过才知道。</p><a href="#demos" class="button secondary">打开试玩室<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div></div>
 <div class="desktop-note-paper"><span class="tape" aria-hidden="true"></span><p>先看规则，<br>再试一局。</p><span class="pixel">a small reminder</span></div>
 </aside>
-<div class="sticker-tray glass-window" aria-label="像素贴纸装饰"><div class="window-title"><span class="pixel">sticker_collection.png</span><span class="window-dots" aria-hidden="true"><i></i><i></i></span></div><div class="tray-items" aria-hidden="true"><span class="pixel-sticker sticker-folder"></span><span class="pixel-sticker sticker-stars"></span><span class="pixel-sticker sticker-controller"></span><span class="tray-label pixel">MAKE<br>ROOM<br>FOR PLAY.</span></div></div>
+<div class="sticker-tray glass-window" data-movable="贴纸窗口" aria-label="像素贴纸装饰"><div class="window-title" data-drag-handle><span class="pixel">sticker_collection.png</span><span class="window-grip" aria-hidden="true"></span></div><div class="tray-items" aria-hidden="true"><span class="pixel-sticker sticker-folder"></span><span class="pixel-sticker sticker-stars"></span><span class="pixel-sticker sticker-controller"></span><span class="tray-label pixel">MAKE<br>ROOM<br>FOR PLAY.</span></div></div>
 </div>
 <footer><span class="pixel">a desk for ideas & little worlds</span><a href="#contact">写封邮件给我<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 13 13 3M3 3h10v10"/></svg></a></footer>
 <dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="pixel" id="dialog-kind">DESIGN DOCUMENT</span><button class="button close-button" id="close-dialog" type="button" aria-label="关闭详情">关闭<span class="pixel">ESC</span></button></div><div class="dialog-content" id="dialog-content"></div></dialog>
