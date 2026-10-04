@@ -14,8 +14,39 @@
   bind('.placeholder-copy', data.about);
   document.title = data.name && data.name !== '姓名待填写' ? `${data.name} · 游戏策划作品集` : '游戏策划 · 作品档案';
   const words = ['SYSTEM\nDESIGN', 'GAME\nECONOMY', 'GAME\nANALYSIS'];
-  $('#plan-list').innerHTML = data.plans.map((plan, i) => `<article class="plan-card"><div class="document-cover">${assetUrl(plan.cover) ? `<img class="cover-image" src="${escape(assetUrl(plan.cover))}" alt="${escape(plan.title)}封面" loading="lazy">` : `<span class="pixel cover-word">${words[i % words.length].replace('\n', '<br>')}</span><span class="cover-bottom"><span class="cover-tag">DESIGN DOC</span><span>封面待添加</span></span>`}</div><div class="meta"><span>${escape(plan.category)}</span><span>${plan.documentUrl ? '策划作品' : '内容待填写'}</span></div><h3>${escape(plan.title)}</h3><p>${escape(plan.summary)}</p><button class="text-button" type="button" data-detail="${escape(plan.id)}" data-kind="plan">${plan.goal || plan.documentUrl ? '查看策划案' : '查看内容提纲'}</button></article>`).join('');
-  $('#demo-list').innerHTML = data.demos.map(demo => `<article class="demo-card"><div class="demo-screen">${assetUrl(demo.cover) ? `<img class="cover-image" src="${escape(assetUrl(demo.cover))}" alt="${escape(demo.title)}实机截图" loading="lazy">` : `<div class="demo-placeholder"><div class="pixel-frame" aria-hidden="true"></div><span class="pixel">COMING SOON</span><span>截图或演示待添加</span></div>`}</div><div class="demo-body"><div class="demo-topline"><h3>${escape(demo.title)}</h3><span class="demo-category">${escape(demo.category)}</span></div><p>${escape(demo.summary)}</p><div class="demo-actions">${safeUrl(demo.playUrl) ? `<a class="button primary" href="${escape(safeUrl(demo.playUrl))}" target="_blank" rel="noopener noreferrer">在线试玩</a>` : '<button class="button" type="button" disabled>试玩地址待添加</button>'}<button class="text-button" type="button" data-detail="${escape(demo.id)}" data-kind="demo">${demo.goal ? '查看原型说明' : '查看内容提纲'}</button></div></div></article>`).join('');
+  $('#plan-list').innerHTML = data.plans.map((plan, i) => `<article class="plan-card" id="plan-document-${i}"><div class="document-cover">${assetUrl(plan.cover) ? `<img class="cover-image" src="${escape(assetUrl(plan.cover))}" alt="${escape(plan.title)}封面" loading="lazy">` : `<span class="pixel cover-word">${words[i % words.length].replace('\n', '<br>')}</span><span class="cover-bottom"><span class="cover-tag">DESIGN DOC</span></span>`}</div><div class="document-copy"><div class="meta"><span>${escape(plan.category)}</span><span>${safeUrl(plan.documentUrl) ? '附完整文档' : '附件待添加'}</span></div><h3 tabindex="-1">${escape(plan.title)}</h3><p>${escape(plan.summary)}</p><button class="text-button" type="button" data-detail="${escape(plan.id)}" data-kind="plan">${plan.goal || safeUrl(plan.documentUrl) ? '打开策划案' : '打开内容提纲'}</button></div></article>`).join('');
+  $('#plan-index').innerHTML = data.plans.map((plan, i) => `<button type="button" data-document="${i}" aria-controls="plan-document-${i}"><svg width="15" height="18" viewBox="0 0 16 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 1h8l4 4v14H2zM10 1v5h4M5 10h6M5 14h5"/></svg><span>${escape(plan.category)}</span></button>`).join('');
+  $('#plan-index').addEventListener('click', event => {
+    const trigger = event.target.closest('[data-document]'); if (!trigger) return;
+    const sheet = document.getElementById(trigger.getAttribute('aria-controls'));
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.classList.contains('fx-off');
+    sheet.scrollIntoView({block:'nearest',behavior:reduced ? 'instant' : 'smooth'});
+    sheet.querySelector('h3').focus({preventScroll:true});
+  });
+  $('#demo-list').innerHTML = data.demos.map((demo, i) => `<article class="demo-card" data-demo-index="${i}"><div class="demo-screen">${assetUrl(demo.cover) ? `<img class="cover-image" src="${escape(assetUrl(demo.cover))}" alt="${escape(demo.title)}实机截图" loading="lazy">` : `<div class="demo-placeholder"><div class="pixel-frame" aria-hidden="true"></div><span>截图或演示待添加</span></div>`}</div><div class="demo-body"><span class="demo-category">${escape(demo.category)}</span><h3>${escape(demo.title)}</h3><p>${escape(demo.summary)}</p><div class="demo-actions">${safeUrl(demo.playUrl) ? `<a class="button primary" href="${escape(safeUrl(demo.playUrl))}" target="_blank" rel="noopener noreferrer">在线试玩</a>` : '<button class="button" type="button" disabled>试玩地址待添加</button>'}<button class="text-button" type="button" data-detail="${escape(demo.id)}" data-kind="demo">${demo.goal ? '原型说明' : '内容提纲'}</button></div></div></article>`).join('');
+  const categories = [...new Set(data.demos.map(demo => demo.category).filter(Boolean))];
+  $('#demo-filters').innerHTML = `<button type="button" data-demo-filter="" aria-pressed="true" aria-controls="demo-list">全部</button>${categories.map(category => `<button type="button" data-demo-filter="${escape(category)}" aria-pressed="false" aria-controls="demo-list">${escape(category)}</button>`).join('')}`;
+  let demoCategory = '';
+  function filterDemos() {
+    const query = $('#demo-search').value.trim().toLocaleLowerCase();
+    let visible = 0;
+    document.querySelectorAll('#demo-list .demo-card').forEach(card => {
+      const demo = data.demos[Number(card.dataset.demoIndex)];
+      const matches = (!demoCategory || demo.category === demoCategory) && [demo.title, demo.category, demo.summary, demo.engine].join(' ').toLocaleLowerCase().includes(query);
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    $('#demo-count').textContent = `显示 ${visible} / ${data.demos.length} 份原型资料`;
+    $('#demo-empty').hidden = visible !== 0;
+    document.querySelectorAll('[data-demo-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.demoFilter === demoCategory)));
+  }
+  $('#demo-filters').addEventListener('click', event => {
+    const button = event.target.closest('[data-demo-filter]'); if (!button) return;
+    demoCategory = button.dataset.demoFilter; filterDemos();
+  });
+  $('#demo-search').addEventListener('input', filterDemos);
+  $('#reset-demo-filters').addEventListener('click', () => {demoCategory = ''; $('#demo-search').value = ''; filterDemos(); $('#demo-search').focus();});
+  filterDemos();
   const completedPlans = data.plans.filter(p => p.goal || safeUrl(p.documentUrl)).length;
   const completedDemos = data.demos.filter(d => safeUrl(d.playUrl)).length;
   if (completedPlans) $('#plans .section-status').textContent = `${completedPlans} 份策划案`;
