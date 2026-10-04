@@ -10,23 +10,25 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/fusion-pixel-zh.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./style.css?v=20261004-runner">
-  <link rel="stylesheet" href="./page-layouts.css?v=20261004-pages">
+  <link rel="stylesheet" href="./style.css?v=20261004-details">
+  <link rel="stylesheet" href="./page-layouts.css?v=20261004-details">
   <link rel="stylesheet" href="./tactile-desktop.css?v=20261004-tactile">
   <link rel="stylesheet" href="./night-sky.css?v=20261004-night">
+  <link rel="stylesheet" href="./sticker-feedback.css?v=20261004-feedback">
+  <link rel="stylesheet" href="./hud-typography.css?v=20261004-pixel-hud">
   <script src="./content.js" defer></script>
   <script src="./sticker-atlas.js?v=20261004-stickers" defer></script>
   <script src="./courier-atlas.js?v=20261004-runner" defer></script>
   <script src="./world-atlas.js?v=20261004-runner" defer></script>
-  <script src="./ui/hud-controls.js?v=20261004-tactile" defer></script>
+  <script src="./ui/hud-controls.js?v=20261004-details" defer></script>
   <script src="./window-motion.js?v=20261004-runner" defer></script>
-  <script src="./app.js?v=20261004-tactile" defer></script>
+  <script src="./app.js?v=20261004-details" defer></script>
   <script src="./routes.js?v=20261004-tactile" defer></script>
   <script src="./pixel-shader.js?v=20261004-night" defer></script>
   <script src="./motion.js?v=20261004-night" defer></script>
   <script src="./desktop.js?v=20261004-materials" defer></script>
-  <script src="./ui/sticker-icons.js?v=20261004-desktop-game" defer></script>
-  <script src="./platform-game.js?v=20261004-runner" defer></script>
+  <script src="./ui/sticker-icons.js?v=20261004-feedback" defer></script>
+  <script src="./platform-game.js?v=20261004-terrain" defer></script>
 </head>
 <body>
 <canvas id="pixel-field" aria-hidden="true"></canvas>
@@ -45,7 +47,6 @@
     <a class="desktop-file save-slot" href="#demos"><span class="file-icon sticker-icon" data-sticker="controller" aria-hidden="true"><svg viewBox="744 119 303 233" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>游戏原型</span><small class="pixel">PLAYROOM</small></a>
     <a class="desktop-file save-slot" href="#resume"><span class="file-icon sticker-icon" data-sticker="profile" aria-hidden="true"><svg viewBox="1102 144 291 205" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>个人简历</span><small class="pixel">PROFILE</small></a>
   </nav>
-  <p class="desktop-guide">点击图标打开 <span aria-hidden="true">·</span> <kbd>Esc</kbd> 返回桌面</p>
 </header>
 <aside class="desktop-welcome" aria-labelledby="welcome-heading"><span class="tape" aria-hidden="true"></span><h2 id="welcome-heading">欢迎来逛逛</h2><p>我的介绍、策划文档和游戏原型，都收在这里。</p><p class="welcome-postscript">慢慢翻，也可以先看小猫跑一会儿。</p><span class="pixel-sticker sticker-cat welcome-cat" aria-hidden="true"></span><span class="pixel-sticker sticker-stars welcome-stars" aria-hidden="true"></span></aside>
 </div>
@@ -87,7 +88,7 @@
 </dialog>
 </div>
 
-<dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="pixel" id="dialog-kind">DESIGN DOCUMENT</span><span id="detail-window-controls"><button class="button close-button" id="close-dialog" type="button" aria-label="关闭详情">关闭<span class="pixel">ESC</span></button></span></div><div class="dialog-content" id="dialog-content"></div></dialog>
+<dialog id="detail-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-kind">策划笔记</span><span id="detail-window-controls"><button class="paper-close" id="close-dialog" type="button" aria-label="关闭详情"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8"/></svg></button></span></div><div class="dialog-content" id="dialog-content"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

@@ -1,0 +1,49 @@
+/* Small pixel legends and a thin glass bezel belong to the desktop chrome.
+   Reading copy keeps the existing system font and line spacing. */
+@media screen{
+  :root{--hud-ink:#39576d;--hud-edge:rgba(255,255,255,.82);--hud-line:rgba(102,151,184,.24)}
+  .desktop-bar{border-color:var(--hud-edge);border-radius:7px;background:linear-gradient(180deg,rgba(251,254,255,.52),rgba(212,237,251,.24) 48%,rgba(202,230,249,.3));box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 var(--hud-line),0 4px 14px -8px rgba(46,86,119,.3);backdrop-filter:blur(16px) saturate(1.12);-webkit-backdrop-filter:blur(16px) saturate(1.12)}
+  .desktop-bar::before{content:'';position:absolute;inset:3px;border:1px solid rgba(255,255,255,.3);border-radius:4px;pointer-events:none}
+  .brand{font-family:Fusion,'Microsoft YaHei',sans-serif;font-size:18px;font-weight:400;letter-spacing:0;color:var(--ambient-foreground)}
+  .brand-sub{font-family:Pixel,Fusion,monospace;font-size:12px;line-height:1.2;letter-spacing:.08em;margin-top:4px}
+  .desktop-note{font-family:Fusion,'Microsoft YaHei',sans-serif;font-size:12px;line-height:1.6}
+  .desktop-heading{font-size:24px;line-height:1.5;letter-spacing:0;font-weight:400}
+  .desktop-scene .desktop-file>span:nth-child(2){font-size:12px;line-height:1.5;padding:4px 8px;color:var(--hud-ink);border:1px solid rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(107,153,183,.18)}
+  .desktop-scene .desktop-file small{font-family:Pixel,Fusion,monospace;font-size:12px;line-height:1.2;letter-spacing:.08em}
+  .header-contact{font-size:12px;line-height:1.5}
+  .fx-toggle{font-family:Pixel,Fusion,monospace;font-size:18px;letter-spacing:.03em}
+
+  #journal-dialog .journal-title{background:linear-gradient(180deg,rgba(249,253,255,.94),rgba(220,239,251,.82) 48%,rgba(200,227,245,.66));border-bottom:1px solid rgba(255,255,255,.88);box-shadow:inset 0 1px 0 #fff,0 1px 0 var(--hud-line);text-shadow:0 1px 0 rgba(255,255,255,.7)}
+  #window-filename{font-family:Pixel,Fusion,monospace;font-size:16px;font-weight:400;line-height:1.25;letter-spacing:.04em}
+  #journal-dialog .journal-title>span:first-child{min-width:0}
+  #window-filename{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #journal-window-controls{flex-shrink:0}
+  #close-journal.hud-button{min-width:64px;border-radius:4px!important}
+  #close-journal .keycap-face{border-radius:2px;background:linear-gradient(180deg,#fffefa,#e8eff7);box-shadow:0 2px 0 rgba(105,138,166,.48),inset 0 -1px 0 rgba(255,255,255,.84);gap:7px}
+  #close-journal:hover .keycap-face{background:linear-gradient(180deg,#fffefa,#f3e8f2)}
+  #close-journal:active .keycap-face,#close-journal.is-held .keycap-face{box-shadow:inset 0 1px 2px rgba(86,113,134,.24)}
+  #close-journal .keycap-legend{font-family:Pixel,Fusion,monospace;font-size:12px!important;line-height:1;letter-spacing:.04em}
+  #journal-dialog .paper-tabs a{font-size:12px;line-height:1.5;letter-spacing:0}
+  #journal-dialog :is(.surface-heading h2,.section-heading h2){font-family:Fusion,'Microsoft YaHei',sans-serif;font-size:24px;line-height:1.5;font-weight:400;letter-spacing:0}
+  .console-brand{font-family:Pixel,Fusion,monospace;letter-spacing:.08em}
+  .console-filters button{font-size:12px;line-height:1.5}
+  #dialog-kind{font-family:Fusion,'Microsoft YaHei',sans-serif;font-size:12px;line-height:1.5}
+  .detail-heading h2{font-size:24px;line-height:1.5}
+
+  [data-sky=night] .desktop-bar{border-color:rgba(156,185,223,.5);background:linear-gradient(180deg,rgba(53,76,109,.8),rgba(28,47,78,.73) 48%,rgba(24,42,72,.78));box-shadow:inset 0 1px 0 rgba(213,232,255,.32),inset 0 -1px 0 rgba(9,23,48,.36),0 4px 14px -8px rgba(4,12,33,.48)}
+  [data-sky=night] .desktop-bar::before{border-color:rgba(170,201,239,.13)}
+  [data-sky=night] #journal-dialog .journal-title{background:linear-gradient(180deg,rgba(70,94,126,.96),rgba(47,70,101,.94) 48%,rgba(34,56,85,.94));border-color:rgba(176,204,239,.36);box-shadow:inset 0 1px 0 rgba(218,234,255,.35),0 1px 0 rgba(10,24,43,.25);text-shadow:0 1px 0 rgba(12,27,47,.7)}
+}
+@media screen and (max-width:700px){
+  .brand{font-size:16px}.desktop-heading{font-size:24px}
+  .desktop-scene .desktop-file>span:nth-child(2){font-size:12px}
+  .desktop-scene .desktop-file small{font-size:12px}
+  #journal-dialog .paper-tabs a{font-size:12px;padding-right:7px;padding-left:7px}
+  .console-filters button{font-size:12px;padding-right:8px;padding-left:8px}
+}
+@media screen and (max-width:380px){
+  .brand{font-size:14px}.fx-toggle{font-size:16px}
+  #close-journal.hud-button{min-width:60px}
+  #journal-dialog .paper-tabs{gap:3px}
+  #journal-dialog .paper-tabs a{padding-right:5px;padding-left:5px}
+}
