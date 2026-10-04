@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "stylized-concept",
+  "purpose": "Original 12-sprite desktop and platform-game sticker atlas",
+  "originalPrompt": "Use case: stylized-concept. Asset type: one production-ready transparent pixel sticker sprite atlas for a pastel desktop portfolio and a side-scrolling platform game. Create exactly 12 original die-cut stickers arranged in an exact uniform 4-column by 3-row grid, landscape canvas, equal cells, no visible grid, each subject centered entirely inside its cell with at least 16% transparent padding on all sides. Row 1 left to right: cream spiral notebook; closed pink computer folder; lavender game controller; pale-blue profile ID card with a tiny cat portrait. Row 2: open pink folder front cover WITHOUT documents; two cream document sheets together; full-body side-view small white and pale-blue cat courier wearing a lavender satchel, facing right, feet visible; small pink jelly slime enemy. Row 3: short horizontal mint-grass and lavender-soil platform segment with a flat top edge; golden collectible five-point star; slim pale-blue flagpole with pink flag and a small base; tiny blue CRT computer with a cat beside it. Visual direction: delicate late-1990s pixel GUI meets Japanese scrapbook stickers, pale sky blue, blush pink, lavender, butter yellow and mint, muted blue-grey pixel contours, consistent crisp stepped pixel edges and sparse pixel highlights, thick clean off-white die-cut sticker border, a small soft contact shadow within each sticker, visually sophisticated rather than loud. Orthographic objects, readable at small sizes, genuine alpha transparency everywhere outside the stickers. No text, labels, watermarks, characters from existing franchises, checkerboard background, photographs, gradients behind subjects, decorative extra objects, UI windows or background scene. Notebook, folder and documents must look like separate usable game UI sticker assets. Courier cat, slime, platform, star and flag must share the same white sticker border and pixel-art palette.",
+  "editPrompt": "Clean up this transparent pixel sticker atlas for production. Preserve all 12 stickers, their exact positions, scale, shape, details, pastel palette, white die-cut border, and the 4-column by 3-row arrangement. Change ONLY the background and stray pixels: remove every scattered white speckle, cyan fleck, detached pixel, residual halo fragment and noise between the stickers. All padding and spaces between the 12 subjects must be completely clean alpha zero, no white background, no checkerboard. Keep each white border only as one contiguous outline immediately surrounding its own sticker. Keep genuine alpha transparency. Do not add, redraw, reposition, resize, merge or delete any sticker.",
+  "source": "C:/Users/caohua/.codex/generated_images/01a10248-ae01-7d30-a90e-87c21b0c1e4f/exec-a2f08a84-43a6-4578-aa58-a99b40cfab33.png",
+  "alpha": true,
+  "format": "RGBA PNG, original generated pixels preserved; runtime sprite bounds are in sticker-atlas.js",
+  "sprites": [
+    "notebook",
+    "folder",
+    "controller",
+    "profile",
+    "folderOpen",
+    "documents",
+    "courier",
+    "slime",
+    "platform",
+    "star",
+    "flag",
+    "computer"
+  ]
+}

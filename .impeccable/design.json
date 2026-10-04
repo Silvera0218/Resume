@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-03T16:21:15.481Z",
+  "generatedAt": "2026-10-04T03:46:52.6134609Z",
   "title": "Design System: 游戏策划 · 作品手账",
   "extensions": {
     "colorMeta": {
@@ -381,143 +381,94 @@
           "#f2eff3",
           "#fdfcfd"
         ]
-      },
-      "note-paper": {
-        "role": "neutral",
-        "displayName": "黄油色便笺",
-        "tonalRamp": [
-          "#211f26",
-          "#65636d",
-          "#8e8c99",
-          "#bcbac7",
-          "#d0cdd7",
-          "#e3dfe6",
-          "#f2eff3",
-          "#fdfcfd"
-        ]
-      },
-      "note-foreground": {
-        "role": "neutral",
-        "displayName": "便笺褐色文字",
-        "tonalRamp": [
-          "#211f26",
-          "#65636d",
-          "#8e8c99",
-          "#bcbac7",
-          "#d0cdd7",
-          "#e3dfe6",
-          "#f2eff3",
-          "#fdfcfd"
-        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "中文像素主标题",
-        "purpose": "首页 40px，手机 32px。"
+        "purpose": "现有 h1 基础样式，当前无 hero 或常驻首页大标题。",
+        "displayName": "基础大标题"
       },
       "headline": {
-        "displayName": "中文像素分区标题",
-        "purpose": "分区 30px，手机 25px。"
+        "purpose": "档案 h2，Fusion 像素字。",
+        "displayName": "章节标题"
       },
       "title": {
-        "displayName": "内容标题",
-        "purpose": "基础 h3 19px，具体条目使用已记录的紧凑尺寸。"
+        "purpose": "作品条目和内容 h3。",
+        "displayName": "条目标题"
       },
       "body": {
-        "displayName": "清晰正文",
-        "purpose": "Segoe UI / Microsoft YaHei 无衬线正文。"
+        "purpose": "简历、策划规则和详情说明。",
+        "displayName": "阅读正文"
       },
       "pixel-label": {
-        "displayName": "短英文像素标签",
-        "purpose": "VT323 / Fusion，用于文件名、装饰文案与短操作提示。"
+        "purpose": "文件名、短英文标签与 ESC。",
+        "displayName": "短像素标签"
       }
     },
     "shadows": [
       {
-        "name": "glass-shadow",
+        "purpose": "档案外框与详情。",
         "value": "0 24px 46px -14px rgba(40,79,108,.27),0 5px 12px -4px rgba(40,79,108,.17)",
-        "purpose": "玻璃窗口与 dialog。"
+        "name": "glass"
       },
       {
-        "name": "paper-shadow",
+        "purpose": "正文纸页与状态提示。",
         "value": "0 3px 8px rgba(64,85,111,.09),0 18px 28px -20px rgba(64,85,111,.26)",
-        "purpose": "阅读纸页与 Toast。"
+        "name": "paper"
       },
       {
-        "name": "memo-shadow",
+        "purpose": "自我介绍内的身份便签。",
         "value": "0 1px 1px rgba(149,100,127,.12),2px 6px 9px -5px rgba(118,79,102,.24),7px 15px 18px -16px rgba(118,79,102,.32)",
-        "purpose": "粉色身份便签。"
-      },
-      {
-        "name": "note-shadow",
-        "value": "1px 1px 1px rgba(135,124,85,.1),3px 8px 13px -5px rgba(109,106,84,.2)",
-        "purpose": "黄色提醒纸。"
-      },
-      {
-        "name": "document-hover",
-        "value": "0 6px 12px rgba(71,99,125,.12)",
-        "purpose": "封面转正时的纸影。"
+        "name": "memo"
       }
     ],
     "motion": [
       {
-        "name": "ease",
+        "purpose": "统一状态过渡。",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "控件和页面进入缓动。"
+        "name": "ease"
       },
       {
-        "name": "control",
-        "value": "200ms",
-        "purpose": "按钮背景与位移。"
+        "purpose": "CSS HUD 按钮位移与阴影反馈。",
+        "value": "180ms",
+        "name": "hud-feedback"
       },
       {
-        "name": "paper-tab",
-        "value": "250ms",
-        "purpose": "纸签上移 5px。"
+        "purpose": "从触发图标或按钮展开原生窗口；减少动态效果时淡入。",
+        "value": "420ms / reduced 100ms",
+        "name": "archive-open"
       },
       {
-        "name": "document",
+        "purpose": "阅读章节切换。",
         "value": "300ms",
-        "purpose": "文档封面转正与纸影。"
+        "name": "paper-turn"
       },
       {
-        "name": "page-turn",
-        "value": "300ms",
-        "purpose": "页面轻微裁切、透明度与 4px 横移；FX-off 取消。"
+        "purpose": "共享本地 Three 画布仅在图标状态变化与过渡期间绘制。",
+        "value": "state-driven",
+        "name": "icon-state"
       },
       {
-        "name": "sky-frame-gate",
-        "value": "32ms",
-        "purpose": "目标约 30fps，后台、FX-off 和系统 reduced-motion 停止循环。"
-      },
-      {
-        "name": "click-feedback",
-        "value": "550ms",
-        "purpose": "12 个点击像素粒子的生命周期。"
-      },
-      {
-        "name": "toast-visible",
-        "value": "1800ms",
-        "purpose": "FX 状态提示显示时长。"
+        "purpose": "自动场景暂停条件。",
+        "value": "dialog-open | fx-off | reduced-motion | hidden",
+        "name": "ambient-pause"
       }
     ],
     "breakpoints": [
       {
-        "name": "mobile-stack",
-        "value": "700px"
+        "purpose": "横排入口、44px 贴纸区域与单列阅读。",
+        "value": "700px",
+        "name": "mobile"
       },
       {
-        "name": "hide-desktop-extras",
-        "value": "960px"
+        "purpose": "纵排入口与54px贴纸区域。",
+        "value": "701px",
+        "name": "desktop-menu"
       },
       {
-        "name": "compact-desktop",
-        "value": "1100px"
-      },
-      {
-        "name": "wide-desktop-offset",
-        "value": "1500px"
+        "purpose": "正文纸页 8px 圆角。",
+        "value": "961px",
+        "name": "wide-paper"
       }
     ],
     "paletteSource": {
@@ -547,7 +498,8 @@
       "pageChrome": 2,
       "particles": 8,
       "toast": 30,
-      "dialog": "Native browser top layer"
+      "dialog": "Native browser top layer",
+      "ambientPlatform": 1
     },
     "assetSources": [
       {
@@ -555,8 +507,7 @@
         "type": "original generated raster",
         "tool": "image_gen (built-in)",
         "promptSidecar": "dist/assets/journal-stickers.webp.json",
-        "use": "Transparent 2×2 CSS sprite sheet; pixelated rendering.",
-        "license": "Prompt sidecar records generation provenance; no separate license field."
+        "use": "Transparent 2×2 CSS sprite sheet; pixelated rendering."
       },
       {
         "path": "dist/assets/VT323-Regular.ttf",
@@ -573,6 +524,26 @@
         "path": "dist/assets/binder-ring.svg",
         "type": "original SVG geometry",
         "use": "Repeating metallic notebook binding rings."
+      },
+      {
+        "path": "dist/assets/desktop-stickers-v2.png",
+        "type": "original transparent generated pixel atlas",
+        "tool": "built-in image_gen",
+        "sprites": 12,
+        "manifest": "dist/sticker-atlas.js",
+        "promptSidecar": "dist/assets/desktop-stickers-v2.png.json",
+        "provenance": "Generation prompts embedded in PNG metadata and saved in JSON.",
+        "use": "Four shortcuts, folder opening layers, courier, slime, platform, star and flag."
+      },
+      {
+        "path": "dist/assets/world-stickers.png",
+        "type": "original transparent generated pixel atlas",
+        "tool": "built-in image_gen",
+        "sprites": 16,
+        "manifest": "dist/world-atlas.js",
+        "promptSidecar": "dist/assets/world-stickers.png.json",
+        "provenance": "Generation prompts embedded in PNG metadata and saved in JSON.",
+        "use": "Running/jump poses, open notebook, grass/meadow/cloud terrain and scene props."
       }
     ],
     "implementation": {
@@ -580,6 +551,7 @@
       "stylesheet": "dist/style.css",
       "routes": [
         "home",
+        "about",
         "plans",
         "demos",
         "resume",
@@ -587,155 +559,109 @@
       ],
       "content": "dist/content.js",
       "status": "Identity, achievements, projects, email and file links are pending placeholders.",
-      "renderer": "Original native WebGL cloud projection, plus native Canvas particles; no runtime dependency.",
-      "evidence": ".impeccable/review/material-desktop-final.png",
-      "materialScript": "dist/desktop.js"
+      "renderer": "Native WebGL sky and Canvas particles; local Three bundle for shared sticker icons; native Canvas automatic platform scene.",
+      "react": "src/hud-controls.jsx: archive and detail close buttons.",
+      "iconSource": "src/sticker-icons.js",
+      "game": "dist/platform-game.js",
+      "materialScript": "dist/desktop.js",
+      "surface": ".impeccable/surfaces/portfolio.md"
     },
     "accessibility": {
       "focus": "2px Sky 11 outline with 4px offset.",
       "minimumControlHeight": "44px",
       "navigation": "Arrow keys cycle shelf focus; hash changes focus page heading and update aria-current.",
-      "dialog": "Native showModal, initial close-button focus, Escape and outside close, background scroll lock, trigger focus restoration.",
+      "dialog": "Native showModal, visible React close controls, Escape, heading focus for archives, and trigger focus restoration.",
       "motion": "prefers-reduced-motion overrides user FX preference; background visibility pauses rendering.",
       "status": "Toast role=status, aria-live=polite; unavailable links use aria-disabled and tabIndex -1.",
       "print": "Only white-background resume content prints."
-    },
-    "desktopMaterials": {
-      "glassBlur": "22px saturate(1.18)",
-      "paperTexture": "Deterministic 128px fibre tile, generated once by Canvas.",
-      "binding": "dist/assets/binder-ring.svg, original metallic geometry.",
-      "movableWindows": [
-        "playroom-window",
-        "sticker-tray"
-      ],
-      "keyboard": "Arrow keys move 12px; Enter or Escape resets.",
-      "desktopMinimumWidth": "961px",
-      "mobile": "Non-focusable static title bars; no window dragging.",
-      "motion": "Pointer reflection follows mouse only; FX-off and reduced-motion stop tracking.",
-      "ambientText": "#334f64",
-      "glassText": "#39566c"
     }
   },
   "components": [
     {
-      "name": "主操作按钮",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "用于已有试玩、附件和联系操作；空链接使用明确待添加状态。",
-      "html": "<button class=\"ds-btn ds-primary\">在线试玩</button>",
-      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-primary{background:var(--primary,#7ce2fe);color:var(--primary-foreground,#1d3e56);border-color:var(--sky-8,#60b3d7)}.ds-primary:hover{background:var(--sky-10,#74daf8)}"
-    },
-    {
-      "name": "普通按钮",
+      "name": "浅蓝按钮",
       "kind": "button",
       "refersTo": "button",
-      "description": "浅蓝操作面，最小高度 44px。",
-      "html": "<button class=\"ds-btn ds-default\">关闭详情</button>",
-      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-default{background:var(--sky-3,#e1f6fd);color:var(--foreground,#334657)}"
+      "description": "常规纸页操作，最小高度44px。",
+      "html": "<button class=\"ds-button\">查看作品</button>",
+      "css": ".ds-button{min-height:44px;padding:10px 16px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.02)),var(--sky-3);color:var(--foreground);font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -1px 0 rgba(121,169,194,.16),0 2px 3px rgba(72,114,140,.05);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-button:hover{background:var(--sky-4);transform:translateY(-2px)}.ds-button:active{background:var(--sky-5);transform:translateY(1px)}.ds-button:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
     },
     {
-      "name": "次级按钮",
+      "name": "主按钮",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "透白按钮用于打印简历和桌面试玩室入口。",
-      "html": "<button class=\"ds-btn ds-secondary\">打印简历</button>",
-      "css": ".ds-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border:1px solid var(--border,#8dcae3);border-radius:6px;font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--sky-4,#d1f0fa);transform:translateY(-2px)}.ds-btn:active{background:var(--sky-5,#bee7f5);transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px}.ds-btn:disabled{background:var(--mauve-3,#f2eff3);color:#68717b;cursor:default;pointer-events:none}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-secondary{background:rgba(255,255,255,.6);color:var(--foreground,#334657)}"
+      "refersTo": "button-primary",
+      "description": "PDF、试玩或联系操作。",
+      "html": "<button class=\"ds-primary\">打开附件</button>",
+      "css": ".ds-primary{min-height:44px;padding:10px 16px;border:1px solid var(--sky-8);border-radius:6px;background:var(--primary);color:var(--primary-foreground);font:12px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-primary:hover{background:var(--sky-10);transform:translateY(-2px)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
     },
     {
-      "name": "文字操作",
+      "name": "HUD关闭按钮",
       "kind": "button",
-      "description": "纸页内的项目结构预览操作。",
-      "html": "<button class=\"ds-text\">预览展示结构<svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M3 13 13 3M3 3h10v10\"/></svg></button>",
-      "css": ".ds-text{min-height:44px;display:inline-flex;align-items:center;gap:10px;border:0;background:none;padding:7px 0;font:12px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--accent-text,#00749e);cursor:pointer}.ds-text svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-text:hover{text-decoration:underline}.ds-text:hover svg{transform:translate(2px,-2px)}.ds-text:focus-visible{outline:2px solid var(--sky-11,#00749e);outline-offset:4px;border-radius:3px}.ds-text:active{color:var(--sky-12,#1d3e56)}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none}}"
+      "refersTo": "button",
+      "description": "原生档案与详情的React/CSS关闭控件。",
+      "html": "<button class=\"ds-close\" aria-label=\"关闭档案\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 4 8 8m0-8-8 8\"/></svg><span>ESC</span></button>",
+      "css": ".ds-close{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:54px;min-height:44px;padding:6px 8px;border:1px solid rgba(250,254,255,.94);border-radius:5px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.15) 45%,rgba(134,189,219,.16)),var(--sky-3);color:var(--foreground);box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(113,164,196,.25),0 3px 6px -3px rgba(57,107,146,.34);transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s,filter .18s;cursor:pointer}.ds-close span{font:16px Pixel,Fusion,monospace;letter-spacing:.04em}.ds-close:hover{filter:brightness(1.03);transform:translateY(-2px)}.ds-close:active{transform:translateY(1px);box-shadow:inset 0 2px 4px rgba(95,147,180,.22),inset 0 -1px 0 rgba(255,255,255,.7),0 1px 2px rgba(57,107,146,.14)}.ds-close:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}"
     },
     {
-      "name": "桌面快捷图标",
+      "name": "章节纸签",
       "kind": "nav",
-      "refersTo": "desktop-file",
-      "description": "中文名称与 Pixel 短标签共同标明档案；当前页使用透白内边框。",
-      "html": "<nav class=\"ds-shelf\" aria-label=\"主导航\"><a class=\"ds-file\" href=\"#plans\" aria-current=\"page\"><span><svg width=\"30\" height=\"26\" viewBox=\"0 0 30 26\" aria-hidden=\"true\"><path d=\"M2 7V2h12v5h14v17H2z\" fill=\"#f3d8e6\" stroke=\"#b18ba5\" stroke-width=\"2\"/></svg></span><span>策划案作品集</span><small>DESIGN DOCS</small></a></nav>",
-      "css": ".ds-shelf{display:flex;flex-direction:column;align-items:center;gap:8px;padding:0}.ds-file{position:relative;display:flex;flex-direction:column;justify-content:center;gap:7px;align-items:center;width:120px;min-height:100px;border-radius:4px;padding:12px 4px;transition:transform .2s var(--ease)}.ds-file::before{content:'';position:absolute;inset:3px 4px;pointer-events:none;border:1px dashed transparent;border-radius:4px;background:transparent;transition:background .2s,border-color .2s}.ds-file:hover{transform:translateY(-3px)}.ds-file:hover::before{border-color:rgba(255,255,255,.8);background:rgba(255,255,255,.12)}.ds-file:active{transform:translateY(1px)}.ds-file[aria-current=page]::before{border-color:rgba(71,133,171,.5);background:rgba(239,250,255,.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}.ds-file>span:nth-child(2){font-size:12px;white-space:nowrap;line-height:1.4;position:relative;padding:2px 5px;border-radius:2px;background:rgba(242,250,255,.6);color:#354f64}.ds-file small{position:relative;font-size:11px;color:var(--ambient-foreground,#334f64);line-height:1.3;margin-top:-5px}.ds-file{text-decoration:none;font-family:sans-serif}.ds-file:focus-visible{outline:2px solid #00749e;outline-offset:4px}"
+      "description": "阅读窗口内四个章节入口，允许换行。",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"手账章节\"><a href=\"#about\" aria-current=\"page\">自我介绍</a><a href=\"#plans\">策划文档</a><a href=\"#demos\">原型与实验</a><a href=\"#resume\">个人简历</a></nav>",
+      "css": ".ds-tabs{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:5px;padding:8px 8px 0}.ds-tabs a{display:flex;align-items:center;min-height:40px;padding:8px 12px;border:1px solid rgba(255,255,255,.6);border-radius:4px;background:var(--pink-4);color:var(--foreground);font:11px/1.5 'Segoe UI','Microsoft YaHei',sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),2px 1px 4px rgba(88,112,133,.08);transform:rotate(-1deg);transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-tabs a:nth-child(2){background:var(--sky-4)}.ds-tabs a:nth-child(3){background:#ece5f4}.ds-tabs a:hover,.ds-tabs a[aria-current=page]{transform:translateY(-2px)}.ds-tabs a:focus-visible{outline:2px solid var(--sky-11);outline-offset:4px}.ds-tabs a:active{transform:translateY(1px)}"
     },
     {
-      "name": "Demo 分类标签",
+      "name": "分类标签",
       "kind": "chip",
       "refersTo": "demo-chip",
-      "description": "仅展示原型分类，没有筛选行为。",
-      "html": "<span class=\"ds-chip\">玩法实验</span>",
-      "css": ".ds-chip{display:inline-block;background:var(--pink-3,#fee9f5);color:var(--memo-foreground,#75475f);padding:3px 7px;border-radius:3px;font:10px/1.7 'Segoe UI','Microsoft YaHei',sans-serif}"
+      "description": "Demo类别展示，静态标签。",
+      "html": "<span class=\"ds-chip\">机制实验</span>",
+      "css": ".ds-chip{display:inline-block;padding:3px 7px;border-radius:3px;background:var(--pink-3);color:var(--memo-foreground);font:10px/1.5 'Segoe UI','Microsoft YaHei',sans-serif}"
     },
     {
-      "name": "毛玻璃窗口",
+      "name": "玻璃档案外框",
       "kind": "card",
       "refersTo": "glass-window",
-      "description": "Sky alpha 标题栏与半透明玻璃框。装饰窗控件为非交互图形。",
-      "html": "<div class=\"ds-glass\"><div class=\"ds-title\"><span>portfolio.journal</span></div><div class=\"ds-window-content\">作品手账</div></div>",
-      "css": ".ds-glass{position:relative;background:radial-gradient(ellipse at var(--light-x,22%) var(--light-y,0%),rgba(255,255,255,.45),transparent 62%),linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.04) 38%,rgba(202,228,246,.18) 66%,rgba(255,255,255,.23)),var(--glass);border:1px solid var(--glass-edge);border-bottom-color:rgba(139,181,207,.52);border-right-color:rgba(173,210,232,.65);border-radius:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.94),inset 1px 0 0 rgba(255,255,255,.64),inset 0 -1px 0 rgba(255,255,255,.45),var(--glass-shadow);backdrop-filter:blur(22px) saturate(1.18);-webkit-backdrop-filter:blur(22px) saturate(1.18);overflow:hidden}.ds-glass::before{content:'';position:absolute;inset:3px;border:1px solid rgba(255,255,255,.32);border-radius:8px;pointer-events:none;z-index:6}.ds-title{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px;padding:8px 12px;font-size:13px;color:var(--glass-foreground,#39566c);background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(200,230,247,.14));border-bottom:1px solid rgba(128,171,198,.2);box-shadow:0 1px 0 rgba(255,255,255,.5);line-height:1.3;text-shadow:0 1px 0 rgba(255,255,255,.8)}.ds-window-content{padding:16px;font:14px/1.7 sans-serif}.ds-glass{color:#334657}.ds-title{font-family:Pixel,Fusion,monospace}"
-    },
-    {
-      "name": "身份便签",
-      "kind": "custom",
-      "refersTo": "memo",
-      "description": "粉色虚线纸、半透明胶带与小角度旋转。",
-      "html": "<div class=\"ds-memo\"><span class=\"ds-tape\" aria-hidden=\"true\"></span><strong>姓名待填写</strong><p>从设计文档到可玩的原型。<br>把规则、实验与迭代，放在同一页。</p></div>",
-      "css": ".ds-memo{position:relative;max-width:440px;background-image:var(--paper-grain,none),linear-gradient(165deg,rgba(255,255,255,.48),transparent 70%,rgba(185,113,147,.08));background-color:var(--memo);color:var(--memo-foreground);margin:25px 12px 29px 0;padding:24px 27px 22px;transform:rotate(-1.5deg);box-shadow:0 1px 1px rgba(149,100,127,.12),2px 6px 9px -5px rgba(118,79,102,.24),7px 15px 18px -16px rgba(118,79,102,.32);border:1px solid rgba(223,180,204,.4);border-top-color:rgba(255,255,255,.8)}.ds-memo::after{content:'';position:absolute;bottom:-1px;right:-1px;width:22px;height:22px;background:linear-gradient(135deg,transparent 48%,#ddb9ca 49%,#f8dce9 54%,#fdebf3 69%,var(--paper) 71%);pointer-events:none}.ds-tape{position:absolute;left:calc(50% - 40px);top:-12px;width:80px;height:25px;background:var(--paper-grain,none),linear-gradient(0deg,rgba(177,209,221,.62),rgba(213,234,240,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.5);transform:rotate(-5deg);clip-path:polygon(0 4%,4% 10%,1% 21%,4% 35%,0 48%,3% 60%,1% 74%,4% 85%,0 96%,100% 100%,96% 86%,99% 75%,96% 62%,100% 47%,97% 35%,100% 19%,96% 8%,100% 0);pointer-events:none}.ds-memo{margin:24px 8px}.ds-memo strong{font:400 20px/1.7 Fusion,sans-serif}.ds-memo p{margin:12px 0 0;font:13px/1.9 sans-serif}"
-    },
-    {
-      "name": "装订纸页",
-      "kind": "custom",
-      "description": "实心奶油白阅读面，用装订孔和粉色细线建立手账材质。",
-      "html": "<div class=\"ds-paper\"><h2>策划案作品集</h2><p>设计目标、规则与验证过程。</p></div>",
-      "css": ".ds-paper{position:relative;min-height:200px;margin-top:5px;background-image:var(--paper-grain,none),linear-gradient(110deg,rgba(224,217,201,.13),transparent 13%,rgba(255,255,255,.45) 45%,rgba(225,219,204,.06));background-color:var(--paper);border:1px solid rgba(240,235,223,.9);border-radius:3px 4px 5px 3px;padding:32px 34px 24px 53px;box-shadow:inset 1px 0 0 #fff,inset 0 -1px 0 rgba(177,170,151,.08),var(--paper-shadow);z-index:1}.ds-paper::before{content:'';position:absolute;left:11px;top:30px;bottom:25px;width:16px;background:radial-gradient(circle at 8px 12px,#9fb6c5 0 2px,#c7d7df 3px 4px,#f5f2e9 4.5px 5px,transparent 6px);background-size:16px 58px}.ds-paper::after{content:'';position:absolute;left:38px;top:18px;bottom:18px;width:1px;background:var(--pink-6)}.ds-paper h2{margin:0;font:400 30px/1.4 Fusion,sans-serif}.ds-paper p{font:12px/1.7 sans-serif}"
-    },
-    {
-      "name": "文档封面",
-      "kind": "card",
-      "description": "纸页条目的轻微倾斜封面，悬停转正并出现纸影。",
-      "html": "<div class=\"ds-cover\"><span>SYSTEM<br>DESIGN</span><small>DESIGN DOC<br>文档封面展示位</small></div>",
-      "css": ".ds-cover{position:relative;width:126px;min-height:155px;padding:17px 13px;background:var(--sky-3,#e1f6fd);border:1px solid var(--sky-6,#a9daed);border-radius:2px;transform:rotate(-2deg);overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;color:var(--foreground,#334657)}.ds-cover:before{content:'';position:absolute;top:0;bottom:0;left:9px;width:1px;background:var(--sky-7,#8dcae3)}.ds-cover>span{display:block;margin-left:7px;font:23px/1.05 Pixel,Fusion,monospace;letter-spacing:.04em}.ds-cover small{position:absolute;bottom:15px;left:20px;right:8px;font:9px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;color:var(--muted-foreground,#596774)}.ds-cover:hover{transform:rotate(0);box-shadow:0 6px 12px rgba(71,99,125,.12)}@media(prefers-reduced-motion:reduce){.ds-cover{transition:none}}"
+      "description": "18px模糊、双白边与环境阴影，正文另置实心纸页。",
+      "html": "<div class=\"ds-glass\"><div class=\"ds-title\">about_me.journal</div><div class=\"ds-paper\">奶油色阅读纸页</div></div>",
+      "css": ".ds-glass{position:relative;padding:0 9px 12px;border:1px solid var(--glass-edge);border-radius:11px;background:linear-gradient(115deg,rgba(255,255,255,.3),rgba(170,217,250,.12) 54%,rgba(255,255,255,.22) 56%),var(--glass);color:var(--foreground);backdrop-filter:blur(18px) saturate(1.28);box-shadow:inset 0 2px 3px rgba(255,255,255,.88),inset 2px 0 2px rgba(255,255,255,.48),inset 0 -2px 3px rgba(146,193,226,.24),var(--glass-shadow)}.ds-glass:before{content:'';position:absolute;inset:3px;border:1px solid rgba(255,255,255,.48);border-radius:8px;pointer-events:none}.ds-title{margin:0 -9px;padding:12px;background:linear-gradient(180deg,#f2fbff,#d4eafb);font:13px/1.3 Pixel,Fusion,monospace}.ds-paper{position:relative;margin-top:8px;padding:24px 34px;background:var(--paper);border-radius:8px;box-shadow:var(--paper-shadow);font:14px/1.7 'Segoe UI','Microsoft YaHei',sans-serif}"
     }
   ],
   "narrative": {
     "northStar": "天空上的作品手账",
-    "overview": "淡蓝像素云铺满屏幕，毛玻璃窗口承载导航与工具，奶油色纸页承载正文。桌面上的文件架、手账、便签和像素贴纸形成轻松的游戏策划工作台。像素轮廓集中在标题、短英文标签和装饰，长段说明保持清晰的无衬线字形。\n\n这套系统服务于招聘者阅读简历、策划文档和试玩原型。错落与倾斜属于桌面构图；手机将入口和内容按阅读顺序展开。当前内容来自 `dist/content.js` 的待填写框架，资料、链接和成果状态由实际内容决定。",
+    "overview": "淡蓝像素云铺满屏幕，原创贴纸标记入口，毛玻璃承载工具与档案外框，奶油色纸页承载正文。画面保留宽阔天空，资料在需要阅读时打开。像素字用于标题和短标签，长段说明使用清晰的无衬线正文。\n\n白色双边玻璃、装订孔、叠页和贴纸接触阴影形成材质层次。入口动效与下沿自动场景提供游戏气氛，静态状态保留同样的内容和阅读路径。",
     "keyCharacteristics": [
-      "全屏淡蓝像素云，毛玻璃 HUD 窗口与奶油色阅读纸页。",
-      "中文像素标题、英文像素标签与清晰的无衬线正文。",
-      "粉色便签、淡紫纸签、装订孔和原创像素贴纸。",
-      "桌面窗口错落叠放，手机使用原生单列阅读布局。",
-      "FX 本地偏好、系统减少动态效果与后台暂停共同控制天空和粒子。"
+      "淡蓝像素天空、透蓝玻璃与实心奶油纸。",
+      "原创贴纸、短像素标签和无衬线正文。",
+      "清晰的桌面入口与按需打开的阅读窗口。",
+      "图标局部反馈、有限的纸页转场与统一 FX 偏好。"
     ],
     "rules": [
       {
+        "body": "长段正文放在实心纸页上，天空透光留给工具与窗口边框。",
         "name": "The Paper Contrast Rule",
-        "body": "正文放在纸页或明确的窗口内容面上；天空透光留给玻璃边框与工具区域。",
         "section": "colors"
       },
       {
-        "name": "The Short Pixel Rule",
         "body": "像素字体用于标题、短标签与短句；策划规则、简历经历和详情字段使用正文栈。",
+        "name": "The Short Pixel Rule",
         "section": "typography"
       },
       {
+        "body": "body 保持透明并隔离堆叠。CSS 天空在 (z-index 0)，WebGL 天空和下沿自动场景在 (1)，桌面内容在 (2)，粒子在 (8)。原生模态窗口使用浏览器 top layer。",
         "name": "The Sky Layer Rule",
-        "body": "根元素保留固定天空渐变；body 使用透明背景与隔离堆叠上下文。CSS 天空在 z-index 0，WebGL 天空在 1，页面工具与主工作台在 2，粒子在 8。Toast 在 30，原生模态 dialog 使用浏览器 top layer。天空不依赖负 z-index。",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** 沿用 Sky / Mauve / Pink 语义映射，并保留作者定义的奶油纸、莓灰文字与雾白玻璃材质。",
-      "**Do** 将正文放在清晰纸页上，将透光和模糊用于窗口外框与工具面。",
-      "**Do** 保持标题、短标签和贴纸的像素轮廓，让长段正文使用无衬线字体。",
-      "**Do** 保持根天空、CSS 天空、WebGL 天空和页面内容的明确层序。",
-      "**Do** 遵循 FX、减少动态效果、后台暂停、键盘焦点与待添加状态。",
-      "**Do** 在手机按阅读顺序展开窗口，保留至少 44px 的操作高度和全部内容路由。"
+      "**Do** 延续 Sky、Mauve、Pink 语义色和透蓝玻璃、奶油纸、原创贴纸材质。",
+      "**Do** 将长段阅读内容放在实心纸页，保留像素标题与无衬线正文的分工。",
+      "**Do** 保持图标局部反馈、清晰键盘焦点、可关闭阅读窗口与打印简历。",
+      "**Do** 保留 FX、减少动态效果、后台暂停与静态回退。"
     ],
     "donts": [
-      "**Don't** 恢复旧的深色 Sage / Jade / Mint 庭院视觉或将未加载的旧资产写成当前组件。",
-      "**Don't** 用不透明 body 背景盖住天空，或把天空放入负 z-index 层。",
-      "**Don't** 给装饰窗口控件和贴纸添加虚假的操作语义。",
-      "**Don't** 用像素字体排长段策划正文，或让动效成为访问内容的前提。",
-      "**Don't** 将占位文案、空链接或装饰资产描述成真实项目、成绩与经历。"
+      "**Don't** 用不透明 body 背景覆盖天空，或把天空放入负 z-index。",
+      "**Don't** 为贴纸装饰增加虚假按钮语义，或用栅格贴纸替代真实控件。",
+      "**Don't** 用像素字体排长段正文，或让动效成为访问内容的前提。",
+      "**Don't** 把待填写资料、空链接或装饰场景描述成真实项目与成绩。"
     ]
   }
 }
