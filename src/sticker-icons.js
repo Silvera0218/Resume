@@ -1,4 +1,5 @@
 import {WebGLRenderer,Scene,OrthographicCamera,Group,PlaneGeometry,Mesh,MeshBasicMaterial,CanvasTexture,NearestFilter,SRGBColorSpace,DoubleSide} from 'three';
+import './sticker-feedback.js';
 
 // 一个共享的透明 Three.js 画布，只在触碰、焦点或路由变化时绘制。
 const host=document.querySelector('.site-header nav');
@@ -21,7 +22,7 @@ Promise.all([loadImage(image,window.STICKER_ATLAS.url),loadImage(worldImage,wind
   }
   function plane(name,size){const [, ,w,h]=window.STICKER_ATLAS.sprites[name]||window.WORLD_ATLAS.sprites[name],scale=size/Math.max(w,h);return new Mesh(new PlaneGeometry(w*scale,h*scale),new MeshBasicMaterial({map:texture(name),transparent:true,alphaTest:.04,side:DoubleSide,depthWrite:false}));}
   let frame=0,last=0;
-  const items=[...host.querySelectorAll('.desktop-file')].map(link=>{
+  const items=[...host.querySelectorAll('.desktop-file')].filter(link=>!link.querySelector('.css-sticker')).map(link=>{
     const target=link.querySelector('[data-sticker]'),group=new Group(),name=target.dataset.sticker;
     const art=plane(name,54);group.add(art);scene.add(group);
     const item={link,target,group,art,name,hover:false,focus:false,touch:false,t:0,px:0,py:0};
@@ -58,7 +59,7 @@ Promise.all([loadImage(image,window.STICKER_ATLAS.url),loadImage(worldImage,wind
       if(Math.abs(item.t-goal)>.002)moving=true;else item.t=goal;
       item.group.position.set(item.baseX,item.baseY+item.t*4,0);
       item.group.scale.setScalar(item.size*(1+item.t*.08));
-      item.group.rotation.set(staticMotion?0:item.py*-.25,staticMotion?0:item.px*.3,item.name==='controller'?-item.t*.08:0);
+      item.group.rotation.set(staticMotion?0:item.py*-.25,staticMotion?0:item.px*.3,0);
       if(item.papers){item.art.material.opacity=1-item.t;item.cover.material.opacity=item.t;item.papers.material.opacity=item.t;item.papers.position.y=5+item.t*24;item.papers.rotation.z=item.t*-.12;item.hinge.rotation.x=item.t*-.65;}
       if(item.openBook){item.art.rotation.y=-item.t*1.4;item.art.material.opacity=1-item.t;item.openBook.material.opacity=item.t;item.openBook.scale.x=.7+item.t*.3;}
     }

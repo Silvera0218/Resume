@@ -51,16 +51,17 @@
   const completedDemos = data.demos.filter(d => safeUrl(d.playUrl)).length;
   if (completedPlans) $('#plans .section-status').textContent = `${completedPlans} 份策划案`;
   if (completedDemos) $('#demos .section-status').textContent = `${completedDemos} 个可试玩原型`;
-  function linkButton(label, value, pending) {const url = safeUrl(value); return url ? `<a class="button primary" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${label}</a>` : `<span class="pending-attachment">${pending}</span>`;}
-  const fields = (items) => `<div class="detail-grid">${items.map(([name,value,hint]) => `<section class="detail-field"><h3>${name}</h3><p>${escape(value || hint)}</p></section>`).join('')}</div>`;
+  const fields = (items) => `<div class="detail-body">${items.map(([name,value,hint]) => `<section class="detail-field"><h3>${name}</h3><p>${escape(value || hint)}</p></section>`).join('')}</div>`;
   const dialog = $('#detail-dialog'); let lastTrigger;
   document.addEventListener('click', event => {
     const trigger = event.target.closest('[data-detail]'); if(!trigger) return;
     lastTrigger = trigger;
     const kind = trigger.dataset.kind; const item = (kind === 'plan' ? data.plans : data.demos).find(p => p.id === trigger.dataset.detail); if(!item) return;
-    $('#dialog-kind').textContent = kind === 'plan' ? 'DESIGN DOCUMENT' : 'GAME PROTOTYPE';
+    $('#dialog-kind').textContent = kind === 'plan' ? '策划笔记' : '原型笔记';
+    dialog.dataset.kind = kind;
     const sectionFields = kind === 'plan' ? [['设计目标',item.goal,'待填写：目标玩家、具体问题与设计目标。'],['核心循环',item.loop,'待填写：玩家行为、规则响应与奖励反馈。'],['系统规则',item.rules,'待填写：流程、条件、数值与边界情况。'],['验证与迭代',item.validation,'待填写：测试方式、观察结果与调整依据。']] : [['验证目标',item.goal,'待填写：这个原型要验证的设计假设。'],['操作与玩法',item.controls,'待填写：输入方式、目标与核心规则。'],['职责与工具', [item.role,item.engine].filter(Boolean).join(' / '),'待填写：个人贡献、引擎与开发工具。'],['测试与迭代',item.iteration,'待填写：测试反馈、修改内容与结论。']];
-    $('#dialog-content').innerHTML = `<h2 id="dialog-title">${escape(item.title)}</h2><div class="dialog-status">${item.goal ? escape(item.category) : '内容提纲 · 项目待补充'}</div><p>${escape(item.summary)}</p>${fields(sectionFields)}<div class="detail-actions">${kind === 'plan' ? linkButton('阅读完整文档',item.documentUrl,'文档附件待添加') : [linkButton('在线试玩',item.playUrl,'试玩地址待添加'),linkButton('下载 Demo',item.downloadUrl,'下载文件待添加'),linkButton('观看演示',item.videoUrl,'演示视频待添加')].join('')}</div>`;
+    const attachments = (kind === 'plan' ? [['阅读完整文档',item.documentUrl]] : [['在线试玩',item.playUrl],['下载 Demo',item.downloadUrl],['观看演示',item.videoUrl]]).filter(([,url]) => safeUrl(url));
+    $('#dialog-content').innerHTML = `<header class="detail-heading"><span class="tape" aria-hidden="true"></span><span class="pixel-sticker ${kind === 'plan' ? 'sticker-folder' : 'sticker-stars'} detail-sticker" aria-hidden="true"></span><h2 id="dialog-title">${escape(item.title)}</h2><p class="dialog-status">${escape(item.category)}${item.goal ? '' : ' · 内容待补充'}</p><p class="detail-summary">${escape(item.summary)}</p></header>${fields(sectionFields)}<footer class="detail-attachments">${attachments.length ? `<h3>附件与链接</h3><div class="detail-actions">${attachments.map(([label,url]) => `<a class="detail-link" href="${escape(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${label}<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 13 13 3M3 3h10v10"/></svg></a>`).join('')}</div>` : '<p class="detail-pending">附件待添加</p>'}</footer>`;
     document.body.style.overflow = 'hidden'; window.openPortfolioWindow(dialog,trigger); $('#close-dialog').focus();
   });
   $('#close-dialog').addEventListener('click', () => window.closePortfolioWindow(dialog));

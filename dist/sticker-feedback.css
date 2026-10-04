@@ -1,0 +1,33 @@
+/* One set of original sticker art, with CSS material layers above and below it. */
+.desktop-scene .site-header nav{isolation:isolate;border:1px solid rgba(255,255,255,.65);border-radius:22px;background:linear-gradient(135deg,#ffffff40,transparent 48%,#b8ddf21a),rgba(225,244,255,.22);backdrop-filter:blur(14px) saturate(1.18);-webkit-backdrop-filter:blur(14px) saturate(1.18);box-shadow:inset 0 1px 2px #ffffffc2,inset 0 -2px 3px #6896b722,0 12px 28px -18px #35688766}
+.desktop-scene .site-header nav::before{content:'';position:absolute;inset:4px;border:1px solid #ffffff38;border-bottom-color:#adc9e03b;border-radius:18px;pointer-events:none;z-index:-1}
+[data-sky=night] .desktop-scene .site-header nav{background:linear-gradient(135deg,#bad3ff1a,transparent 48%,#9dc5ff09),#21365566;border-color:#b7d1f04d;box-shadow:inset 0 1px 2px #dcecff55,inset 0 -2px 3px #10274544,0 12px 28px -18px #040c2599}
+.desktop-scene .site-header nav{transition:background-color .95s ease,border-color .95s ease,box-shadow .95s ease}
+.fx-off .desktop-scene .site-header nav{transition:none}
+@media(prefers-reduced-motion:reduce){.desktop-scene .site-header nav{transition:none}}
+.site-header .css-sticker{position:relative;overflow:visible;perspective:450px}
+.three-icons-ready .css-sticker svg{opacity:1}
+.css-sticker .tactile-object{position:absolute;inset:7.8125%;display:block;transform-style:preserve-3d;transition:transform .35s var(--ease)}
+.css-sticker .tactile-object>svg,.profile-front>svg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.css-sticker.is-engaged .controller-object{transform:translateY(-3px) rotate(-4deg)}
+.controller-base{z-index:1}.controller-socket{position:absolute;inset:0;background:#464b73;z-index:2}
+.controller-cap{z-index:3;transform:translateY(-1px);filter:drop-shadow(0 1px 0 #343d61);will-change:auto}
+.is-pulsing .controller-cap{animation:controller-press .48s var(--ease) var(--press-delay) both}
+.css-sticker.is-held .controller-cap{transform:translateY(1.6px);filter:brightness(.9)}
+@keyframes controller-press{0%,100%{transform:translateY(-1px);filter:drop-shadow(0 1px 0 #343d61)}32%,60%{transform:translateY(1.6px);filter:brightness(.9)}}
+.controller-ripple{position:absolute;left:69%;top:56%;z-index:4;pointer-events:none}
+.controller-ripple i{position:absolute;width:4px;height:4px;background:#9560cb;box-shadow:0 1px 2px #71509a33;opacity:0}
+.controller-ripple i:nth-child(3n){background:#d4aceb}.controller-ripple i:nth-child(4n){width:4px;height:4px}
+.is-pulsing .controller-ripple i{animation:pixel-ring-out .85s cubic-bezier(.16,1,.3,1) var(--wave-delay) both}
+@keyframes pixel-ring-out{0%{opacity:0;transform:translate(calc(var(--dx)*.25),calc(var(--dy)*.25)) scale(.6)}18%{opacity:1}100%{opacity:0;transform:translate(calc(var(--dx)*1.9),calc(var(--dy)*1.9)) scale(.65)}}
+.profile-back{position:absolute;left:5%;top:19%;width:90%;height:62%;border:1px solid #b5acaa;border-radius:4px;background:#fff9eb;box-shadow:0 2px 3px #394a6838;transform-origin:50% 85%;transition:transform .48s var(--ease)}
+.profile-back::after{content:'';position:absolute;left:15%;top:29%;width:62%;height:2px;background:#d4cbbd;box-shadow:0 6px 0 #d4cbbd,0 12px 0 #e1d9cc}
+.profile-back-left{transform:translate(-2px,-3px) rotate(-3deg)}.profile-back-right{transform:translate(2px,-5px) rotate(3deg)}
+.profile-front{position:absolute;inset:0;z-index:2;transform:translateZ(8px);transition:transform .38s var(--ease)}
+.profile-foil{position:absolute;left:7%;right:7%;top:23%;bottom:23%;border-radius:3px;pointer-events:none;background:linear-gradient(115deg,transparent 8%,#f6d6fa66 22%,#bfeaff99 38%,#fffaddbb 49%,#facde477 60%,transparent 77%);background-size:240% 200%;background-position:var(--foil-x,25%) var(--foil-y,50%);mix-blend-mode:screen;opacity:0;transition:opacity .28s,background-position .12s linear}
+.css-sticker.is-engaged .profile-object{transform:translateY(-3px)}
+.css-sticker.is-engaged .profile-back-left{transform:translate(-14px,-10px) rotate(-22deg)}.css-sticker.is-engaged .profile-back-right{transform:translate(14px,-13px) rotate(20deg)}
+.css-sticker.is-engaged .profile-front{transform:translateY(2px) translateZ(8px) rotate(-3deg) rotateY(-7deg)}
+.css-sticker.is-engaged .profile-foil{opacity:.85}
+.fx-off .css-sticker *{animation:none!important;transition:none!important}.fx-off .profile-foil,.fx-off .controller-ripple{display:none}
+@media(prefers-reduced-motion:reduce){.css-sticker *{animation:none!important;transition:none!important}.profile-foil,.controller-ripple{display:none}}

@@ -32,7 +32,7 @@
 
 左侧入口使用原创贴纸图集，支持方向键与回车；笔记本入口打开自我介绍，其余档案在原生模态窗口中打开，关闭或按 Escape 后返回桌面，保留直接链接与浏览器返回行为。笔记本触碰时翻开，文件夹展开、纸张向上弹出，均使用共享 Three.js 画布，静止时不持续渲染。WebGL 不可用时保留静态图标。
 
-`dist/platform-game.js` 在全局页面下沿绘制透明的自动平台场景，角色自动跳过缺口、障碍和敌人，持续生成前方地形并回收身后的地块，采用无尽模式。无需游戏窗口、HUD 或操作键，画布不接收指针和键盘输入。打开档案、切到后台、关闭 FX 或启用减少动态效果时暂停。`src/hud-controls.jsx` 提供 React 档案关闭按钮，材质、按压与反光由 CSS 实现。`tests/platform-game.test.cjs` 使用实际游戏逻辑验证手机与桌面宽度下的10 分钟持续运行、地形回收和坐标归零、单个动画循环、阅读／减少动效／后台暂停和无输入控制。
+`dist/platform-game.js` 在全局页面下沿绘制透明的自动平台场景，角色自动跳过缺口、障碍和敌人，持续生成前方地形并回收身后的地块，采用无尽模式。没有独立游戏窗口或屏幕操作键；桌面按 W 可主动跳跃，落地前短按会缓冲，输入框及组合快捷键不受影响。打开档案、切到后台、关闭 FX 或启用减少动态效果时暂停。`src/hud-controls.jsx` 提供 React 档案关闭按钮，材质、按压与反光由 CSS 实现。`tests/platform-game.test.cjs` 使用实际游戏逻辑验证手机与桌面宽度下的10 分钟持续运行、地形回收和坐标归零、单个动画循环、阅读／减少动效／后台暂停，以及 W 起跳、缓冲、重复键与输入框排除。
 
 新图集含 12 个原创透明贴纸资源，生成和清理提示词保存在 `dist/assets/desktop-stickers-v2.png.json`，运行时裁切信息位于 `dist/sticker-atlas.js`。React、React DOM 与 Three.js 的许可证随本地包保存在 `dist/ui/LICENSES.txt`。动效参考 [React Bits TiltedCard](https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/TiltedCard/TiltedCard.jsx) 的指针倾斜思路与 [Animate UI Button](https://animate-ui.com/docs/primitives/buttons/button) 的悬停 / 按压反馈，本项目按像素 HUD 的材质和交互重新实现。
 
@@ -47,3 +47,11 @@
 右上角的日间／夜间状态键切换天空并记住选择。`sky-mode.js` 在首屏加载时恢复偏好；`pixel-shader.js` 共用四面天空投影绘制白天云层或夜间像素星空、新月与间歇流星。夜景由 `night-sky.css` 同步调整工具栏、文字与场景色调；纸面保留暖色。FX 关闭、减少动态效果或后台状态会暂停天空，关闭流星，切换仍即时生效。WebGL 不可用时保留 CSS 静态夜景。
 
 日夜切换补充：太阳／月亮使用 CSS 双面硬币与 rotateY 翻转，天空以 950ms smoothstep 混合日夜颜色，文字、纸物和场景同步过渡；途中反向切换从当前混合值继续。星光使用世界锚点投影后的完整方点／十字像素图形，并跨邻接格采样以避免边缘截断。减少动态效果与 FX 关闭时直接应用目标状态。
+
+详情与桌面入口：详情页采用单列手账纸，标题、摘要、正文与附件沿同一阅读顺序排列；顶部改为简洁关闭图标，保留原生模态焦点、Esc、从触发按钮展开和收回。仅保留一枚带胶带的小贴纸，空附件合并为一条状态。四个桌面入口收在统一毛玻璃框中，删除下方操作提示。游戏机使用原贴图的四个独立按键层和两圈紫色像素波纹；个人简历使用 CSS 闪卡正面与两张米白背卡，悬停、键盘聚焦和触碰可展开。CSS 特效位于 sticker-feedback.css，事件位于 src/sticker-feedback.js，减少动态效果时关闭波纹与反光。
+
+详情结构参考 [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) 与 [Animate UI Dialog](https://animate-ui.com/docs/components/radix/dialog)。当前实现沿用原生 dialog 和已有窗口动画，不新增运行时依赖。
+
+下沿关卡采用六种组合：阶梯、晶簇、云台、蘑菇台、矮台与休息路段，配合高低草地和木桥。敌人分为弹跳史莱姆、缓行蜗牛和巡逻蘑菇；从上方踩中会反弹并击败敌人，侧碰短暂闪烁，跌落后自动返回前方路面。关卡保持自动跑跳、静音与无尽回收。
+
+`dist/hud-typography.css` 将状态栏和窗口栏统一为细边玻璃；中文短标签使用 Fusion 12 px，标题使用 24 px，英文文件名保留 Pixel。正文继续使用系统字体。参考依据为用户提供的截图；视频链接本轮无法直接读取。
