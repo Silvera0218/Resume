@@ -32,8 +32,9 @@
     $('#dialog-content').innerHTML = `<h2 id="dialog-title">${escape(item.title)}</h2><div class="dialog-status">${item.goal ? escape(item.category) : '内容提纲 · 项目待补充'}</div><p>${escape(item.summary)}</p>${fields(sectionFields)}<div class="detail-actions">${kind === 'plan' ? linkButton('阅读完整文档',item.documentUrl,'文档附件待添加') : [linkButton('在线试玩',item.playUrl,'试玩地址待添加'),linkButton('下载 Demo',item.downloadUrl,'下载文件待添加'),linkButton('观看演示',item.videoUrl,'演示视频待添加')].join('')}</div>`;
     document.body.style.overflow = 'hidden'; window.openPortfolioWindow(dialog,trigger); $('#close-dialog').focus();
   });
-  $('#close-dialog').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => {if(event.target === dialog) {const r = dialog.getBoundingClientRect(); if(event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();}});
+  $('#close-dialog').addEventListener('click', () => window.closePortfolioWindow(dialog));
+  dialog.addEventListener('click', event => {if(event.target === dialog) {const r = dialog.getBoundingClientRect(); if(event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) window.closePortfolioWindow(dialog);}});
+  dialog.addEventListener('cancel', event => {event.preventDefault();window.closePortfolioWindow(dialog);});
   dialog.addEventListener('close', () => {document.body.style.overflow = ''; lastTrigger?.focus();});
   const resumeUrl = safeUrl(data.resumeUrl); const download = $('#resume-download');
   if(resumeUrl) {download.href = resumeUrl; download.target = '_blank'; download.rel = 'noopener noreferrer'; download.removeAttribute('aria-disabled'); download.textContent = '下载简历 PDF';}
