@@ -6,12 +6,14 @@
   <meta name="theme-color" content="#c7e8f8">
   <meta name="description" content="游戏策划求职作品集框架，集中展示个人简历、策划案与游戏 Demo。">
   <title>游戏策划 · 作品手账</title>
+  <script src="./sky-mode.js?v=20261004-night"></script>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/fusion-pixel-zh.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./style.css?v=20261004-runner">
   <link rel="stylesheet" href="./page-layouts.css?v=20261004-pages">
   <link rel="stylesheet" href="./tactile-desktop.css?v=20261004-tactile">
+  <link rel="stylesheet" href="./night-sky.css?v=20261004-night">
   <script src="./content.js" defer></script>
   <script src="./sticker-atlas.js?v=20261004-stickers" defer></script>
   <script src="./courier-atlas.js?v=20261004-runner" defer></script>
@@ -20,8 +22,8 @@
   <script src="./window-motion.js?v=20261004-runner" defer></script>
   <script src="./app.js?v=20261004-tactile" defer></script>
   <script src="./routes.js?v=20261004-tactile" defer></script>
-  <script src="./pixel-shader.js" defer></script>
-  <script src="./motion.js" defer></script>
+  <script src="./pixel-shader.js?v=20261004-night" defer></script>
+  <script src="./motion.js?v=20261004-night" defer></script>
   <script src="./desktop.js?v=20261004-materials" defer></script>
   <script src="./ui/sticker-icons.js?v=20261004-desktop-game" defer></script>
   <script src="./platform-game.js?v=20261004-runner" defer></script>
@@ -32,7 +34,7 @@
 <canvas id="platform-game" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">跳到作品内容</a>
 <div class="sky-fallback" aria-hidden="true"><i></i><i></i><i></i></div>
-<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品手账首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">留一点时间给游戏</span><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-track" aria-hidden="true"><span class="fx-light"></span></span></button><a class="header-contact" href="#contact">联系我<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
+<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品手账首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">留一点时间给游戏</span><button class="sky-toggle" id="sky-toggle" type="button" aria-label="夜间模式" aria-pressed="false"><span class="sky-coin" aria-hidden="true"><span class="sky-coin-face sky-coin-day"><svg class="sky-sun" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5h4v2h2v6h-2v2H8v-2H6V7h2zM9 0h2v3H9zM9 17h2v3H9zM0 9h3v2H0zM17 9h3v2h-3zM3 3h2v2H3zM15 3h2v2h-2zM3 15h2v2H3zM15 15h2v2h-2z"/></svg></span><span class="sky-coin-face sky-coin-night"><svg class="sky-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 1h4v2H8v3H6v6h2v2h6v-2h3V8h2v6h-2v3h-3v2H6v-2H3v-3H1V6h2V3h5zM15 1h2v2h2v2h-2v2h-2V5h-2V3h2z"/></svg></span></span><span data-sky-label>日间</span></button><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-track" aria-hidden="true"><span class="fx-light"></span></span></button><a class="header-contact" href="#contact" aria-label="联系我"><span class="contact-label">联系我</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
 <div class="desktop">
 <div class="desktop-scene">
 <header class="site-header">
