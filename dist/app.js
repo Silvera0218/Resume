@@ -23,7 +23,7 @@
     sheet.scrollIntoView({block:'nearest',behavior:reduced ? 'instant' : 'smooth'});
     sheet.querySelector('h3').focus({preventScroll:true});
   });
-  $('#demo-list').innerHTML = data.demos.map((demo, i) => `<article class="demo-card" data-demo-index="${i}"><div class="demo-screen">${assetUrl(demo.cover) ? `<img class="cover-image" src="${escape(assetUrl(demo.cover))}" alt="${escape(demo.title)}实机截图" loading="lazy">` : `<div class="demo-placeholder"><div class="pixel-frame" aria-hidden="true"></div><span>截图或演示待添加</span></div>`}</div><div class="demo-body"><span class="demo-category">${escape(demo.category)}</span><h3>${escape(demo.title)}</h3><p>${escape(demo.summary)}</p><div class="demo-actions">${safeUrl(demo.playUrl) ? `<a class="button primary" href="${escape(safeUrl(demo.playUrl))}" target="_blank" rel="noopener noreferrer">在线试玩</a>` : '<button class="button" type="button" disabled>试玩地址待添加</button>'}<button class="text-button" type="button" data-detail="${escape(demo.id)}" data-kind="demo">${demo.goal ? '原型说明' : '内容提纲'}</button></div></div></article>`).join('');
+  $('#demo-list').innerHTML = data.demos.map((demo, i) => `<article class="demo-card" data-demo-index="${i}"><div class="demo-screen">${assetUrl(demo.cover) ? `<img class="cover-image" src="${escape(assetUrl(demo.cover))}" alt="${escape(demo.title)}实机截图" loading="lazy">` : `<div class="demo-placeholder"><div class="pixel-frame" aria-hidden="true"></div><span>截图或演示待添加</span></div>`}</div><div class="demo-body"><span class="demo-category">${escape(demo.category)}</span><h3>${escape(demo.title)}</h3><p>${escape(demo.summary)}</p><div class="demo-actions">${safeUrl(demo.playUrl) ? `<a class="button primary" href="${escape(safeUrl(demo.playUrl))}" target="_blank" rel="noopener noreferrer">在线试玩</a>` : '<span class="pending-attachment">试玩地址待添加</span>'}<button class="text-button" type="button" data-detail="${escape(demo.id)}" data-kind="demo">${demo.goal ? '原型说明' : '内容提纲'}</button></div></div></article>`).join('');
   const categories = [...new Set(data.demos.map(demo => demo.category).filter(Boolean))];
   $('#demo-filters').innerHTML = `<button type="button" data-demo-filter="" aria-pressed="true" aria-controls="demo-list">全部</button>${categories.map(category => `<button type="button" data-demo-filter="${escape(category)}" aria-pressed="false" aria-controls="demo-list">${escape(category)}</button>`).join('')}`;
   let demoCategory = '';
@@ -51,7 +51,7 @@
   const completedDemos = data.demos.filter(d => safeUrl(d.playUrl)).length;
   if (completedPlans) $('#plans .section-status').textContent = `${completedPlans} 份策划案`;
   if (completedDemos) $('#demos .section-status').textContent = `${completedDemos} 个可试玩原型`;
-  function linkButton(label, value, pending) {const url = safeUrl(value); return url ? `<a class="button primary" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${label}</a>` : `<button class="button" disabled type="button">${pending}</button>`;}
+  function linkButton(label, value, pending) {const url = safeUrl(value); return url ? `<a class="button primary" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${label}</a>` : `<span class="pending-attachment">${pending}</span>`;}
   const fields = (items) => `<div class="detail-grid">${items.map(([name,value,hint]) => `<section class="detail-field"><h3>${name}</h3><p>${escape(value || hint)}</p></section>`).join('')}</div>`;
   const dialog = $('#detail-dialog'); let lastTrigger;
   document.addEventListener('click', event => {

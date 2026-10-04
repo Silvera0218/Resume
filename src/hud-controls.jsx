@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {flushSync} from 'react-dom';
 
 export function HudButton({id,label,children,...props}) {
-  return <button id={id} className="button hud-button close-button" type="button" aria-label={label} {...props}>{children}<span className="pixel">ESC</span></button>;
+  return <button id={id} className="button hud-button close-button" type="button" aria-label={label} {...props}><span className="keycap-face">{children}<span className="pixel keycap-legend">ESC</span></span></button>;
 }
 const closeIcon=<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8"/></svg>;
 for(const [host,id,label,content] of [

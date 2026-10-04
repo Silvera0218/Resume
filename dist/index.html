@@ -11,14 +11,15 @@
   <link rel="preload" href="./assets/fusion-pixel-zh.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./style.css?v=20261004-runner">
   <link rel="stylesheet" href="./page-layouts.css?v=20261004-pages">
+  <link rel="stylesheet" href="./tactile-desktop.css?v=20261004-tactile">
   <script src="./content.js" defer></script>
   <script src="./sticker-atlas.js?v=20261004-stickers" defer></script>
   <script src="./courier-atlas.js?v=20261004-runner" defer></script>
   <script src="./world-atlas.js?v=20261004-runner" defer></script>
-  <script src="./ui/hud-controls.js?v=20261004-runner" defer></script>
+  <script src="./ui/hud-controls.js?v=20261004-tactile" defer></script>
   <script src="./window-motion.js?v=20261004-runner" defer></script>
-  <script src="./app.js?v=20261004-pages" defer></script>
-  <script src="./routes.js?v=20261004-pages" defer></script>
+  <script src="./app.js?v=20261004-tactile" defer></script>
+  <script src="./routes.js?v=20261004-tactile" defer></script>
   <script src="./pixel-shader.js" defer></script>
   <script src="./motion.js" defer></script>
   <script src="./desktop.js?v=20261004-materials" defer></script>
@@ -31,16 +32,21 @@
 <canvas id="platform-game" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main">跳到作品内容</a>
 <div class="sky-fallback" aria-hidden="true"><i></i><i></i><i></i></div>
-<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品手账首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">留一点时间给游戏</span><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-light" aria-hidden="true"></span></button><a class="header-contact" href="#contact">联系我<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
+<div class="desktop-bar"><a class="brand" href="#home" aria-label="作品手账首页"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h14v18H5zM3 7h4M3 12h4M3 17h4M10 8h5M10 12h5"/></svg><span>作品手账<span class="brand-sub pixel">GAME DESIGNER'S DESKTOP</span></span></a><div class="header-actions"><span class="desktop-note">留一点时间给游戏</span><button class="fx-toggle pixel" id="fx-toggle" type="button" aria-pressed="true" aria-label="像素动效">FX <span class="fx-track" aria-hidden="true"><span class="fx-light"></span></span></button><a class="header-contact" href="#contact">联系我<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg></a></div></div>
 <div class="desktop">
+<div class="desktop-scene">
 <header class="site-header">
+  <h1 class="desktop-heading">我的作品桌面</h1>
   <nav aria-label="主导航">
     <a class="desktop-file" href="#about"><span class="file-icon sticker-icon" data-sticker="notebook" aria-hidden="true"><svg viewBox="74 100 251 276" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>自我介绍</span><small class="pixel">ABOUT ME</small></a>
     <a class="desktop-file save-slot" href="#plans"><span class="file-icon sticker-icon" data-sticker="folder" aria-hidden="true"><svg viewBox="416 120 278 240" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>策划作品</span><small class="pixel">DESIGN DOCS</small></a>
     <a class="desktop-file save-slot" href="#demos"><span class="file-icon sticker-icon" data-sticker="controller" aria-hidden="true"><svg viewBox="744 119 303 233" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>游戏原型</span><small class="pixel">PLAYROOM</small></a>
     <a class="desktop-file save-slot" href="#resume"><span class="file-icon sticker-icon" data-sticker="profile" aria-hidden="true"><svg viewBox="1102 144 291 205" width="64" height="64"><image href="./assets/desktop-stickers-v2.png" width="1448" height="1086"/></svg></span><span>个人简历</span><small class="pixel">PROFILE</small></a>
   </nav>
+  <p class="desktop-guide">点击图标打开 <span aria-hidden="true">·</span> <kbd>Esc</kbd> 返回桌面</p>
 </header>
+<aside class="desktop-welcome" aria-labelledby="welcome-heading"><span class="tape" aria-hidden="true"></span><h2 id="welcome-heading">欢迎来逛逛</h2><p>我的介绍、策划文档和游戏原型，都收在这里。</p><p class="welcome-postscript">慢慢翻，也可以先看小猫跑一会儿。</p><span class="pixel-sticker sticker-cat welcome-cat" aria-hidden="true"></span><span class="pixel-sticker sticker-stars welcome-stars" aria-hidden="true"></span></aside>
+</div>
 <dialog id="journal-dialog" class="journal-window glass-window" aria-labelledby="window-filename">
 <div class="window-title journal-title"><span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 2h10v12H3zM1 5h4M1 9h4"/></svg><span class="pixel" id="window-filename">portfolio.journal</span></span><span id="journal-window-controls"><button type="button" id="close-journal" aria-label="关闭档案窗口"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8"/></svg><span class="pixel">ESC</span></button></span></div>
 <nav class="paper-tabs" aria-label="手账章节"><a href="#about">自我介绍</a><a href="#plans">策划作品</a><a href="#demos">游戏原型</a><a href="#resume">个人简历</a></nav>
@@ -67,7 +73,7 @@
     <div class="console-shell"><div class="console-screen"><div class="console-toolbar"><span class="pixel console-brand">PLAYROOM</span><label class="console-search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="demo-search" type="search" placeholder="找一个原型" aria-label="搜索游戏原型" autocomplete="off"></label></div><div class="console-filter-row"><div id="demo-filters" class="console-filters" role="group" aria-label="按原型类型筛选"></div><p id="demo-count" role="status" aria-live="polite" aria-atomic="true"></p></div><div class="demo-grid" id="demo-list"></div><div class="console-empty" id="demo-empty" hidden><div class="pixel-frame" aria-hidden="true"></div><p>没有找到这个原型</p><span>换个关键词，或查看全部类型。</span><button id="reset-demo-filters" class="button secondary" type="button">重置筛选</button></div></div><div class="console-chin" aria-hidden="true"><span class="console-pad"></span><span class="console-speaker"></span><span class="console-buttons"><i></i><i></i></span></div></div>
   </section>
   <section class="section resume-section" id="resume" aria-labelledby="resume-heading" hidden>
-    <div class="section-heading"><div><h2 id="resume-heading">个人简历</h2><p>求职方向、项目经历和联系方式。</p></div><button class="button secondary" id="print-resume" type="button">打印简历</button></div>
+    <div class="section-heading"><div><h2 id="resume-heading">个人简历</h2><p>求职方向、项目经历和联系方式。</p></div><button class="button secondary" id="print-resume" type="button"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 7V2h10v5M5 14H2V7h16v7h-3M5 11h10v7H5zM14 9h1"/></svg>打印简历</button></div>
     <div class="resume-layout">
       <aside class="profile-summary resume-note"><span class="tape" aria-hidden="true"></span><div class="profile-avatar pixel" aria-label="头像待添加">GD</div><h3 data-name>姓名待填写</h3><p class="role" data-role>综合 / 系统策划</p><p data-introduction></p><dl class="profile-info"><div><dt>所在城市</dt><dd data-city>待填写</dd></div><div><dt>教育背景</dt><dd data-education>待填写</dd></div><div><dt>联系邮箱</dt><dd data-email>待填写</dd></div></dl><a id="resume-download" class="button primary" aria-disabled="true">简历 PDF 待添加</a></aside>
       <div class="resume-details"><section class="resume-about"><h3>关于我</h3><p class="placeholder-copy">个人经历待补充。可以从一个做过的项目说起：负责什么，遇到什么问题，最后怎么解决。</p></section><section class="resume-tools"><h3>技能与工具</h3><div id="skill-list" class="empty-skills"><span>策划技能待补充</span><span>常用工具待补充</span><span>协作经验待补充</span></div></section><section class="resume-history"><h3>项目与工作经历</h3><div id="experience-list"><div class="experience-placeholder"><span class="pixel">PROJECT NOTES</span><p>项目经历待补充。</p><small>项目名称、时间、负责的工作，以及相关作品。</small></div></div></section></div>
