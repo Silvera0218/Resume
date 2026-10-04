@@ -1,0 +1,1 @@
+window.COURIER_ATLAS = {"url": "./assets/courier-motion.png", "width": 1536, "height": 1024, "sprites": {"run0": [77, 129, 399, 344], "run1": [573, 129, 395, 343], "run2": [1079, 126, 404, 346], "run3": [52, 590, 418, 351], "leap": [562, 582, 409, 315], "land": [1088, 625, 405, 320]}};

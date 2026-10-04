@@ -36,4 +36,6 @@
 
 背景效果同时对照 [React Bits PixelSnow](https://github.com/DavidHDev/react-bits/blob/main/src/content/Backgrounds/PixelSnow/PixelSnow.jsx) 的像素量化、颗粒尺度和深度参数；本页面保留自己的天空投影与低频粒子实现。参考索引记录具体技法，避免把不同组件库的视觉样式混在一起。
 
-窗口打开由 `dist/window-motion.js` 计算图标与窗口的实际位置，使用 Web Animations API 展开；关闭会取消尚未结束的动画。贴纸按原始比例绘制，地块使用完整图块，避免段尾截断。
+窗口打开由 `dist/window-motion.js` 计算图标与窗口的实际位置，使用 Web Animations API 展开；关闭时向原入口收回（300ms），减少动态效果时淡出（90ms）。重复关闭复用同一动画，重新打开会取消尚未结束的关闭。贴纸按原始比例绘制，地块使用完整图块，避免段尾截断。
+
+角色动作图集 `dist/assets/courier-motion.png` 含四帧跑步、起跳和落地姿态，使用内置 imagegen 生成并保留透明通道，完整提示与来源记录在同名 JSON；`dist/courier-atlas.js` 保存裁切框。角色落地时轻微压缩、扬尘，星星沿跳跃路线排列，收集后上浮淡出。桥梁连接部分路段，远处植物使用更慢的视差；场景仍为静音、无控件的自动背景。

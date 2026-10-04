@@ -434,8 +434,8 @@
         "name": "hud-feedback"
       },
       {
-        "purpose": "从触发图标或按钮展开原生窗口；减少动态效果时淡入。",
-        "value": "420ms / reduced 100ms",
+        "purpose": "从入口展开，关闭时收回；保持原生模态直到退场结束。",
+        "value": "open 420ms / close 300ms; reduced 100ms / 90ms",
         "name": "archive-open"
       },
       {

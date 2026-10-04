@@ -4,7 +4,7 @@
   const titles={home:'游戏策划 · 作品手账',about:'自我介绍',plans:'策划作品',demos:'游戏原型',resume:'个人简历',contact:'联系我'};
   const filenames={home:'portfolio.journal',about:'about_me.journal',plans:'design_documents.journal',demos:'playroom.journal',resume:'resume.journal',contact:'a_letter.journal'};
   const journal=document.querySelector('#journal-dialog');
-  let lastTrigger=null, returning=false;
+  let lastTrigger=null, returning=false, routeVersion=0;
   const arrow='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 8H3m5-5L3 8l5 5"/></svg>';
   for(const id of ['about','plans','demos','resume','contact']){
     const bar=document.createElement('div');bar.className='page-bar';
@@ -21,9 +21,15 @@
     const heading=document.body.dataset.view==='home'?document.querySelector('.desktop-file[href="#about"]'):document.querySelector('main > section:not([hidden]) h1,main > section:not([hidden]) h2');
     if(heading.matches('h1,h2'))heading.tabIndex=-1;heading.focus({preventScroll:true});return heading;
   }
-  function route(focus){
+  async function route(focus){
+    const version=++routeVersion;
     const id=location.hash.slice(1),current=Object.hasOwn(titles,id)?id:'home';
-    const dialog=document.querySelector('#detail-dialog');if(dialog.open)dialog.close();
+    const dialog=document.querySelector('#detail-dialog');
+    if(current==='home'&&journal.open){
+      returning=true;
+      await Promise.all([window.closePortfolioWindow(journal),window.closePortfolioWindow(dialog)]);
+      if(version!==routeVersion)return;
+    }else if(dialog.open){await window.closePortfolioWindow(dialog);if(version!==routeVersion)return;}
     for(const view of views){view.hidden=view.id!==current;view.classList.remove('view-enter');if(!view.hidden)view.classList.add('view-enter');}
     document.querySelectorAll('.site-header nav a,.paper-tabs a,.header-contact').forEach(link=>{
       if(link.hash===`#${current}`)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
@@ -32,7 +38,7 @@
     document.querySelector('#window-filename').textContent=filenames[current];
     document.body.classList.toggle('has-journal',current!=='home');
     if(current==='home') {if(journal.open)journal.close();}
-    else {journal.setAttribute('aria-labelledby',`${current}-heading`);if(!journal.open)window.openPortfolioWindow(journal,lastTrigger?.hash===`#${current}`?lastTrigger:document.querySelector(`.desktop-file[href="#${current}"]`));}
+    else {journal.setAttribute('aria-labelledby',`${current}-heading`);if(!journal.open||journal.dataset.windowPhase==='closing')window.openPortfolioWindow(journal,lastTrigger?.hash===`#${current}`?lastTrigger:document.querySelector(`.desktop-file[href="#${current}"]`));}
     document.title=current==='home'?(window.PORTFOLIO.name!=='姓名待填写'?`${window.PORTFOLIO.name} · 游戏策划作品集`:titles.home):`${titles[current]} · 作品手账`;
     if(focus){if(current==='home')scrollTo({top:0,behavior:'instant'});if(returning&&current==='home'&&lastTrigger){lastTrigger.focus({preventScroll:true});returning=false;}else focusHeading();}
     dispatchEvent(new Event('portfolio-view-change'));
