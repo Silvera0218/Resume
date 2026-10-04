@@ -2,3 +2,4 @@
 .impeccable/review/
 *.tar.gz
 *.log
+node_modules/

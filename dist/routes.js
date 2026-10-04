@@ -1,13 +1,14 @@
 (() => {
   'use strict';
   const views=[...document.querySelectorAll('main > section')];
-  const titles={home:'游戏策划 · 作品手账',plans:'策划案作品集',demos:'游戏 Demo 集',resume:'我的简历',contact:'联系我'};
-  const filenames={home:'portfolio.journal',plans:'design_documents.journal',demos:'playroom.journal',resume:'about_me.journal',contact:'a_letter.journal'};
-  const labels={plans:'DESIGN DOCUMENTS',demos:'PLAYROOM',resume:'ABOUT ME',contact:'A LETTER'};
+  const titles={home:'游戏策划 · 作品手账',about:'自我介绍',plans:'策划作品',demos:'游戏原型',resume:'个人简历',contact:'联系我'};
+  const filenames={home:'portfolio.journal',about:'about_me.journal',plans:'design_documents.journal',demos:'playroom.journal',resume:'resume.journal',contact:'a_letter.journal'};
+  const journal=document.querySelector('#journal-dialog');
+  let lastTrigger=null, returning=false;
   const arrow='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 8H3m5-5L3 8l5 5"/></svg>';
-  for(const [id,label] of Object.entries(labels)){
+  for(const id of ['about','plans','demos','resume','contact']){
     const bar=document.createElement('div');bar.className='page-bar';
-    bar.innerHTML=`<a href="#home">${arrow}<span>返回手账首页</span></a><span class="pixel">${label}</span>`;
+    bar.innerHTML=`<a href="#home">${arrow}<span>返回桌面</span></a>`;
     document.getElementById(id).prepend(bar);
   }
   const files=[...document.querySelectorAll('.desktop-file')];
@@ -17,8 +18,8 @@
     files[(i+(forward?1:files.length-1))%files.length].focus();
   }));
   function focusHeading(){
-    const heading=document.querySelector('main > section:not([hidden]) h1,main > section:not([hidden]) h2');
-    heading.tabIndex=-1;heading.focus({preventScroll:true});return heading;
+    const heading=document.body.dataset.view==='home'?document.querySelector('.desktop-file[href="#about"]'):document.querySelector('main > section:not([hidden]) h1,main > section:not([hidden]) h2');
+    if(heading.matches('h1,h2'))heading.tabIndex=-1;heading.focus({preventScroll:true});return heading;
   }
   function route(focus){
     const id=location.hash.slice(1),current=Object.hasOwn(titles,id)?id:'home';
@@ -29,9 +30,18 @@
     });
     document.body.dataset.view=current;
     document.querySelector('#window-filename').textContent=filenames[current];
+    document.body.classList.toggle('has-journal',current!=='home');
+    if(current==='home') {if(journal.open)journal.close();}
+    else {journal.setAttribute('aria-labelledby',`${current}-heading`);if(!journal.open)window.openPortfolioWindow(journal,lastTrigger?.hash===`#${current}`?lastTrigger:document.querySelector(`.desktop-file[href="#${current}"]`));}
     document.title=current==='home'?(window.PORTFOLIO.name!=='姓名待填写'?`${window.PORTFOLIO.name} · 游戏策划作品集`:titles.home):`${titles[current]} · 作品手账`;
-    if(focus){scrollTo({top:0,behavior:'instant'});focusHeading();}
+    if(focus){if(current==='home')scrollTo({top:0,behavior:'instant'});if(returning&&current==='home'&&lastTrigger){lastTrigger.focus({preventScroll:true});returning=false;}else focusHeading();}
+    dispatchEvent(new Event('portfolio-view-change'));
   }
+  document.addEventListener('click',event=>{const link=event.target.closest('a[href^="#"]');if(link&&!journal.contains(link)&&Object.hasOwn(titles,link.hash.slice(1)))lastTrigger=link;});
+  function closeJournal(){returning=true;location.hash='home';}
+  document.querySelector('#close-journal').addEventListener('click',closeJournal);
+  journal.addEventListener('cancel',event=>{event.preventDefault();closeJournal();});
+  journal.addEventListener('close',()=>{document.body.classList.remove('has-journal');});
   document.querySelector('.skip-link').addEventListener('click',event=>{event.preventDefault();focusHeading().scrollIntoView({block:'start',behavior:'instant'});});
   addEventListener('hashchange',()=>route(true));route(false);
 })();

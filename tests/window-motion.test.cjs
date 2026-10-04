@@ -1,0 +1,18 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+let quiet=false, cancelled=0, result;
+const listeners={};
+const dialog={open:false,scrollTop:100,showModal(){this.open=true},getBoundingClientRect(){return {left:252,top:16,width:820,height:726}},animate(frames,options){result={frames,options};return {cancel(){cancelled++}}},addEventListener(name,fn){listeners[name]=fn}};
+const window={};
+vm.runInNewContext(fs.readFileSync('dist/window-motion.js','utf8'),{window,matchMedia:()=>({matches:quiet}),getComputedStyle:()=>({borderRadius:'11px'}),document:{body:{classList:{contains:()=>false}},querySelectorAll:()=>[dialog]}});
+const source={left:115,top:124,width:54,height:54};
+const trigger={querySelector:()=>({getBoundingClientRect:()=>source})};
+window.openPortfolioWindow(dialog,trigger);
+assert.equal(dialog.open,true);assert.equal(dialog.scrollTop,0);
+assert.match(result.frames[0].transform,/translate\(-520px,-228px\) scale\(/,'Opening starts at the icon center');
+assert.equal(result.options.duration,420);
+listeners.close();assert.equal(cancelled,1,'Close cancels an in-flight transition');
+quiet=true;window.openPortfolioWindow(dialog,trigger);
+assert.equal(result.options.duration,100);assert.equal(result.frames[0].transform,undefined,'Reduced motion uses opacity only');
+console.log('Window motion: icon origin, cancellation, and reduced motion passed.');
