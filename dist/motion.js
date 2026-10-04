@@ -97,5 +97,6 @@
   addEventListener('resize',resize,{passive:true});
   document.addEventListener('visibilitychange',sync);
   preference.addEventListener('change',sync);
+  addEventListener('portfolio-sky-change', () => field?.setNight(document.documentElement.dataset.sky === 'night'));
   resize();sync();
 })();

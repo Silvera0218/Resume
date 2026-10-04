@@ -1,0 +1,37 @@
+/* The status key belongs to the glass toolbar; paper keeps its warm desk-lamp tint. */
+.sky-toggle{position:relative;display:grid;place-items:center;flex-shrink:0;width:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:transparent;perspective:220px;transition:transform .16s var(--ease)}
+.sky-toggle:hover{transform:translateY(-2px)}.sky-toggle:active{transform:translateY(1px)}
+.sky-coin{position:relative;display:block;width:32px;height:32px;transform-style:preserve-3d;transform:rotateY(0deg);transition:transform .8s cubic-bezier(.22,.7,.16,1)}
+.sky-coin-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid #d6b268;box-shadow:inset 0 0 0 2px #fff0b7,inset 0 -4px 0 #dfba6970,0 3px 0 #a88750,0 5px 6px #182c4030;background:#f7df98;color:#96703a}
+.sky-coin-night{transform:rotateY(180deg);background:#334b70;color:#ffedb8;border-color:#aec4e9;box-shadow:inset 0 0 0 2px #526c92,inset 0 -4px 0 #192d5088,0 3px 0 #657da7,0 5px 8px #0d173b44}
+.sky-toggle svg{width:18px;height:18px;fill:currentColor;shape-rendering:crispEdges}
+.sky-toggle [data-sky-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+[data-sky=night] .sky-coin{transform:rotateY(180deg)}
+html[data-sky=night]{background:#15233e;--ambient-foreground:#d4e3f6;--glass-foreground:#dce9ff;--glass:rgba(30,49,83,.7);--glass-edge:rgba(159,185,233,.52);--glass-shadow:0 24px 46px -14px #080f2799,0 5px 12px -4px #0a122555}
+[data-sky=night] #pixel-field{image-rendering:pixelated}
+[data-sky=night] .desktop-bar{background:rgba(21,36,63,.7);border-color:#91acd54d;box-shadow:inset 0 1px 0 #afc9f42e,0 5px 18px #060e242e;color:var(--ambient-foreground)}
+[data-sky=night] .brand svg{color:#acccf2}
+[data-sky=night] .desktop-heading{text-shadow:0 2px 0 #0e1b35}
+[data-sky=night] .header-contact{color:#334657;background:#e5e4ed}
+[data-sky=night] .desktop-file>span:nth-child(2){background:#dce4f2e0}
+[data-sky=night] .desktop-guide kbd{background:#344763;border-color:#94afd666;box-shadow:0 2px 2px #0c173b66}
+[data-sky=night] .desktop-welcome{background:var(--paper-grain,none),#e9e3dd;box-shadow:0 15px 30px -12px #070e3299,0 0 30px #809fce0d}
+[data-sky=night] .fx-track{background:#12243e;border-color:#8da8d055}
+[data-sky=night] #platform-game{filter:brightness(.82) saturate(.78) drop-shadow(0 -2px 4px #acc7ff20)}
+[data-sky=night] .window-title,[data-sky=night] #journal-dialog .journal-title{background:linear-gradient(#334968,#233852);text-shadow:0 1px 0 #101d31;border-color:#8aabcf66;box-shadow:inset 0 1px 1px #bfd4fa44}
+[data-sky=night] .glass-window{background:linear-gradient(115deg,#b7d4ff14,transparent 40%,#8caada16),var(--glass);border-color:var(--glass-edge);box-shadow:inset 0 1px 2px #bbd5ff55,var(--glass-shadow)}
+[data-sky=night] #journal-dialog::backdrop{background:#070f2b50}
+[data-sky=night] .hud-button{color:#334657}
+[data-sky=night] .sky-fallback{background:radial-gradient(ellipse at 70% 5%,#354c704d,transparent 60%),linear-gradient(#101a33,#283e61)}
+[data-sky=night] .sky-fallback i{display:none}
+[data-sky=night] .sky-fallback::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#d6e6ff 1px,transparent 2px),radial-gradient(circle,#adbfeb 1px,transparent 2px);background-size:113px 127px,191px 173px;background-position:13px 21px,67px 83px;opacity:.65}
+[data-sky=night] .sky-fallback::after{content:'';position:absolute;top:15%;right:15%;width:62px;height:62px;border-radius:50%;box-shadow:-14px 6px 0 0 #f1dfad;transform:rotate(-20deg)}
+@media(max-width:960px){.header-actions{gap:10px}.desktop-note{display:none}}
+@media(max-width:700px){.desktop-bar{padding:8px 10px;gap:8px}.header-actions{gap:6px}.header-contact{width:44px;padding:0;justify-content:center}.header-contact .contact-label{display:none}.brand{font-size:16px;gap:6px}}
+@media(max-width:380px){.desktop-bar{width:calc(100% - 24px)}.fx-toggle{min-width:46px;gap:4px;font-size:14px}.fx-track{width:30px}.fx-track .fx-light{transform:translateX(10px)}.header-actions{gap:4px}.brand{font-size:14px}.brand svg{width:18px}}
+.desktop-bar,.desktop-heading,.brand,.brand-sub,.desktop-note,.desktop-guide,.desktop-guide kbd,.desktop-scene .desktop-file small,.desktop-scene .desktop-file>span:nth-child(2),.desktop-welcome,.header-contact,.fx-track{transition:color .95s ease,background-color .95s ease,border-color .95s ease,box-shadow .95s ease,transform .18s var(--ease)}
+#platform-game{transition:filter .95s ease}
+.fx-off .sky-coin,.fx-off .sky-toggle,.fx-off .desktop-bar,.fx-off .desktop-heading,.fx-off .brand,.fx-off .brand-sub,.fx-off .desktop-note,.fx-off .desktop-guide,.fx-off .desktop-guide kbd,.fx-off .desktop-file small,.fx-off .desktop-file>span:nth-child(2),.fx-off .desktop-welcome,.fx-off .header-contact,.fx-off .fx-track,.fx-off #platform-game{transition:none}
+@media(prefers-reduced-motion:reduce){.sky-coin,.sky-toggle,.desktop-bar,.desktop-heading,.brand,.brand-sub,.desktop-note,.desktop-guide,.desktop-guide kbd,.desktop-file small,.desktop-file>span:nth-child(2),.desktop-welcome,.header-contact,.fx-track,#platform-game{transition:none}}
+@media print{html[data-sky=night]{background:white}}
+

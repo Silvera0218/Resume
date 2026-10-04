@@ -31,3 +31,7 @@ Visual evidence: .impeccable/review/endless-desktop.png、endless-about.png、en
 Page layout evidence: .impeccable/review/pages-final-desktop-{about,plans,demos,resume}.png 与 pages-final-mobile-{about,plans,demos,resume}.png 记录四种内部布局。实际浏览器验证包括 1324px、390px 和 320px 宽度；主窗口无横向溢出，类型筛选、搜索空结果、重置、目录滚动与标题焦点、详情关闭均通过。打印媒体移除便签变换、装饰和交互控件，正文保留白底。
 
 Tactile desktop evidence: .impeccable/review/tactile-final-desktop-home.png、tactile-final-desktop-demos.png、tactile-final-middle-home.png、tactile-final-mobile-home.png 与 tactile-final-narrow-demos.png 记录新版桌面与控件。浏览器确认 1324px、703px、390px、320px 宽度均无横向溢出；703px 短屏单独收紧贴纸外扩与布局间距。筛选键 Enter 操作、搜索空结果与重置、详情关闭、Escape 返回、入口焦点恢复、FX 开关均通过，控制台未记录错误。现有无尽场景与窗口动效测试通过。
+
+Day/night state: 右上角状态键在日间云层和夜间像素星空间切换，并持久保存选择。月亮、星光、流星共用天空盒空间；夜景采用深蓝玻璃和暖色纸物。`night-desktop-final.png`、`night-mobile-final.png` 为实际浏览器截图。已验证 1324px、390px、320px 的布局、键盘切换、刷新记忆及 reduced-motion 时 shader 的 uMotion=0/uNight=1，WebGL 正常编译。
+
+日夜切换补充：太阳／月亮使用 CSS 双面硬币与 rotateY 翻转，天空以 950ms smoothstep 混合日夜颜色，文字、纸物和场景同步过渡；途中反向切换从当前混合值继续。星光使用世界锚点投影后的完整方点／十字像素图形，并跨邻接格采样以避免边缘截断。减少动态效果与 FX 关闭时直接应用目标状态。
