@@ -2,14 +2,16 @@
   'use strict';
   const views=[...document.querySelectorAll('main > section')];
   const titles={home:'游戏策划 · 作品手账',about:'自我介绍',plans:'策划作品',demos:'游戏原型',resume:'个人简历',contact:'联系我'};
-  const filenames={home:'portfolio.journal',about:'about_me.journal',plans:'design_documents.journal',demos:'playroom.journal',resume:'resume.journal',contact:'a_letter.journal'};
+  const filenames={home:'portfolio.journal',about:'about_me.card',plans:'design_documents.folder',demos:'playroom.console',resume:'resume.journal',contact:'a_letter.journal'};
   const journal=document.querySelector('#journal-dialog');
   let lastTrigger=null, returning=false, routeVersion=0;
   const arrow='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 8H3m5-5L3 8l5 5"/></svg>';
   for(const id of ['about','plans','demos','resume','contact']){
     const bar=document.createElement('div');bar.className='page-bar';
     bar.innerHTML=`<a href="#home">${arrow}<span>返回桌面</span></a>`;
-    document.getElementById(id).prepend(bar);
+    const section=document.getElementById(id);
+    const heading=section.querySelector('.surface-heading,.section-heading');
+    if(heading)heading.append(bar);else section.prepend(bar);
   }
   const files=[...document.querySelectorAll('.desktop-file')];
   files.forEach((link,i)=>link.addEventListener('keydown',event=>{
@@ -34,6 +36,7 @@
     document.querySelectorAll('.site-header nav a,.paper-tabs a,.header-contact').forEach(link=>{
       if(link.hash===`#${current}`)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
     });
+    if(document.body.dataset.view!==current)journal.scrollTop=0;
     document.body.dataset.view=current;
     document.querySelector('#window-filename').textContent=filenames[current];
     document.body.classList.toggle('has-journal',current!=='home');
